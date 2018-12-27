@@ -11,6 +11,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 
 const mainConfig = require('./webpack.main.config')
 const rendererConfig = require('./webpack.renderer.config')
+const dbConfig = require('./webpack.db.config');
 
 let electronProcess = null
 let manualRestart = false
@@ -38,17 +39,28 @@ function logStats (proc, data) {
   console.log(log)
 }
 
+//在这个方法里，共完成了三个操作：
+//
+// 创建webpack对象
+// 利用webpack对象来创建W**ebpackDevServer对象
+// 监听webpack编译过程
 function startRenderer () {
   return new Promise((resolve, reject) => {
-    rendererConfig.entry.renderer = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.renderer)
-    rendererConfig.mode = 'development'
-    const compiler = webpack(rendererConfig)
-    hotMiddleware = webpackHotMiddleware(compiler, {
+      //加载webpack配置文件
+      rendererConfig.entry.renderer = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.renderer)
+      // render的配置文件为/src/renderer/main.js，在这里为开发环境额外添加 dev-client.js 配置文件
+      rendererConfig.entry.packageEntry = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.packageEntry);
+      rendererConfig.mode = 'development'
+      //创建webpack
+      const compiler = webpack(rendererConfig)
+      //创建webpack-hot-middleware
+      hotMiddleware = webpackHotMiddleware(compiler, {
       log: false,
       heartbeat: 2500
     })
 
-    compiler.hooks.compilation.tap('compilation', compilation => {
+      //编译状态监控
+      compiler.hooks.compilation.tap('compilation', compilation => {
       compilation.hooks.htmlWebpackPluginAfterEmit.tapAsync('html-webpack-plugin-after-emit', (data, cb) => {
         hotMiddleware.publish({ action: 'reload' })
         cb()
@@ -59,7 +71,8 @@ function startRenderer () {
       logStats('Renderer', stats)
     })
 
-    const server = new WebpackDevServer(
+      //创建webpack-dev-server
+      const server = new WebpackDevServer(
       compiler,
       {
         contentBase: path.join(__dirname, '../'),
@@ -157,6 +170,7 @@ function electronLog (data, color) {
   }
 }
 
+//  在终端输出一个Log
 function greeting () {
   const cols = process.stdout.columns
   let text = ''
@@ -175,10 +189,50 @@ function greeting () {
   console.log(chalk.blue('  getting ready...') + '\n')
 }
 
+/**
+ * Db线程，如果发生改变，需要重启Electron
+ * @returns {Promise}
+ */
+function startDb() {
+    return new Promise((resolve, reject) => {
+        dbConfig.mode = 'development';
+        const compiler = webpack(dbConfig);
+
+
+        compiler.hooks.watchRun.tapAsync('watch-run', (compilation, done) => {
+            logStats('Db', chalk.white.bold('compiling...'));
+            hotMiddleware.publish({action: 'compiling'});
+            done();
+        });
+
+        compiler.watch({}, (err, stats) => {
+            if (err) {
+                console.log(err);
+                return;
+            }
+
+            logStats('Db', stats);
+
+            if (electronProcess && electronProcess.kill) {
+                manualRestart = true;
+                process.kill(electronProcess.pid);
+                electronProcess = null;
+                startElectron();
+
+                setTimeout(() => {
+                    manualRestart = false;
+                }, 5000);
+            }
+
+            resolve();
+        });
+    });
+}
+
 function init () {
   greeting()
 
-  Promise.all([startRenderer(), startMain()])
+  Promise.all([startRenderer(), startDb(), startMain()])
     .then(() => {
       startElectron()
     })
