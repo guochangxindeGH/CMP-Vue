@@ -73,19 +73,21 @@ function startRenderer () {
 
       //创建webpack-dev-server
       const server = new WebpackDevServer(
+      //以webpack对象作为参数
       compiler,
       {
         contentBase: path.join(__dirname, '../'),
         quiet: true,
         before (app, ctx) {
-          app.use(hotMiddleware)
-          ctx.middleware.waitUntilValid(() => {
-            resolve()
+            //使用webpackHotMiddleware
+            app.use(hotMiddleware)
+            ctx.middleware.waitUntilValid(() => {
+                resolve()
           })
         }
       }
     )
-
+    //服务器运行在9080端口
     server.listen(9080)
   })
 }
