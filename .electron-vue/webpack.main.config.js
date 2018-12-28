@@ -43,7 +43,8 @@ let mainConfig = {
   resolve: {
     extensions: ['.js', '.json', '.node']
   },
-  target: 'electron-main'
+    //编译为 Electron 主进程
+    target: 'electron-main'
 }
 
 /**

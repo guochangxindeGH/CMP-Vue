@@ -1,5 +1,6 @@
 const hotClient = require('webpack-hot-middleware/client?noInfo=true&reload=true')
-
+// 注册webpack-hot-middleware监听器
+// 监控编辑过程，当main进程编译时，界面上提示开发者
 hotClient.subscribe(event => {
   /**
    * Reload browser when HTMLWebpackPlugin emits a new index.html
@@ -16,6 +17,8 @@ hotClient.subscribe(event => {
    * Notify `mainWindow` when `main` process is compiling,
    * giving notice for an expected reload of the `electron` process
    */
+
+    //这里只处理了Main进程发送的"compiling"的事件，实际上在Render进程中还发送了"reload"的消息
   if (event.action === 'compiling') {
     document.body.innerHTML += `
       <style>

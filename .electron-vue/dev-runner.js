@@ -39,6 +39,9 @@ function logStats (proc, data) {
   console.log(log)
 }
 
+
+//渲染进程启动过程分析
+
 //在这个方法里，共完成了三个操作：
 //
 // 创建webpack对象
@@ -62,12 +65,14 @@ function startRenderer () {
       //编译状态监控
       compiler.hooks.compilation.tap('compilation', compilation => {
       compilation.hooks.htmlWebpackPluginAfterEmit.tapAsync('html-webpack-plugin-after-emit', (data, cb) => {
+          //检测webpack的编译状态
         hotMiddleware.publish({ action: 'reload' })
         cb()
       })
     })
 
     compiler.hooks.done.tap('done', stats => {
+        //输出编译过程
       logStats('Renderer', stats)
     })
 
@@ -92,14 +97,17 @@ function startRenderer () {
   })
 }
 
+//主进程启动过程
 function startMain () {
   return new Promise((resolve, reject) => {
     mainConfig.entry.main = [path.join(__dirname, '../src/main/index.dev.js')].concat(mainConfig.entry.main)
     mainConfig.mode = 'development'
-    const compiler = webpack(mainConfig)
+      //创建主进程的webpack
+      const compiler = webpack(mainConfig)
 
     compiler.hooks.watchRun.tapAsync('watch-run', (compilation, done) => {
       logStats('Main', chalk.white.bold('compiling...'))
+        //向webpack-hot-middleware发布"compiling"的消息，用于页面显示
       hotMiddleware.publish({ action: 'compiling' })
       done()
     })
@@ -113,7 +121,8 @@ function startMain () {
       logStats('Main', stats)
 
       if (electronProcess && electronProcess.kill) {
-        manualRestart = true
+          //主进程文件发生改变，重启Electron
+          manualRestart = true
         process.kill(electronProcess.pid)
         electronProcess = null
         startElectron()

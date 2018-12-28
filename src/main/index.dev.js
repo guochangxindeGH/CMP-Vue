@@ -8,9 +8,11 @@
 /* eslint-disable */
 
 // Install `electron-debug` with `devtron`
+//安装`electron-debug`工具
 require('electron-debug')({ showDevTools: true })
 
 // Install `vue-devtools`
+//安装Vue的一个chrome开发工具`vue-devtools`
 require('electron').app.on('ready', () => {
   let installExtension = require('electron-devtools-installer')
   installExtension.default(installExtension.VUEJS_DEVTOOLS)
