@@ -19,6 +19,7 @@ const errorLog = chalk.bgRed.white(' ERROR ') + ' '
 const okayLog = chalk.bgBlue.white(' OKAY ') + ' '
 const isCI = process.env.CI || false
 
+//除了`clean`和`web`的命令外，其他指令都会进行build()的操作：
 if (process.env.BUILD_TARGET === 'clean') clean()
 else if (process.env.BUILD_TARGET === 'web') web()
 else build()
@@ -49,6 +50,7 @@ function build () {
     process.exit()
   })
 
+    //打包主进程
   pack(mainConfig).then(result => {
     results += result + '\n\n'
     m.success('main')
@@ -59,6 +61,7 @@ function build () {
     process.exit(1)
   })
 
+    //打包渲染进程
   pack(rendererConfig).then(result => {
     results += result + '\n\n'
     m.success('renderer')
