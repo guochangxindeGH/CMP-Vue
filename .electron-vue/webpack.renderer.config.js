@@ -29,7 +29,7 @@ let rendererConfig = {
     devtool: '#cheap-module-eval-source-map',
     entry: {
         renderer: path.join(__dirname, '../src/renderer/main.js'),
-        packageEntry: path.join(__dirname, '../src/packageProcessor/packageProcessor.js')
+        // packageEntry: path.join(__dirname, '../src/packageProcessor/packageProcessor.js')
     },
     externals: [
         //编译白名单
