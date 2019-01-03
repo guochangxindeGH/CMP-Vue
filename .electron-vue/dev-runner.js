@@ -52,7 +52,7 @@ function startRenderer () {
       //加载webpack配置文件
       rendererConfig.entry.renderer = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.renderer)
       // render的配置文件为/src/renderer/main.js，在这里为开发环境额外添加 dev-client.js 配置文件
-      // rendererConfig.entry.packageEntry = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.packageEntry);
+      rendererConfig.entry.packageEntry = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.packageEntry);
       rendererConfig.mode = 'development'
       //创建webpack
       const compiler = webpack(rendererConfig)

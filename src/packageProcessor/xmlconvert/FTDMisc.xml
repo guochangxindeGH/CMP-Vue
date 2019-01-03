@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by wangzhaodong (ORiON) -->
+<FTD author="�Ժ���" version="4" head="FTD" comment="FTDЭ�����õ��ĸ��ְ�����">
+	<flows>
+		<flow name="DIALOG" seqseries="1" comment="�Ի���"/>
+		<flow name="PRIVATE" seqseries="2" comment="��Ա˽����"/>
+		<flow name="PUBLIC" seqseries="3" comment="������"/>
+		<flow name="QUERY" seqseries="4" comment="��ѯ"/>
+		<flow name="USER" seqseries="5" comment="����Ա˽����"/>
+	</flows>
+	<packages>
+		<package name="RtnYinQiTradeError" tid="0x00018050" comment="����ת�˴���">
+			<field name="RtnYinQiTradeError" minOccur="1" maxOccur="*"/>
+		</package>
+		<package name="ReqYinQiTradeError" tid="0x00020060" comment="��ѯ����ת�˴�����Ϣ">
+			<field name="ReqYinQiTradeError" minOccur="1" maxOccur="*"/>
+		</package>
+	</packages>
+	<fields>
+		<fieldDefine name="Dissemination" fid="0x0001" comment="��Ϣ�ַ�">
+			<item name="SequenceSeries" type="SequenceSeries" description="����ϵ�к�"/>
+			<item name="SequenceNo" type="SequenceNo" description="���к�"/>
+		</fieldDefine>
+		<fieldDefine name="RspInfo" fid="0x0003" comment="��Ӧ��Ϣ" ref="ErrorType"/>
+		<fieldDefine name="CommPhase" fid="0x0004" comment="ͨѶ�׶�" ref="CommPhase"/>
+		<fieldDefine name="ExchangeTradingDay" fid="0x0005" comment="������������" ref="ExchangeTradingDay"/>
+		<fieldDefine name="SettlementSession" fid="0x0006" comment="�����Ự" ref="SettlementRef"/>
+		<fieldDefine name="CurrentTime" fid="0x0007" comment="��ǰʱ��" ref="CurrentTime"/>
+		<fieldDefine name="ReqUserLogin" fid="0x000A" comment="�û���¼����" ref="LoginBase"/>
+		<fieldDefine name="RspUserLogin" fid="0x000B" comment="�û���¼Ӧ��" ref="LoginRsp"/>
+		<fieldDefine name="ReqUserLogout" fid="0x000C" comment="�û��ǳ�����" ref="UserLogout"/>
+		<fieldDefine name="RspUserLogout" fid="0x000D" comment="�û��ǳ�Ӧ��" ref="UserLogout"/>
+		<fieldDefine name="InputOrder" fid="0x0011" comment="���뱨��" ref="InputOrder"/>
+		<fieldDefine name="OrderAction" fid="0x0012" comment="��������" ref="InputOrderAction"/>
+		<fieldDefine name="OTCOrder" fid="0x0013" comment="OTC����" ref="OTCOrder"/>
+		<!--added by sunyy API���ݱ����ر����챨����Ӧ 20121031 begin-->
+		<fieldDefine name="OrderSession" fid="0x0014" comment="�����Ự" ref="OrderSession"/>
+		<!--added by sunyy API���ݱ����ر����챨����Ӧ 20121031 end-->
+		<fieldDefine name="InputQuote" fid="0x0021" comment="���뱨��" ref="InputQuote"/>
+		<fieldDefine name="QuoteAction" fid="0x0022" comment="���۲���" ref="InputQuoteAction"/>
+		<fieldDefine name="InputExecOrder" fid="0x0023" comment="����ִ������" ref="InputExecOrder"/>
+		<fieldDefine name="ExecOrderAction" fid="0x0024" comment="ִ����������" ref="InputExecOrderAction"/>
+		<fieldDefine name="UserLogout" fid="0x0031" comment="�û���¼�˳�" ref="UserLogout"/>
+		<fieldDefine name="UserPasswordUpdate" fid="0x0032" comment="�û������޸�" ref="UserPasswordUpdate"/>
+		<fieldDefine name="InputCombOrder" fid="0x0041" comment="�����Ǳ����ϱ���" ref="InputCombOrder"/>
+		<fieldDefine name="ForceUserExit" fid="0x0053" comment="ǿ���û��˳�" ref="ForceUserExit"/>
+		<fieldDefine name="AccountDeposit" fid="0x0061" comment="��Ա�ʽ��ʻ�����" ref="AccountDeposit"/>
+		<!-- yinqi -->
+		<fieldDefine name="UserRef" fid="0x040B" comment="�û���ʶ" ref="UserRef"/>
+		<fieldDefine name="RtnYinQiWarning" fid="0x2805" comment="���ڸ澯" ref="RtnYinQiWarning"/>
+		<fieldDefine name="ReqTransfer" fid="0x2807" comment="ת������" ref="ReqTransfer"/>
+		<fieldDefine name="RspTransfer" fid="0x2808" comment="ת������">
+			<item name="TradeCode" type="TradeCode" description="ҵ��������"/>
+			<item name="BankID" type="BankID" description="���д���"/>
+			<item name="BankBranchID" type="BankBrchID" description="���з�֧��������"/>
+			<item name="BrokerID" type="BrokerID" description="���̴���"/>
+			<item name="BrokerBranchID" type="FutureBranchID" description="���̷�֧��������"/>
+			<item name="TradeDate" type="TradeDate" description="��������"/>
+			<item name="TradeTime" type="TradeTime" description="����ʱ��"/>
+			<item name="BankSerial" type="BankSerial" description="������ˮ��"/>
+			<item name="TradingDay" type="TradeDate" description="����ϵͳ���� "/>
+			<item name="PlateSerial" type="Serial" description="����ƽ̨��Ϣ��ˮ��"/>
+			<item name="LastFragment" type="LastFragment" description="������Ƭ��־"/>
+			<item name="SessionID" type="SessionID" description="�Ự��"/>
+			<item name="CustomerName" type="IndividualName" description="�ͻ�����"/>
+			<item name="IdCardType" type="IdCardType" description="֤������"/>
+			<item name="IdentifiedCardNo" type="IdentifiedCardNo" description="֤������"/>
+			<item name="CustType" type="CustType" description="�ͻ�����"/>
+			<item name="BankAccount" type="BankAccount" description="�����ʺ�"/>
+			<item name="BankPassWord" type="Password" description="��������"/>
+			<item name="AccountID" type="AccountID" description="Ͷ�����ʺ�"/>
+			<item name="Password" type="Password" description="�ڻ�����"/>
+			<item name="InstallID" type="InstallID" description="��װ����"/>
+			<item name="FutureSerial" type="FutureSerial" description="�ڻ���˾��ˮ��"/>
+			<item name="UserID" type="UserID" description="�û���ʶ"/>
+			<item name="VerifyCertNoFlag" type="YesNoIndicator" description="��֤�ͻ�֤��������־"/>
+			<item name="CurrencyID" type="CurrencyID" description="���ִ���"/>
+			<item name="TradeAmount" type="TradeAmount" description="ת�ʽ���"/>
+			<item name="FutureFetchAmount" type="TradeAmount" description="�ڻ���ȡ����"/>
+			<item name="FeePayFlag" type="FeePayFlag" description="����֧����־"/>
+			<item name="CustFee" type="CustFee" description="Ӧ�տͻ�����"/>
+			<item name="BrokerFee" type="FutureFee" description="Ӧ���ڻ���˾����"/>
+			<item name="Message" type="AddInfo" description="���ͷ������շ�����Ϣ"/>
+			<item name="Digest" type="Digest" description="ժҪ"/>
+			<item name="BankAccType" type="BankAccType" description="�����ʺ�����"/>
+			<item name="DeviceID" type="DeviceID" description="������־"/>
+			<item name="BankSecuAccType" type="BankAccType" description="�ڻ���λ�ʺ�����"/>
+			<item name="BrokerIDByBank" type="BankCodingForFuture" description="�ڻ���˾���б���"/>
+			<item name="BankSecuAcc" type="BankAccount" description="�ڻ���λ�ʺ�"/>
+			<item name="BankPwdFlag" type="PwdFlag" description="����������־"/>
+			<item name="SecuPwdFlag" type="PwdFlag" description="�ڻ��ʽ������˶Ա�־"/>
+			<item name="OperNo" type="OperNo" description="���׹�Ա"/>
+			<item name="RequestID" type="RequestID" description="��������"/>
+			<item name="TID" type="TID" description="����ID"/>
+			<item name="TransferStatus" type="TransferStatus" description="ת�˽���״̬"/>
+			<item name="ErrorID" type="ErrorID" description="��������"/>
+			<item name="ErrorMsg" type="ErrorMsg" description="������Ϣ"/>
+			<item name="LongCustomerName" type="LongIndividualName" description="���ͻ�����"/>
+		</fieldDefine>
+		<fieldDefine name="ReqRepeal" fid="0x280F" comment="��������">
+			<item name="RepealTimeInterval" type="RepealTimeInterval" description="����ʱ������"/>
+			<item name="RepealedTimes" type="RepealedTimes" description="�Ѿ���������"/>
+			<item name="BankRepealFlag" type="BankRepealFlag" description="���г�����־"/>
+			<item name="BrokerRepealFlag" type="BrokerRepealFlag" description="���̳�����־"/>
+			<item name="PlateRepealSerial" type="PlateSerial" description="������ƽ̨��ˮ��"/>
+			<item name="BankRepealSerial" type="BankSerial" description="������������ˮ��"/>
+			<item name="FutureRepealSerial" type="FutureSerial" description="�������ڻ���ˮ��"/>
+			<item name="TradeCode" type="TradeCode" description="ҵ��������"/>
+			<item name="BankID" type="BankID" description="���д���"/>
+			<item name="BankBranchID" type="BankBrchID" description="���з�֧��������"/>
+			<item name="BrokerID" type="BrokerID" description="���̴���"/>
+			<item name="BrokerBranchID" type="FutureBranchID" description="���̷�֧��������"/>
+			<item name="TradeDate" type="TradeDate" description="��������"/>
+			<item name="TradeTime" type="TradeTime" description="����ʱ��"/>
+			<item name="BankSerial" type="BankSerial" description="������ˮ��"/>
+			<item name="TradingDay" type="TradeDate" description="����ϵͳ���� "/>
+			<item name="PlateSerial" type="Serial" description="����ƽ̨��Ϣ��ˮ��"/>
+			<item name="LastFragment" type="LastFragment" description="������Ƭ��־"/>
+			<item name="SessionID" type="SessionID" description="�Ự��"/>
+			<item name="CustomerName" type="IndividualName" description="�ͻ�����"/>
+			<item name="IdCardType" type="IdCardType" description="֤������"/>
+			<item name="IdentifiedCardNo" type="IdentifiedCardNo" description="֤������"/>
+			<item name="CustType" type="CustType" description="�ͻ�����"/>
+			<item name="BankAccount" type="BankAccount" description="�����ʺ�"/>
+			<item name="BankPassWord" type="Password" description="��������"/>
+			<item name="AccountID" type="AccountID" description="Ͷ�����ʺ�"/>
+			<item name="Password" type="Password" description="�ڻ�����"/>
+			<item name="InstallID" type="InstallID" description="��װ����"/>
+			<item name="FutureSerial" type="FutureSerial" description="�ڻ���˾��ˮ��"/>
+			<item name="UserID" type="UserID" description="�û���ʶ"/>
+			<item name="VerifyCertNoFlag" type="YesNoIndicator" description="��֤�ͻ�֤��������־"/>
+			<item name="CurrencyID" type="CurrencyID" description="���ִ���"/>
+			<item name="TradeAmount" type="TradeAmount" description="ת�ʽ���"/>
+			<item name="FutureFetchAmount" type="TradeAmount" description="�ڻ���ȡ����"/>
+			<item name="FeePayFlag" type="FeePayFlag" description="����֧����־"/>
+			<item name="CustFee" type="CustFee" description="Ӧ�տͻ�����"/>
+			<item name="BrokerFee" type="FutureFee" description="Ӧ���ڻ���˾����"/>
+			<item name="Message" type="AddInfo" description="���ͷ������շ�����Ϣ"/>
+			<item name="Digest" type="Digest" description="ժҪ"/>
+			<item name="BankAccType" type="BankAccType" description="�����ʺ�����"/>
+			<item name="DeviceID" type="DeviceID" description="������־"/>
+			<item name="BankSecuAccType" type="BankAccType" description="�ڻ���λ�ʺ�����"/>
+			<item name="BrokerIDByBank" type="BankCodingForFuture" description="�ڻ���˾���б���"/>
+			<item name="BankSecuAcc" type="BankAccount" description="�ڻ���λ�ʺ�"/>
+			<item name="BankPwdFlag" type="PwdFlag" description="����������־"/>
+			<item name="SecuPwdFlag" type="PwdFlag" description="�ڻ��ʽ������˶Ա�־"/>
+			<item name="OperNo" type="OperNo" description="���׹�Ա"/>
+			<item name="RequestID" type="RequestID" description="��������"/>
+			<item name="TID" type="TID" description="����ID"/>
+			<item name="TransferStatus" type="TransferStatus" description="ת�˽���״̬"/>
+			<item name="LongCustomerName" type="LongIndividualName" description="���ͻ�����"/>
+		</fieldDefine>
+		<fieldDefine name="RspRepeal" fid="0x2810" comment="������Ӧ">
+			<item name="RepealTimeInterval" type="RepealTimeInterval" description="����ʱ������"/>
+			<item name="RepealedTimes" type="RepealedTimes" description="�Ѿ���������"/>
+			<item name="BankRepealFlag" type="BankRepealFlag" description="���г�����־"/>
+			<item name="BrokerRepealFlag" type="BrokerRepealFlag" description="���̳�����־"/>
+			<item name="PlateRepealSerial" type="PlateSerial" description="������ƽ̨��ˮ��"/>
+			<item name="BankRepealSerial" type="BankSerial" description="������������ˮ��"/>
+			<item name="FutureRepealSerial" type="FutureSerial" description="�������ڻ���ˮ��"/>
+			<item name="TradeCode" type="TradeCode" description="ҵ��������"/>
+			<item name="BankID" type="BankID" description="���д���"/>
+			<item name="BankBranchID" type="BankBrchID" description="���з�֧��������"/>
+			<item name="BrokerID" type="BrokerID" description="���̴���"/>
+			<item name="BrokerBranchID" type="FutureBranchID" description="���̷�֧��������"/>
+			<item name="TradeDate" type="TradeDate" description="��������"/>
+			<item name="TradeTime" type="TradeTime" description="����ʱ��"/>
+			<item name="BankSerial" type="BankSerial" description="������ˮ��"/>
+			<item name="TradingDay" type="TradeDate" description="����ϵͳ���� "/>
+			<item name="PlateSerial" type="Serial" description="����ƽ̨��Ϣ��ˮ��"/>
+			<item name="LastFragment" type="LastFragment" description="������Ƭ��־"/>
+			<item name="SessionID" type="SessionID" description="�Ự��"/>
+			<item name="CustomerName" type="IndividualName" description="�ͻ�����"/>
+			<item name="IdCardType" type="IdCardType" description="֤������"/>
+			<item name="IdentifiedCardNo" type="IdentifiedCardNo" description="֤������"/>
+			<item name="CustType" type="CustType" description="�ͻ�����"/>
+			<item name="BankAccount" type="BankAccount" description="�����ʺ�"/>
+			<item name="BankPassWord" type="Password" description="��������"/>
+			<item name="AccountID" type="AccountID" description="Ͷ�����ʺ�"/>
+			<item name="Password" type="Password" description="�ڻ�����"/>
+			<item name="InstallID" type="InstallID" description="��װ����"/>
+			<item name="FutureSerial" type="FutureSerial" description="�ڻ���˾��ˮ��"/>
+			<item name="UserID" type="UserID" description="�û���ʶ"/>
+			<item name="VerifyCertNoFlag" type="YesNoIndicator" description="��֤�ͻ�֤��������־"/>
+			<item name="CurrencyID" type="CurrencyID" description="���ִ���"/>
+			<item name="TradeAmount" type="TradeAmount" description="ת�ʽ���"/>
+			<item name="FutureFetchAmount" type="TradeAmount" description="�ڻ���ȡ����"/>
+			<item name="FeePayFlag" type="FeePayFlag" description="����֧����־"/>
+			<item name="CustFee" type="CustFee" description="Ӧ�տͻ�����"/>
+			<item name="BrokerFee" type="FutureFee" description="Ӧ���ڻ���˾����"/>
+			<item name="Message" type="AddInfo" description="���ͷ������շ�����Ϣ"/>
+			<item name="Digest" type="Digest" description="ժҪ"/>
+			<item name="BankAccType" type="BankAccType" description="�����ʺ�����"/>
+			<item name="DeviceID" type="DeviceID" description="������־"/>
+			<item name="BankSecuAccType" type="BankAccType" description="�ڻ���λ�ʺ�����"/>
+			<item name="BrokerIDByBank" type="BankCodingForFuture" description="�ڻ���˾���б���"/>
+			<item name="BankSecuAcc" type="BankAccount" description="�ڻ���λ�ʺ�"/>
+			<item name="BankPwdFlag" type="PwdFlag" description="����������־"/>
+			<item name="SecuPwdFlag" type="PwdFlag" description="�ڻ��ʽ������˶Ա�־"/>
+			<item name="OperNo" type="OperNo" description="���׹�Ա"/>
+			<item name="RequestID" type="RequestID" description="��������"/>
+			<item name="TID" type="TID" description="����ID"/>
+			<item name="TransferStatus" type="TransferStatus" description="ת�˽���״̬"/>
+			<item name="ErrorID" type="ErrorID" description="��������"/>
+			<item name="ErrorMsg" type="ErrorMsg" description="������Ϣ"/>
+			<item name="LongCustomerName" type="LongIndividualName" description="���ͻ�����"/>
+		</fieldDefine>
+		<fieldDefine name="RtnYinQiTradeError" fid="0x2820" comment="����ת�˱�����Ϣ" ref="RtnYinQiTradeError"/>
+		<!-- yinqi -->
+		<fieldDefine name="QryOrder" fid="0x3001" comment="������ѯ" ref="QryOrder"/>
+		<fieldDefine name="QryQuote" fid="0x3002" comment="���۲�ѯ" ref="QryQuote"/>
+		<fieldDefine name="QryTrade" fid="0x3003" comment="�ɽ���ѯ" ref="QryTrade"/>
+		<fieldDefine name="QryMarketData" fid="0x3004" comment="������ѯ" ref="QryMarketData"/>
+		<fieldDefine name="QryClient" fid="0x3006" comment="�ͻ���ѯ" ref="QryClient"/>
+		<fieldDefine name="QryPartPosition" fid="0x3007" comment="��Ա�ֲֲ�ѯ" ref="QryPartPosition"/>
+		<fieldDefine name="QryClientPosition" fid="0x3008" comment="�ͻ��ֲֲ�ѯ" ref="QryClientPosition"/>
+		<fieldDefine name="QryPartAccount" fid="0x3009" comment="�����ʽ���ѯ" ref="QryPartAccount"/>
+		<fieldDefine name="QryInstrument" fid="0x300A" comment="��Լ��ѯ" ref="QryInstrument"/>
+		<fieldDefine name="QryInstrumentStatus" fid="0x300B" comment="��Լ״̬��ѯ" ref="QryInstrumentStatus"/>
+		<fieldDefine name="QrySGDataSyncStatus" fid="0x300C" comment="������״̬��ѯ" ref="QrySGDataSyncStatus"/>
+		<fieldDefine name="QryUserSession" fid="0x300D" comment="�û����߲�ѯ" ref="QryUserSession"/>
+		<fieldDefine name="QryUser" fid="0x300E" comment="�û���ѯ" ref="QryUser"/>
+		<fieldDefine name="QryBulletin" fid="0x300F" comment="������ѯ" ref="QryBulletin"/>
+		<fieldDefine name="QryParticipant" fid="0x3010" comment="��Ա��ѯ" ref="QryParticipant"/>
+		<fieldDefine name="QryHedgeVolume" fid="0x3011" comment="��ֵ���Ȳ�ѯ" ref="QryHedgeVolume"/>
+		<fieldDefine name="QryMBLMarketData" fid="0x3014" comment="��Լ��λ��ѯ" ref="QryMBLMarketData"/>
+		<fieldDefine name="QryCreditLimit" fid="0x3015" comment="�����޶���ѯ" ref="QryCreditLimit"/>
+		<fieldDefine name="QryExecOrder" fid="0x3016" comment="ִ��������ѯ" ref="QryExecOrder"/>
+		<fieldDefine name="QryCombOrder" fid="0x3001" comment="�Ǳ����ϱ�����ѯ" ref="QryCombOrder"/>
+		<fieldDefine name="RspPartAccount" fid="0x3101" comment="��Ա�ʽ�Ӧ��" ref="RspPartAccount"/>
+		<fieldDefine name="RspPartPosition" fid="0x3102" comment="��Ա�ֲ�Ӧ��" ref="RspPartPosition"/>
+		<fieldDefine name="RspClientPosition" fid="0x3103" comment="�ͻ��ֲ�Ӧ��" ref="RspClientPosition"/>
+		<fieldDefine name="RspInstrument" fid="0x3104" comment="��Լ��ѯӦ��" ref="RspInstrument"/>
+		<fieldDefine name="QryInformation" fid="0x3105" comment="��Ϣ��ѯ" ref="QryInformation"/>
+		<fieldDefine name="Information" fid="0x3106" comment="��Ϣ��ѯ" ref="Information"/>
+		<fieldDefine name="CreditLimit" fid="0x3108" comment="�����޶�" ref="CreditLimit"/>
+		<fieldDefine name="RspClient" fid="0x3109" comment="�ͻ���ѯӦ��">
+			<item name="ClientID" type="ClientID" description="�ͻ�����"/>
+			<item name="ClientName" type="PartyName" description="�ͻ�����"/>
+			<item name="IdentifiedCardType" type="IdCardType" description="֤������"/>
+			<item name="UseLess" type="IdentifiedCardNoV1" description="ԭ֤������"/>
+			<item name="TradingRole" type="TradingRole" description="���׽�ɫ"/>
+			<item name="ClientType" type="ClientType" description="�ͻ�����"/>
+			<item name="IsActive" type="Bool" description="�Ƿ���Ծ"/>
+			<item name="ParticipantID" type="ParticipantID" description="��Ա��"/>
+			<item name="IdentifiedCardNo" type="IdentifiedCardNo" description="֤������"/>
+		</fieldDefine>
+		<fieldDefine name="FlowMessageCancel" fid="0x3201" comment="����������">
+			<item name="SequenceSeries" type="SequenceSeries" description="����ϵ�к�"/>
+			<item name="TradingDay" type="Date" description="������"/>
+			<item name="DataCenterID" type="DataCenterID" description="�������Ĵ���"/>
+			<item name="StartSequenceNo" type="SequenceNo" description="������ʼ���к�"/>
+			<item name="EndSequenceNo" type="SequenceNo" description="���˽������к�"/>
+		</fieldDefine>
+		<!--added by sunyy ������ԭ���ڻ����� 20120202 start-->
+		<fieldDefine name="QryExchangeRate" fid="0x310A" comment="���ʲ�ѯ" ref="QryExchangeRate"/>
+		<fieldDefine name="RspExchangeRate" fid="0x310B" comment="���ʲ�ѯӦ��" ref="RspExchangeRate"/>
+		<!--added by sunyy ������ԭ���ڻ����� 20120202 end-->
+
+		<!--�����ݿ���Ӧ��ʵ��                -->
+		<fieldDefine name="Participant" fid="0x1401" comment="��Ա" ref="Participant"/>
+		<fieldDefine name="User" fid="0x1402" comment="�û�" ref="User"/>
+		<fieldDefine name="Client" fid="0x1403" comment="�ͻ�" ref="Client"/>
+		<fieldDefine name="UserSession" fid="0x1406" comment="�û��Ự" ref="UserSession"/>
+		<fieldDefine name="ProductGroup" fid="0x2101" comment="��Ʒ��" ref="ProductGroup"/>
+		<fieldDefine name="Product" fid="0x2102" comment="��Ʒ" ref="Product"/>
+		<fieldDefine name="Instrument" fid="0x2103" comment="��Լ" ref="Instrument"/>
+		<fieldDefine name="CombinationLeg" fid="0x2104" comment="���Ͻ��׺�Լ�ĵ���" ref="CombinationLeg"/>
+		<fieldDefine name="AccountInfo" fid="0x2401" comment="�˻��ʽ���Ϣ" ref="AccountInfo"/>
+		<fieldDefine name="PartPosition" fid="0x2402" comment="��Ա��Լ�ֲ�" ref="PartPosition"/>
+		<fieldDefine name="ClientPosition" fid="0x2403" comment="�ͻ���Լ�ֲ�" ref="ClientPosition"/>
+		<fieldDefine name="HedgeVolume" fid="0x2404" comment="��ֵ������" ref="HedgeVolume"/>
+		<fieldDefine name="MarketData" fid="0x2407" comment="�г�����" ref="MarketData"/>
+		<fieldDefine name="DepthMarketData" fid="0x2408" comment="�����г�����" ref="DepthMarketData"/>
+		<fieldDefine name="MBLMarketData" fid="0x2410" comment="�ּ۱�" ref="MBLMarketData"/>
+		<fieldDefine name="AliasDefine" fid="0x2411" comment="��������" ref="AliasDefine"/>
+		<fieldDefine name="MarketDataBase" fid="0x2431" comment="������������" ref="MarketDataBase"/>
+		<fieldDefine name="MarketDataStatic" fid="0x2432" comment="���龲̬����" ref="MarketDataStatic"/>
+		<fieldDefine name="MarketDataLastMatch" fid="0x2433" comment="�������³ɽ�����" ref="MarketDataLastMatch"/>
+		<fieldDefine name="MarketDataBestPrice" fid="0x2434" comment="�������ż�����" ref="MarketDataBestPrice"/>
+		<fieldDefine name="MarketDataBid23" fid="0x2435" comment="������������������" ref="MarketDataBid23"/>
+		<fieldDefine name="MarketDataAsk23" fid="0x2436" comment="������������������" ref="MarketDataAsk23"/>
+		<fieldDefine name="MarketDataBid45" fid="0x2437" comment="���������ġ�������" ref="MarketDataBid45"/>
+		<fieldDefine name="MarketDataAsk45" fid="0x2438" comment="���������ġ�������" ref="MarketDataAsk45"/>
+		<fieldDefine name="MarketDataUpdateTime" fid="0x2439" comment="��������ʱ������" ref="MarketDataUpdateTime"/>
+		<!--  -->
+		<fieldDefine name="Quote" fid="0x2506" comment="����" ref="Quote"/>
+		<fieldDefine name="Trade" fid="0x2507" comment="�ɽ�" ref="Trade"/>
+		<fieldDefine name="Order" fid="0x2508" comment="����" ref="Order"/>
+		<fieldDefine name="ExecOrder" fid="0x2509" comment="ִ������" ref="ExecOrder"/>
+		<fieldDefine name="CombOrder" fid="0x250A" comment="�Ǳ����ϱ���" ref="CombOrder"/>
+		<!-- -->
+		<fieldDefine name="AdminOrder" fid="0x2510" comment="��������" ref="AdminOrder"/>
+		<fieldDefine name="InputAdminOrder" fid="0x2511" comment="������������" ref="InputAdminOrder"/>
+		<!--  -->
+		<fieldDefine name="Bulletin" fid="0x2607" comment="����" ref="Bulletin"/>
+		<!--  -->
+		<fieldDefine name="ExchangeDataSyncStatus" fid="0x2701" comment="����������ͬ��״̬" ref="ExchangeDataSyncStatus"/>
+		<fieldDefine name="SGDataSyncStatus" fid="0x2702" comment="����������ͬ��״̬" ref="SGDataSyncStatus"/>
+		<fieldDefine name="InstrumentStatus" fid="0x2703" comment="��Լ״̬" ref="InstrumentStatus"/>
+		<fieldDefine name="RTTMeasure" fid="0x8001" comment="RTT����" version="0">
+			<item name="RTT" type="UFInt" description="����ʱ��"/>
+		</fieldDefine>
+		<!-- ����������Ϊ�˼��ݶ������� -->
+		<fieldDefine name="QryClientPositionV1" fid="0x3008" comment="�ͻ��ֲֲ�ѯ" version="1">
+			<item name="PartIDStart" type="ParticipantID" description="��ʼ��Ա����"/>
+			<item name="PartIDEnd" type="ParticipantID" description="������Ա����"/>
+			<item name="ClientIDStart" type="ClientID" description="��ʼ�ͻ�����"/>
+			<item name="ClientIDEnd" type="ClientID" description="�����ͻ�����"/>
+			<item name="InstIDStart" type="InstrumentID" description="��ʼ��Լ����"/>
+			<item name="InstIDEnd" type="InstrumentID" description="������Լ����"/>
+		</fieldDefine>
+		<!-- sun.yy add for NT-0170 20120828-->
+		<fieldDefine name="UserCommFluxControl" fid="0x3202" comment="�û����ز���" ref="UserCommFluxControl"/>
+		<!-- sun.yy add end 20120828-->
+		<!--added by sunyy �������� 20130128 begin-->
+		<fieldDefine name="LoopMeasure" fid="0x8002" comment="��·����" ref="LoopMeasure"/>
+		<fieldDefine name="NodeMeasure" fid="0x8003" comment="�ڵ�����" ref="NodeMeasure"/>
+		<!--added by sunyy �������� 20130128 end-->
+		<!--added by sunyy �������� 20130423 begin-->
+		<fieldDefine name="MDProxy" fid="0x8004" comment="����������Ϣ" ref="MDProxy"/>
+		<!--added by sunyy �������� 20130423 end-->
+
+				<!--sysmonitor fields start-->
+		<fieldDefine name="ReqQryTopCpuInfo" fid="0x5001" comment="CPU��Դʹ�ò�ѯ" ref="ReqQryTopCpuInfo"/>
+		<fieldDefine name="RspQryTopCpuInfo" fid="0x5002" comment="CPU��Դʹ����Ϣ" ref="RspQryTopCpuInfo"/>
+		<fieldDefine name="RtnTopCpuInfo" fid="0x5003" comment="CPU��Դʹ����Ϣ" ref="RtnTopCpuInfo"/>
+		<fieldDefine name="ReqQryTopMemInfo" fid="0x5004" comment="Mem��Դʹ�ò�ѯ" ref="ReqQryTopMemInfo"/>
+		<fieldDefine name="RspQryTopMemInfo" fid="0x5005" comment="Mem��Դʹ����Ϣ" ref="RspQryTopMemInfo"/>
+		<fieldDefine name="RtnTopMemInfo" fid="0x5006" comment="Mem��Դʹ����Ϣ" ref="RtnTopMemInfo"/>
+		<fieldDefine name="ReqQryTopProcessInfo" fid="0x5007" comment="process��Դʹ�ò�ѯ" ref="ReqQryTopProcessInfo"/>
+		<fieldDefine name="RspQryTopProcessInfo" fid="0x5008" comment="process��Դʹ����Ϣ" ref="RspQryTopProcessInfo"/>
+		<fieldDefine name="RtnTopProcessInfo" fid="0x5009" comment="process��Դʹ����Ϣ" ref="RtnTopProcessInfo"/>
+		<fieldDefine name="ReqQryFileSystemInfo" fid="0x500A" comment="filesystem��Դʹ�ò�ѯ" ref="ReqQryFileSystemInfo"/>
+		<fieldDefine name="RspQryFileSystemInfo" fid="0x500B" comment="filesystem��Դʹ����Ϣ" ref="RspQryFileSystemInfo"/>
+		<fieldDefine name="RtnFileSystemInfo" fid="0x500C" comment="filesystem��Դʹ����Ϣ" ref="RtnFileSystemInfo"/>
+		<fieldDefine name="ReqQryNetworkInfo" fid="0x500D" comment="network��Դʹ�ò�ѯ" ref="ReqQryNetworkInfo"/>
+		<fieldDefine name="RspQryNetworkInfo" fid="0x500E" comment="network��Դʹ����Ϣ" ref="RspQryNetworkInfo"/>
+		<fieldDefine name="RtnNetworkInfo" fid="0x500F" comment="network��Դʹ����Ϣ" ref="RtnNetworkInfo"/>
+		<fieldDefine name="ReqQryHostEnv" fid="0x5022" comment="����������Ϣ��ѯ����" ref="ReqQryHostEnv"/>
+		<fieldDefine name="RspQryHostEnvCommon" fid="0x5023" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvCommon"/>
+		<fieldDefine name="RspQryHostEnvLan" fid="0x5024" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvLan"/>
+		<fieldDefine name="RspQryHostEnvStorage" fid="0x5025" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvStorage"/>
+		<fieldDefine name="RspQryHostEnvIO" fid="0x5026" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvIO"/>
+		<fieldDefine name="RspQryHostEnvFS" fid="0x5027" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvFS"/>
+		<fieldDefine name="RspQryHostEnvSwap" fid="0x5028" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvSwap"/>
+		<fieldDefine name="RspQryHostEnvLanCfg" fid="0x5029" comment="����������ϢӦ����Ϣ" ref="RspQryHostEnvLanCfg"/>
+		<fieldDefine name="ReqQryClientLogin" fid="0x502A" comment="�ͻ��˵�¼��ѯ����" ref="ReqQryClientLogin"/>
+		<fieldDefine name="RspQryClientLogin" fid="0x502B" comment="�ͻ��˵�¼Ӧ����Ϣ" ref="RspQryClientLogin"/>
+		<fieldDefine name="ReqQryMonitorObject" fid="0x502C" comment="���ü��ض�����Ϣ��ѯ����" ref="ReqQryMonitorObject"/>
+		<fieldDefine name="RspQryMonitorObject" fid="0x502D" comment="���ü��ض�����ϢӦ����Ϣ" ref="RspQryMonitorObject"/>
+		<fieldDefine name="RtnMonitorObject" fid="0x502E" comment="���ü��ض�����ϢӦ����Ϣ" ref="RtnMonitorObject"/>
+		<fieldDefine name="ReqQryObjectRational" fid="0x502F" comment="����ҵ�����̺������Ķ�Ӧ��ϵ��ѯ����" ref="ReqQryObjectRational"/>
+		<fieldDefine name="RspQryObjectRational" fid="0x5030" comment="����ҵ�����̺������Ķ�Ӧ��ϵӦ����Ϣ" ref="RspQryObjectRational"/>
+		<fieldDefine name="RtnObjectRational" fid="0x5031" comment="����ҵ�����̺������Ķ�Ӧ��ϵӦ����Ϣ" ref="RtnObjectRational"/>
+		<fieldDefine name="ReqQrySyslogInfo" fid="0x5038" comment="��־�ļ����ݲ�ѯ����" ref="ReqQrySyslogInfo"/>
+		<fieldDefine name="RspQrySyslogInfo" fid="0x5039" comment="��־�ļ�����Ӧ����Ϣ" ref="RspQrySyslogInfo"/>
+		<fieldDefine name="RtnSyslogInfo" fid="0x503A" comment="��־�ļ�����Ӧ����Ϣ" ref="RtnSyslogInfo"/>
+		<fieldDefine name="ReqQrySubscriber" fid="0x503B" comment="�������ݶ�������" ref="ReqQrySubscriber"/>
+		<fieldDefine name="RspQrySubscriber" fid="0x503C" comment="�������ݶ���Ӧ����Ϣ" ref="RspQrySubscriber"/>
+		<fieldDefine name="RtnSubscriber" fid="0x503D" comment="�������ݶ���Ӧ����Ϣ" ref="RtnSubscriber"/>
+		<!--StatusAnalysis packages begin-->
+		<fieldDefine name="ReqQryOidRelation" fid="0x5196" comment="������ϵ��ѯ����" ref="ReqQryOidRelation"/>
+		<fieldDefine name="RspQryOidRelation" fid="0x5197" comment="������ϵ��ѯӦ����Ϣ" ref="RspQryOidRelation"/>
+		<fieldDefine name="RtnOidRelation" fid="0x5198" comment="������ϵ��ѯӦ����Ϣ" ref="RtnOidRelation"/>
+		<fieldDefine name="ReqQryUserInfo" fid="0x5202" comment="�û���Ϣ��ѯ����" ref="ReqQryUserInfo"/>
+		<fieldDefine name="RspQryUserInfo" fid="0x5203" comment="�û���Ϣ��ѯӦ����Ϣ" ref="RspQryUserInfo"/>
+		<fieldDefine name="RtnUserInfo" fid="0x5204" comment="�û���Ϣ��ѯӦ����Ϣ" ref="RtnUserInfo"/>
+		<fieldDefine name="ReqQryOnlineUserInfo" fid="0x5205" comment="�����û���Ϣ��ѯ����" ref="ReqQryOnlineUserInfo"/>
+		<fieldDefine name="RspQryOnlineUserInfo" fid="0x5206" comment="�����û���ϢӦ����Ϣ" ref="RspQryOnlineUserInfo"/>
+		<fieldDefine name="RtnOnlineUserInfo" fid="0x5207" comment="�����û���ϢӦ����Ϣ" ref="RtnOnlineUserInfo"/>
+		<fieldDefine name="SysWarningEvent" fid="0x5210" comment="�澯�¼�" ref="SysWarningEvent"/>
+		<fieldDefine name="ReqQryWarningEvent" fid="0x5211" comment="�澯�¼���ѯ����" ref="ReqQryWarningEvent"/>
+		<fieldDefine name="RspQryWarningEvent" fid="0x5212" comment="�澯�¼�Ӧ����Ϣ" ref="RspQryWarningEvent"/>
+		<fieldDefine name="RtnWarningEvent" fid="0x5213" comment="�澯�¼�Ӧ����Ϣ" ref="RtnWarningEvent"/>
+		<fieldDefine name="ReqQryKeyFileInfo" fid="0x5214" comment="KeyFile����" ref="ReqQryKeyFileInfo"/>
+		<fieldDefine name="ReqQryHostMonitorCfg" fid="0x5215" comment="HostMonitorCfg����" ref="ReqQryHostMonitorCfg"/>
+		<fieldDefine name="ReqQryAppMonitorCfg" fid="0x5216" comment="AppMonitorCfg����" ref="ReqQryAppMonitorCfg"/>
+		<fieldDefine name="ReqQryCPUUsage" fid="0x5217" comment="CPUʹ���ʲ�ѯ����" ref="ReqQryCPUUsage"/>
+		<fieldDefine name="RspQryCPUUsage" fid="0x5218" comment="CPUʹ����Ӧ����Ϣ" ref="RspQryCPUUsage"/>
+		<fieldDefine name="RtnCPUUsage" fid="0x5219" comment="CPUʹ����Ӧ����Ϣ" ref="RtnCPUUsage"/>
+		<fieldDefine name="ReqQryMemoryUsage" fid="0x5220" comment="�ڴ�ʹ���ʲ�ѯ����" ref="ReqQryMemoryUsage"/>
+		<fieldDefine name="RspQryMemoryUsage" fid="0x5221" comment="�ڴ�ʹ����Ӧ����Ϣ" ref="RspQryMemoryUsage"/>
+		<fieldDefine name="RtnMemoryUsage" fid="0x5222" comment="�ڴ�ʹ����Ӧ����Ϣ" ref="RtnMemoryUsage"/>
+		<fieldDefine name="ReqQryDiskUsage" fid="0x5223" comment="Ӳ��ʹ���ʲ�ѯ����" ref="ReqQryDiskUsage"/>
+		<fieldDefine name="RspQryDiskUsage" fid="0x5224" comment="Ӳ��ʹ����Ӧ����Ϣ" ref="RspQryDiskUsage"/>
+		<fieldDefine name="RtnDiskUsage" fid="0x5225" comment="Ӳ��ʹ����Ӧ����Ϣ" ref="RtnDiskUsage"/>
+		<fieldDefine name="ReqQryObjectAttr" fid="0x5226" comment="����״ָ̬����ѯ" ref="ReqQryObjectAttr"/>
+		<fieldDefine name="RspQryObjectAttr" fid="0x5227" comment="����״ָ̬����ѯӦ��" ref="RspQryObjectAttr"/>
+		<fieldDefine name="RtnObjectAttr" fid="0x5228" comment="����״ָ̬����ѯӦ��" ref="RtnObjectAttr"/>
+		<fieldDefine name="ReqQryHostConfig" fid="0x5232" comment="�������ò�ѯ����" ref="ReqQryHostConfig"/>
+		<!--StatusAnalysis packages end-->
+		<!--ManagerPlatform packages begin-->
+		<fieldDefine name="ReqQryOrderStatus" fid="0x5303" comment="����״̬��ѯ" ref="ReqQryOrderStatus"/>
+		<fieldDefine name="RspQryOrderStatus" fid="0x5304" comment="����״̬��ѯӦ��" ref="RspQryOrderStatus"/>
+		<fieldDefine name="RtnOrderStatus" fid="0x5305" comment="����״̬��ѯӦ��" ref="RtnOrderStatus"/>
+		<fieldDefine name="ReqQryBargainOrder" fid="0x5306" comment="�����ɽ���ѯ" ref="ReqQryBargainOrder"/>
+		<fieldDefine name="RspQryBargainOrder" fid="0x5307" comment="�����ɽ���ѯӦ��" ref="RspQryBargainOrder"/>
+		<fieldDefine name="RtnBargainOrder" fid="0x5308" comment="�����ɽ���ѯӦ��" ref="RtnBargainOrder"/>
+		<fieldDefine name="ReqQryInstProperty" fid="0x5309" comment="��Լ�������Բ�ѯ" ref="ReqQryInstProperty"/>
+		<fieldDefine name="RspQryInstProperty" fid="0x5310" comment="��Լ�������Բ�ѯӦ��" ref="RspQryInstProperty"/>
+		<fieldDefine name="RtnInstProperty" fid="0x5311" comment="��Լ�������Բ�ѯӦ��" ref="RtnInstProperty"/>
+		<fieldDefine name="ReqQryMarginRate" fid="0x5312" comment="��Լ��֤���ʲ�ѯ" ref="ReqQryMarginRate"/>
+		<fieldDefine name="RspQryMarginRate" fid="0x5313" comment="��Լ��֤���ʲ�ѯӦ��" ref="RspQryMarginRate"/>
+		<fieldDefine name="RtnMarginRate" fid="0x5314" comment="��Լ��֤���ʲ�ѯӦ��" ref="RtnMarginRate"/>
+		<fieldDefine name="ReqQryPriceLimit" fid="0x5315" comment="��Լ�ǵ�ͣ����ѯ" ref="ReqQryPriceLimit"/>
+		<fieldDefine name="RspQryPriceLimit" fid="0x5316" comment="��Լ�ǵ�ͣ����ѯӦ��" ref="RspQryPriceLimit"/>
+		<fieldDefine name="RtnPriceLimit" fid="0x5317" comment="��Լ�ǵ�ͣ����ѯӦ��" ref="RtnPriceLimit"/>
+		<fieldDefine name="ReqQryPartPosiLimit" fid="0x5318" comment="��Ա�޲ֲ�ѯ" ref="ReqQryPartPosiLimit"/>
+		<fieldDefine name="RspQryPartPosiLimit" fid="0x5319" comment="��Ա�޲ֲ�ѯӦ��" ref="RspQryPartPosiLimit"/>
+		<fieldDefine name="RtnPartPosiLimit" fid="0x5320" comment="��Ա�޲ֲ�ѯӦ��" ref="RtnPartPosiLimit"/>
+		<fieldDefine name="ReqQryClientPosiLimit" fid="0x5321" comment="�ͻ��޲ֲ�ѯ" ref="ReqQryClientPosiLimit"/>
+		<fieldDefine name="RspQryClientPosiLimit" fid="0x5322" comment="�ͻ��޲ֲ�ѯӦ��" ref="RspQryClientPosiLimit"/>
+		<fieldDefine name="RtnClientPosiLimit" fid="0x5323" comment="�ͻ��޲ֲ�ѯӦ��" ref="RtnClientPosiLimit"/>
+		<fieldDefine name="ReqQrySpecialPosiLimit" fid="0x5324" comment="�����ͻ��޲ֲ�ѯ" ref="ReqQrySpecialPosiLimit"/>
+		<fieldDefine name="RspQrySpecialPosiLimit" fid="0x5325" comment="�����ͻ��޲ֲ�ѯӦ��" ref="RspQrySpecialPosiLimit"/>
+		<fieldDefine name="RtnSpecialPosiLimit" fid="0x5326" comment="�����ͻ��޲ֲ�ѯӦ��" ref="RtnSpecialPosiLimit"/>
+		<fieldDefine name="ReqQryTransactionChg" fid="0x5327" comment="�˻���������ѯ" ref="ReqQryTransactionChg"/>
+		<fieldDefine name="RspQryTransactionChg" fid="0x5328" comment="�˻���������ѯӦ��" ref="RspQryTransactionChg"/>
+		<fieldDefine name="RtnTransactionChg" fid="0x5329" comment="�˻���������ѯӦ��" ref="RtnTransactionChg"/>
+		<fieldDefine name="ReqQryClientChg" fid="0x5330" comment="�ͻ����ݱ䶯��ѯ" ref="ReqQryClientChg"/>
+		<fieldDefine name="RspQryClientChg" fid="0x5331" comment="�ͻ����ݱ䶯��ѯӦ��" ref="RspQryClientChg"/>
+		<fieldDefine name="RtnClientChg" fid="0x5332" comment="�ͻ����ݱ䶯��ѯӦ��" ref="RtnClientChg"/>
+		<fieldDefine name="ReqQryPartClientChg" fid="0x5333" comment="��Ա�ͻ����ձ䶯��ѯ" ref="ReqQryPartClientChg"/>
+		<fieldDefine name="RspQryPartClientChg" fid="0x5334" comment="��Ա�ͻ����ձ䶯��ѯӦ��" ref="RspQryPartClientChg"/>
+		<fieldDefine name="RtnPartClientChg" fid="0x5335" comment="��Ա�ͻ����ձ䶯��ѯӦ��" ref="RtnPartClientChg"/>
+		<fieldDefine name="ReqQryPosiLimitChg" fid="0x5336" comment="�޲����ݱ䶯��ѯ" ref="ReqQryPosiLimitChg"/>
+		<fieldDefine name="RspQryPosiLimitChg" fid="0x5337" comment="�޲����ݱ䶯��ѯӦ��" ref="RspQryPosiLimitChg"/>
+		<fieldDefine name="RtnPosiLimitChg" fid="0x5338" comment="�޲����ݱ䶯��ѯӦ��" ref="RtnPosiLimitChg"/>
+		<fieldDefine name="ReqQryHedgeDetailChg" fid="0x5339" comment="��ֵ���ȱ䶯��ѯ" ref="ReqQryHedgeDetailChg"/>
+		<fieldDefine name="RspQryHedgeDetailChg" fid="0x5340" comment="��ֵ���ȱ䶯��ѯӦ��" ref="RspQryHedgeDetailChg"/>
+		<fieldDefine name="RtnHedgeDetailChg" fid="0x5341" comment="��ֵ���ȱ䶯��ѯӦ��" ref="RtnHedgeDetailChg"/>
+		<fieldDefine name="ReqQryParticipantChg" fid="0x5342" comment="��Ա�䶯��ѯ" ref="ReqQryParticipantChg"/>
+		<fieldDefine name="RspQryParticipantChg" fid="0x5343" comment="��Ա�䶯��ѯӦ��" ref="RspQryParticipantChg"/>
+		<fieldDefine name="RtnParticipantChg" fid="0x5344" comment="��Ա�䶯��ѯӦ��" ref="RtnParticipantChg"/>
+		<fieldDefine name="ReqQryMarginRateChg" fid="0x5345" comment="��֤���ʱ䶯��ѯ" ref="ReqQryMarginRateChg"/>
+		<fieldDefine name="RspQryMarginRateChg" fid="0x5346" comment="��֤���ʱ䶯��ѯӦ��" ref="RspQryMarginRateChg"/>
+		<fieldDefine name="RtnMarginRateChg" fid="0x5347" comment="��֤���ʱ䶯��ѯӦ��" ref="RtnMarginRateChg"/>
+		<fieldDefine name="ReqQryUserIpChg" fid="0x5348" comment="IP��ַ�䶯��ѯ" ref="ReqQryUserIpChg"/>
+		<fieldDefine name="RspQryUserIpChg" fid="0x5349" comment="IP��ַ�䶯��ѯӦ��" ref="RspQryUserIpChg"/>
+		<fieldDefine name="RtnUserIpChg" fid="0x5350" comment="IP��ַ�䶯��ѯӦ��" ref="RtnUserIpChg"/>
+		<fieldDefine name="ReqQryClientPosiLimitChg" fid="0x5351" comment="�޲����ݱ䶯��ѯ" ref="ReqQryClientPosiLimitChg"/>
+		<fieldDefine name="RspQryClientPosiLimitChg" fid="0x5352" comment="�޲����ݱ䶯��ѯӦ��" ref="RspQryClientPosiLimitChg"/>
+		<fieldDefine name="RtnClientPosiLimitChg" fid="0x5353" comment="�޲����ݱ䶯��ѯӦ��" ref="RtnClientPosiLimitChg"/>
+		<fieldDefine name="ReqQrySpecPosiLimitChg" fid="0x5354" comment="�޲����ݱ䶯��ѯ" ref="ReqQrySpecPosiLimitChg"/>
+		<fieldDefine name="RspQrySpecPosiLimitChg" fid="0x5355" comment="�޲����ݱ䶯��ѯӦ��" ref="RspQrySpecPosiLimitChg"/>
+		<fieldDefine name="RtnSpecPosiLimitChg" fid="0x5356" comment="�޲����ݱ䶯��ѯӦ��" ref="RtnSpecPosiLimitChg"/>
+		<fieldDefine name="ReqQryHistoryObjectAttr" fid="0x5357" comment="��ʷ����״̬��ѯ" ref="ReqQryHistoryObjectAttr"/>
+		<fieldDefine name="RspQryHistoryObjectAttr" fid="0x5358" comment="��ʷ����״̬��ѯӦ��" ref="RspQryHistoryObjectAttr"/>
+		<fieldDefine name="RtnHistoryObjectAttr" fid="0x5359" comment="��ʷ����״̬��ѯӦ��" ref="RtnHistoryObjectAttr"/>
+		<fieldDefine name="ReqQryFrontInfo" fid="0x5360" comment="ǰ����Ӧ��Ϣ��ѯ" ref="ReqQryFrontInfo"/>
+		<fieldDefine name="RspQryFrontInfo" fid="0x5361" comment="ǰ����Ӧ��Ϣ��ѯӦ��" ref="RspQryFrontInfo"/>
+		<fieldDefine name="RtnFrontInfo" fid="0x5362" comment="ǰ����Ӧ��Ϣ��ѯӦ��" ref="RtnFrontInfo"/>
+		<!--ManagerPlatform packages end-->
+		<!--sysmanager begin-->
+		<fieldDefine name="ReqQrySysUserLogin" fid="0x5363" comment="�û���¼��ѯ" ref="ReqQrySysUserLogin"/>
+		<fieldDefine name="RspQrySysUserLogin" fid="0x5364" comment="�û���¼Ӧ��" ref="RspQrySysUserLogin"/>
+		<fieldDefine name="ReqQrySysUserLogout" fid="0x5365" comment="�û��ǳ�" ref="ReqQrySysUserLogout"/>
+		<fieldDefine name="RspQrySysUserLogout" fid="0x5366" comment="�û��ǳ�Ӧ��" ref="RspQrySysUserLogout"/>
+		<fieldDefine name="ReqQrySysUserPasswordUpdate" fid="0x5367" comment="�û��޸�����" ref="ReqQrySysUserPasswordUpdate"/>
+		<fieldDefine name="RspQrySysUserPasswordUpdate" fid="0x5368" comment="�û��޸�����Ӧ��" ref="RspQrySysUserPasswordUpdate"/>
+		<fieldDefine name="ReqQrySysUserRegister" fid="0x5369" comment="�û�ע��" ref="ReqQrySysUserRegister"/>
+		<fieldDefine name="RspQrySysUserRegister" fid="0x5370" comment="�û�ע��Ӧ��" ref="RspQrySysUserRegister"/>
+		<fieldDefine name="ReqQrySysUserDelete" fid="0x5371" comment="ɾ���û�" ref="ReqQrySysUserDelete"/>
+		<fieldDefine name="RspQrySysUserDelete" fid="0x5372" comment="ɾ���û�Ӧ��" ref="RspQrySysUserDelete"/>
+		<fieldDefine name="RspQryParticipantInit" fid="0x5374" comment="��Ա��ʼ��Ӧ��" ref="SysParticipantInit"/>
+		<fieldDefine name="RtnParticipantInit" fid="0x5375" comment="��Ա��ʼ��Ӧ��" ref="SysParticipantInit"/>
+		<fieldDefine name="RspQryUserInit" fid="0x5376" comment="��ϯ��ʼ��Ӧ��" ref="SysUserInit"/>
+		<fieldDefine name="RtnUserInit" fid="0x5377" comment="��ϯ��ʼ��Ӧ��" ref="SysUserInit"/>
+		<fieldDefine name="RspQryClientInit" fid="0x5378" comment="�ͻ���ʼ��Ӧ��" ref="SysClientInit"/>
+		<fieldDefine name="RtnClientInit" fid="0x5379" comment="�ͻ���ʼ��Ӧ��" ref="SysClientInit"/>
+		<fieldDefine name="ReqQryTradeLog" fid="0x5380" comment="������־��ѯ" ref="ReqQryTradeLog"/>
+		<fieldDefine name="RspQryTradeLog" fid="0x5381" comment="������־��ѯӦ��" ref="RspQryTradeLog"/>
+		<fieldDefine name="RtnTradeLog" fid="0x5382" comment="������־��ѯӦ��" ref="RtnTradeLog"/>
+		<fieldDefine name="ReqQryWarningEventUpdate" fid="0x5385" comment="�澯ʱ���޸�" ref="ReqQryWarningEventUpdate"/>
+		<fieldDefine name="ReqQryTradeUserLoginInfo" fid="0x5386" comment="����ϵͳ��¼��Ϣ��ѯ" ref="ReqQryTradeUserLoginInfo"/>
+		<fieldDefine name="RspQryTradeUserLoginInfo" fid="0x5387" comment="����ϵͳ��¼��ϢӦ��" ref="RspQryTradeUserLoginInfo"/>
+		<fieldDefine name="RtnTradeUserLoginInfo" fid="0x5388" comment="����ϵͳ��¼��ϢӦ��" ref="RtnTradeUserLoginInfo"/>
+		<fieldDefine name="ReqQryPartTrade" fid="0x5389" comment="��Ա���ײ�ѯ" ref="ReqQryPartTrade"/>
+		<fieldDefine name="RspQryPartTrade" fid="0x5390" comment="��Ա���ײ�ѯӦ��" ref="RspQryPartTrade"/>
+		<fieldDefine name="ReqQryTradepeak" fid="0x5391" comment="���׷�ֵ��ѯ" ref="ReqQryTradepeak"/>
+		<fieldDefine name="RspQryTradepeak" fid="0x5392" comment="���׷�ֵ��ѯӦ��" ref="RspQryTradepeak"/>
+		<fieldDefine name="RtnUpdateSysConfig" fid="0x5393" comment="" ref="RtnUpdateSysConfig"/>
+		<fieldDefine name="RtnSysUser" fid="0x5394" comment="" ref="RtnSysUser"/>
+		<fieldDefine name="RtnPriceLimitChg" fid="0x5395" comment="" ref="RtnPriceLimitChg"/>
+		<fieldDefine name="ReqQryParticipantInit" fid="0x5396" comment="����ƽ̨��ʼ����Ϣ��ѯ" ref="ReqQryParticipantInit"/>
+		<fieldDefine name="ReqQryUserInit" fid="0x5397" comment="����ƽ̨��ʼ����Ϣ��ѯ" ref="ReqQryUserInit"/>
+		<fieldDefine name="SysFileAccessInfo" fid="0x5398" comment="�ļ���д����" ref="SysFileAccessInfo"/>
+		<fieldDefine name="ReqQryHistoryCpuInfo" fid="0x5400" comment="��ʷCpu״̬��ѯ" ref="ReqQryHistoryCpuInfo"/>
+		<fieldDefine name="RspQryHistoryCpuInfo" fid="0x5401" comment="��ʷCpu��ѯӦ��" ref="RspQryHistoryCpuInfo"/>
+		<fieldDefine name="ReqQryHistoryMemInfo" fid="0x5402" comment="��ʷMem״̬��ѯ" ref="ReqQryHistoryMemInfo"/>
+		<fieldDefine name="RspQryHistoryMemInfo" fid="0x5403" comment="��ʷMem��ѯӦ��" ref="RspQryHistoryMemInfo"/>
+		<fieldDefine name="ReqQryHistoryNetworkInfo" fid="0x5404" comment="��ʷ����״̬��ѯ" ref="ReqQryHistoryNetworkInfo"/>
+		<fieldDefine name="RspQryHistoryNetworkInfo" fid="0x5405" comment="��ʷ������ѯӦ��" ref="RspQryHistoryNetworkInfo"/>
+
+		<fieldDefine name="RspQryHostConfig" fid="0x5406" comment="�������ò�ѯ����Ӧ��" ref="RspQryHostConfig"/>
+
+		<fieldDefine name="ReqQryMonitorOnlineUser" fid="0x5407" comment="����ϵͳ�����û���ѯ" ref="ReqQryMonitorOnlineUser"/>
+		<fieldDefine name="RspQryMonitorOnlineUser" fid="0x5408" comment="����ϵͳ�����û�Ӧ��" ref="RspQryMonitorOnlineUser"/>
+
+
+		<fieldDefine name="ReqQryFrontStat" fid="0x5409" comment="����ϵͳǰ��ͳ�Ʋ�ѯ" ref="ReqQryFrontStat"/>
+		<fieldDefine name="RspQryFrontStat" fid="0x5410" comment="����ϵͳǰ��ͳ��Ӧ��" ref="RspQryFrontStat"/>
+		<fieldDefine name="RtnSysTimeSync" fid="0x5411" comment="����ϵͳʱ��ͬ��" ref="RtnSysTimeSync"/>
+		<fieldDefine name="RtnDataCenterChg" fid="0x5412" comment="���������л�֪ͨ" ref="RtnDataCenterChg"/>
+
+		<fieldDefine name="ReqQryHistoryTradePeak" fid="0x5413" comment="��ʷ��ֵ��ѯ" ref="ReqQryHistoryTradePeak"/>
+		<fieldDefine name="RspQryHistoryTradePeak" fid="0x5414" comment="��ʷ��ֵ��ѯӦ��" ref="RspQryHistoryTradePeak"/>
+		<fieldDefine name="RtnHistoryTradePeak" fid="0x5415" comment="��ʷ��ֵ��ѯӦ��" ref="RtnHistoryTradePeak"/>
+
+		<fieldDefine name="ReqQrySyslogEvent" fid="0x5416" comment="��־�¼���ѯ" ref="ReqQrySyslogEvent"/>
+		<fieldDefine name="RspQrySyslogEvent" fid="0x5417" comment="��־�¼���ѯӦ��" ref="RspQrySyslogEvent"/>
+		<fieldDefine name="RtnSyslogEvent" fid="0x5418" comment="��־�¼�Ӧ��" ref="RtnSyslogEvent"/>
+
+		<fieldDefine name="ReqQrySyslogEventSubcriber" fid="0x5419" comment="��־�¼���������" ref="ReqQrySyslogEventSubcriber"/>
+
+		<fieldDefine name="ReqQryTradeDayChange" fid="0x5420" comment="�������л�֪ͨ" ref="ReqQryTradeDayChange"/>
+		<fieldDefine name="RspQryTradeDayChange" fid="0x5421" comment="�������л�֪ͨ" ref="RspQryTradeDayChange"/>
+		<!--sysmanager end-->
+		<fieldDefine name="ReqQryTomcatInfo" fid="0x5422" comment="tomcat��Ϣ��ѯ" ref="ReqQryTomcatInfo"/>
+		<fieldDefine name="RspQryWebAppInfo" fid="0x5423" comment="WebӦ����Ϣ" ref="RspQryWebAppInfo"/>
+		<fieldDefine name="RtnWebAppInfo" fid="0x5424" comment="WebӦ����Ϣ" ref="RtnWebAppInfo"/>
+		<fieldDefine name="RspQryServletInfo" fid="0x5425" comment="Ӧ��servlet��Ϣ" ref="RspQryServletInfo"/>
+		<fieldDefine name="RtnServletInfo" fid="0x5426" comment="Ӧ��servlet��Ϣ" ref="RtnServletInfo"/>
+		<fieldDefine name="RspQryFileInfo" fid="0x5427" comment="�ļ���Ϣ" ref="RspQryFileInfo"/>
+		<fieldDefine name="RtnFileInfo" fid="0x5428" comment="�ļ���Ϣ" ref="RtnFileInfo"/>
+		<fieldDefine name="RspQrySessionInfo" fid="0x5429" comment="Ӧ�ûỰ��Ϣ" ref="RspQrySessionInfo"/>
+		<fieldDefine name="RtnSessionInfo" fid="0x5430" comment="Ӧ�ûỰ��Ϣ" ref="RtnSessionInfo"/>
+		<fieldDefine name="RspQryJDBCInfo" fid="0x5431" comment="JDBC��Ϣ" ref="RspQryJDBCInfo"/>
+		<fieldDefine name="RtnJDBCInfo" fid="0x5432" comment="JDBC��Ϣ" ref="RtnJDBCInfo"/>
+		<fieldDefine name="RspQryThreadInfo" fid="0x5433" comment="�߳���Ϣ" ref="RspQryThreadInfo"/>
+		<fieldDefine name="RtnThreadInfo" fid="0x5434" comment="�߳���Ϣ" ref="RtnThreadInfo"/>
+
+		<fieldDefine name="ReqQryVMInfo" fid="0x5435" comment="��������Ϣ��ѯ" ref="ReqQryVMInfo"/>
+		<fieldDefine name="RspQryVMInfo" fid="0x5436" comment="��������Ϣ" ref="RspQryVMInfo"/>
+		<fieldDefine name="RtnVMInfo" fid="0x5437" comment="��������Ϣ" ref="RtnVMInfo"/>
+
+		<fieldDefine name="ReqQryPropertyInfo" fid="0x5438" comment="ϵͳ������Ϣ��ѯ" ref="ReqQryPropertyInfo"/>
+		<fieldDefine name="RspQryPropertyInfo" fid="0x5439" comment="ϵͳ������Ϣ" ref="RspQryPropertyInfo"/>
+		<fieldDefine name="RtnPropertyInfo" fid="0x5440" comment="ϵͳ������Ϣ" ref="RtnPropertyInfo"/>
+
+		<fieldDefine name="ReqQryMemPoolInfo" fid="0x5441" comment="ϵͳ�ڴ�����Ϣ��ѯ" ref="ReqQryMemPoolInfo"/>
+		<fieldDefine name="RspQryMemPoolInfo" fid="0x5442" comment="ϵͳ�ڴ�����Ϣ" ref="RspQryMemPoolInfo"/>
+		<fieldDefine name="RtnMemPoolInfo" fid="0x5443" comment="ϵͳ�ڴ�����Ϣ" ref="RtnMemPoolInfo"/>
+
+		<fieldDefine name="ReqQryFileContentInfo" fid="0x5444" comment="�ļ�������Ϣ��ѯ" ref="ReqQryFileContentInfo"/>
+		<fieldDefine name="RspQryFileContentInfo" fid="0x5445" comment="�ļ�������Ϣ" ref="RspQryFileContentInfo"/>
+		<fieldDefine name="RtnFileContentInfo" fid="0x5446" comment="�ļ�������Ϣ" ref="RtnFileContentInfo"/>
+
+		<fieldDefine name="ReqQryConnectionInfo" fid="0x5447" comment="������Ϣ��ѯ" ref="ReqQryConnectionInfo"/>
+		<fieldDefine name="RspQryConnectionInfo" fid="0x5448" comment="������Ϣ" ref="RspQryConnectionInfo"/>
+		<fieldDefine name="RtnConnectionInfo" fid="0x5449" comment="������Ϣ" ref="RtnConnectionInfo"/>
+
+		<fieldDefine name="ReqQryConnectorInfo" fid="0x5450" comment="��������Ϣ��ѯ" ref="ReqQryConnectorInfo"/>
+		<fieldDefine name="RspQryConnectorInfo" fid="0x5451" comment="��������Ϣ" ref="RspQryConnectorInfo"/>
+		<fieldDefine name="RtnConnectorInfo" fid="0x5452" comment="��������Ϣ" ref="RtnConnectorInfo"/>
+
+		<fieldDefine name="ReqQryDBQuery" fid="0x5453" comment="���ݿ���ѯ" ref="ReqQryDBQuery"/>
+		<fieldDefine name="RspQryDBQuery" fid="0x5454" comment="���ݿ���ѯӦ��" ref="RspQryDBQuery"/>
+		<fieldDefine name="RtnDBQuery" fid="0x5455" comment="���ݿ���ѯӦ��" ref="RtnDBQuery"/>
+		<fieldDefine name="SysGeneralField" fid="0x5457" comment="ͨ�÷���Ӧ��" ref="SysGeneralField"/>
+
+		<fieldDefine name="ReqQryGetFile" fid="0x5458" comment="�ļ���������" ref="ReqQryGetFile"/>
+		<fieldDefine name="RspQryGetFile" fid="0x5459" comment="�ļ�����Ӧ��" ref="RspQryGetFile"/>
+
+		<fieldDefine name="ReqQrySyslogEventUpdate" fid="0x5460" comment="��־�¼��޸�����" ref="ReqQrySyslogEventUpdate"/>
+
+		<fieldDefine name="ReqQryWarningQuery" fid="0x5461" comment="�澯��ϸ��ѯ" ref="ReqQryWarningQuery"/>
+		<fieldDefine name="RspQryWarningQuery" fid="0x5462" comment="�澯��ϸ" ref="RspQryWarningQuery"/>
+		<fieldDefine name="RtnWarningQuery" fid="0x5463" comment="�澯��ϸ" ref="RtnWarningQuery"/>
+
+		<fieldDefine name="ReqQryWebVisit" fid="0x5464" comment="��վ���ʲ�ѯ" ref="ReqQryWebVisit"/>
+
+		<fieldDefine name="RtnHostConfig" fid="0x5465" comment="�������ò�ѯ����Ӧ��" ref="RtnHostConfig"/>
+
+		<fieldDefine name="ReqQryWarningActiveChange" fid="0x5466" comment="�澯��������" ref="ReqQryWarningActiveChange"/>
+		<fieldDefine name="RspQryWarningActiveChange" fid="0x5467" comment="�澯��������" ref="RspQryWarningActiveChange"/>
+		<fieldDefine name="RtnWarningActiveChange" fid="0x5468" comment="�澯��������" ref="RtnWarningActiveChange"/>
+		<!--sysmonitor fields end-->
+
+		<!--netmonitor fields begin-->
+		<fieldDefine name="ReqQryGeneralOperate" fid="0x5469" comment="ͨ�ò���" ref="ReqQryGeneralOperate"/>
+		<fieldDefine name="RspQryGeneralOperate" fid="0x5470" comment="ͨ�ò���" ref="RspQryGeneralOperate"/>
+		<fieldDefine name="RtnGeneralOperate" fid="0x5471" comment="ͨ�ò���" ref="RtnGeneralOperate"/>
+		<fieldDefine name="ReqQryNetDeviceLinked" fid="0x5472" comment="�����豸���ӹ�ϵ����" ref="ReqQryNetDeviceLinked"/>
+		<fieldDefine name="RspQryNetDeviceLinked" fid="0x5473" comment="�����豸���ӹ�ϵ" ref="RspQryNetDeviceLinked"/>
+		<fieldDefine name="RtnNetDeviceLinked" fid="0x5474" comment="�����豸���ӹ�ϵ" ref="RtnNetDeviceLinked"/>
+		<fieldDefine name="ReqQryTradeUserLoginStat" fid="0x5475" comment="����ϵͳ��¼��Ϣ����" ref="ReqQryTradeUserLoginStat"/>
+		<fieldDefine name="RspQryTradeUserLoginStat" fid="0x5476" comment="����ϵͳ��¼��Ϣ" ref="RspQryTradeUserLoginStat"/>
+
+
+		<!--20121023 fengq begin-->
+		<fieldDefine name="ReqQryTradeFrontOrderRttStat" fid="0x5477" comment="����ϵͳǰ�ñ�����Ӧ��Ϣ" ref="ReqQryTradeFrontOrderRttStat"/>
+		<fieldDefine name="RspQryTradeFrontOrderRttStat" fid="0x5478" comment="����ϵͳǰ�ñ�����Ӧ��Ϣ" ref="RspQryTradeFrontOrderRttStat"/>
+		<fieldDefine name="RtnTradeFrontOrderRttStat" fid="0x5479" comment="����ϵͳǰ�ñ�����Ӧ��Ϣ" ref="RtnTradeFrontOrderRttStat"/>
+
+		<fieldDefine name="ReqQryParticTradeOrderStates" fid="0x547a" comment="��Աϯλ����״̬" ref="ReqQryParticTradeOrderStates"/>
+		<fieldDefine name="RspQryParticTradeOrderStates" fid="0x547b" comment="��Աϯλ����״̬" ref="RspQryParticTradeOrderStates"/>
+		<fieldDefine name="RtnParticTradeOrderStates" fid="0x547c" comment="��Աϯλ����״̬" ref="RtnParticTradeOrderStates"/>
+
+		<fieldDefine name="ReqQryRouterInfo" fid="0x547d" comment="ϵͳ·����Ϣ" ref="ReqQryRouterInfo"/>
+		<fieldDefine name="RspQryRouterInfo" fid="0x547e" comment="ϵͳ·����Ϣ" ref="RspQryRouterInfo"/>
+		<fieldDefine name="RtnRouterInfo" fid="0x547f" comment="ϵͳ·����Ϣ" ref="RtnRouterInfo"/>
+
+		<fieldDefine name="ReqQryDiskIO" fid="0x5480" comment="����I/O��Ϣ" ref="ReqQryDiskIO"/>
+		<fieldDefine name="RspQryDiskIO" fid="0x5481" comment="����I/O��Ϣ" ref="RspQryDiskIO"/>
+		<fieldDefine name="RtnDiskIO" fid="0x5482" comment="����I/O��Ϣ" ref="RtnDiskIO"/>
+
+		<fieldDefine name="ReqQryStatInfo" fid="0x5483" comment="ϵͳ״̬��Ϣ" ref="ReqQryStatInfo"/>
+		<fieldDefine name="RspQryStatInfo" fid="0x5484" comment="ϵͳ״̬��Ϣ" ref="RspQryStatInfo"/>
+		<fieldDefine name="RtnStatInfo" fid="0x5485" comment="ϵͳ״̬��Ϣ" ref="RtnStatInfo"/>
+
+		<fieldDefine name="ReqQryTradeOrderRttCutLine" fid="0x5486" comment="����ϵͳǰ�ñ����ֲ�����" ref="ReqQryTradeOrderRttCutLine"/>
+		<fieldDefine name="RspQryTradeOrderRttCutLine" fid="0x5487" comment="����ϵͳǰ�ñ����ֲ�����" ref="RspQryTradeOrderRttCutLine"/>
+		<fieldDefine name="RtnTradeOrderRttCutLine" fid="0x5488" comment="����ϵͳǰ�ñ����ֲ�����" ref="RtnTradeOrderRttCutLine"/>
+
+		<!--20121023 fengq end-->
+
+		<!--20130304 bian.xb mark begin -->
+		<fieldDefine name="ReqQryClientInfo" fid="0x5489" comment="��Ա�ͻ���Ϣ" ref="ReqQryClientInfo"/>
+		<fieldDefine name="RspQryClientInfo" fid="0x548a" comment="��Ա�ͻ���Ϣ" ref="RspQryClientInfo"/>
+		<fieldDefine name="RtnClientInfo" fid="0x548b" comment="��Ա�ͻ���Ϣ" ref="RtnClientInfo"/>
+
+		<fieldDefine name="ReqQryEventDescription" fid="0x548c" comment="�¼���������" ref="ReqQryEventDescription"/>
+		<fieldDefine name="RspQryEventDescription" fid="0x548d" comment="�¼�������������" ref="RspQryEventDescription"/>
+		<fieldDefine name="RtnEventDescription" fid="0x548e" comment="�¼���������" ref="RtnEventDescription"/>
+
+		<fieldDefine name="ReqQryFrontUniqueID" fid="0x548f" comment="ǰ��ΨһID����" ref="ReqQryFrontUniqueID"/>
+		<fieldDefine name="RspQryFrontUniqueID" fid="0x5490" comment="ǰ��ΨһID����" ref="RspQryFrontUniqueID"/>
+		<fieldDefine name="RtnFrontUniqueID" fid="0x5491" comment="����ǰ��ΨһID��Ϣ" ref="RtnFrontUniqueID"/>
+
+		<fieldDefine name="ReqQryNetPartyLinkAddrChange" fid="0x5492" comment="��Ա��·��ַ��������" ref="ReqQryNetPartyLinkAddrChange"/>
+		<fieldDefine name="RspQryNetPartyLinkAddrChange" fid="0x5493" comment="��Ա��·��ַ������Ӧ" ref="RspQryNetPartyLinkAddrChange"/>
+		<fieldDefine name="RtnNetPartyLinkAddrChange" fid="0x5494" comment="���Ļ�Ա��·��ַ������Ϣ" ref="RtnNetPartyLinkAddrChange"/>
+
+		<fieldDefine name="ReqQryNetDelPartyLinkInfo" fid="0x5495" comment="������ɾ����Ա�б���Ϣ" ref="ReqQryNetDelPartyLinkInfo"/>
+		<fieldDefine name="RspQryNetDelPartyLinkInfo" fid="0x5496" comment="Ӧ����ɾ����Ա�б���Ϣ" ref="RspQryNetDelPartyLinkInfo"/>
+		<fieldDefine name="RtnNetDelPartyLinkInfo" fid="0x5497" comment="������ɾ����Ա�б���Ϣ" ref="RtnNetDelPartyLinkInfo"/>
+
+		<fieldDefine name="ReqQryPerformanceTop" fid="0x5498" comment="����������������" ref="ReqQryPerformanceTop"/>
+		<fieldDefine name="RspQryPerformanceTop" fid="0x5499" comment="����������������" ref="RspQryPerformanceTop"/>
+		<fieldDefine name="RtnPerformanceTop" fid="0x549a" comment="����������������" ref="RtnPerformanceTop"/>
+
+		<fieldDefine name="ReqQryInstrumentStatus" fid="0x549b" comment="������Լ״̬�л�" ref="ReqQryInstrumentStatus"/>
+		<fieldDefine name="RspQryInstrumentStatus" fid="0x549c" comment="���غ�Լ״̬�л�" ref="RspQryInstrumentStatus"/>
+		<fieldDefine name="RtnInstrumentStatus" fid="0x549d" comment="���ĺ�Լ״̬�л�" ref="RtnInstrumentStatus"/>
+
+		<fieldDefine name="ReqQryCurrTradingSegmentAttr" fid="0x549e" comment="������Լ���׽���Ϣ" ref="ReqQryCurrTradingSegmentAttr"/>
+		<fieldDefine name="RspQryCurrTradingSegmentAttr" fid="0x549f" comment="���غ�Լ���׽���Ϣ" ref="RspQryCurrTradingSegmentAttr"/>
+		<fieldDefine name="RtnCurrTradingSegmentAttr" fid="0x54a0" comment="���ĺ�Լ���׽���Ϣ" ref="RtnCurrTradingSegmentAttr"/>
+		<!-- 20130304 bian.xb end -->
+
+		<fieldDefine name="ReqQryRealTimeNetObjectAttr" fid="0x8003" comment="ʵʱ������������" ref="ReqQryRealTimeNetObjectAttr"/>
+		<fieldDefine name="ReqQryNetArea" fid="0x8010" comment="������������" ref="ReqQryNetArea"/>
+		<fieldDefine name="RspQryNetArea" fid="0x8011" comment="��������Ӧ��" ref="RspQryNetArea"/>
+		<fieldDefine name="RtnNetArea" fid="0x8012" comment="��������Ӧ��" ref="RtnNetArea"/>
+		<fieldDefine name="ReqQryNetSubArea" fid="0x8013" comment="������������" ref="ReqQryNetSubArea"/>
+		<fieldDefine name="RspQryNetSubArea" fid="0x8014" comment="��������Ӧ��" ref="RspQryNetSubArea"/>
+		<fieldDefine name="RtnNetSubArea" fid="0x8015" comment="��������Ӧ��" ref="RtnNetSubArea"/>
+		<fieldDefine name="ReqQryNetSubAreaIP" fid="0x8016" comment="������������" ref="ReqQryNetSubAreaIP"/>
+		<fieldDefine name="RspQryNetSubAreaIP" fid="0x8017" comment="��������Ӧ��" ref="RspQryNetSubAreaIP"/>
+		<fieldDefine name="RtnNetSubAreaIP" fid="0x8018" comment="��������Ӧ��" ref="RtnNetSubAreaIP"/>
+		<fieldDefine name="ReqQryNetDeviceDetect" fid="0x8019" comment="�����豸̽������" ref="ReqQryNetDeviceDetect"/>
+		<fieldDefine name="ReqQryNetDeviceRequest" fid="0x8020" comment="�����豸��ѯ����" ref="ReqQryNetDeviceRequest"/>
+		<fieldDefine name="RspQryNetDevice" fid="0x8021" comment="�����豸" ref="RspQryNetDevice"/>
+		<fieldDefine name="RtnNetDevice" fid="0x8022" comment="�����豸" ref="RtnNetDevice"/>
+		<fieldDefine name="RspQryNetDeviceDetect" fid="0x8023" comment="�����豸̽������Ӧ��" ref="RspQryNetDeviceDetect"/>
+		<fieldDefine name="ReqQryNetBuilding" fid="0x8024" comment="��¥��ѯ" ref="ReqQryNetBuilding"/>
+		<fieldDefine name="RspQryNetBuilding" fid="0x8025" comment="��¥" ref="RspQryNetBuilding"/>
+		<fieldDefine name="RtnNetBuilding" fid="0x8026" comment="��¥" ref="RtnNetBuilding"/>
+		<fieldDefine name="ReqQryNetRoom" fid="0x8027" comment="������ѯ" ref="ReqQryNetRoom"/>
+		<fieldDefine name="RspQryNetRoom" fid="0x8028" comment="����" ref="RspQryNetRoom"/>
+		<fieldDefine name="RtnNetRoom" fid="0x8029" comment="����" ref="RtnNetRoom"/>
+		<fieldDefine name="ReqQryNetCabinets" fid="0x8030" comment="����" ref="ReqQryNetCabinets"/>
+		<fieldDefine name="RspQryNetCabinets" fid="0x8031" comment="����" ref="RspQryNetCabinets"/>
+		<fieldDefine name="RtnNetCabinets" fid="0x8032" comment="����" ref="RtnNetCabinets"/>
+		<fieldDefine name="ReqQryNetOID" fid="0x8033" comment="OID" ref="ReqQryNetOID"/>
+		<fieldDefine name="RspQryNetOID" fid="0x8034" comment="OID" ref="RspQryNetOID"/>
+		<fieldDefine name="RtnNetOID" fid="0x8035" comment="OID" ref="RtnNetOID"/>
+		<fieldDefine name="ReqQryNetTimePolicy" fid="0x8036" comment="ʱ������" ref="ReqQryNetTimePolicy"/>
+		<fieldDefine name="RspQryNetTimePolicy" fid="0x8037" comment="ʱ������" ref="RspQryNetTimePolicy"/>
+		<fieldDefine name="RtnNetTimePolicy" fid="0x8038" comment="ʱ������" ref="RtnNetTimePolicy"/>
+		<fieldDefine name="ReqQryNetGatherTask" fid="0x8039" comment="�ɼ�������ѯ" ref="ReqQryNetGatherTask"/>
+		<fieldDefine name="RspQryNetGatherTask" fid="0x8040" comment="�ɼ�����" ref="RspQryNetGatherTask"/>
+		<fieldDefine name="RtnNetGatherTask" fid="0x8041" comment="�ɼ�����" ref="RtnNetGatherTask"/>
+		<fieldDefine name="ReqQryNetDeviceChg" fid="0x8042" comment="�ɼ�������ѯ" ref="ReqQryNetDeviceChg"/>
+		<fieldDefine name="RspQryNetDeviceChg" fid="0x8043" comment="�ɼ�����" ref="RspQryNetDeviceChg"/>
+		<fieldDefine name="RtnNetDeviceChg" fid="0x8044" comment="�ɼ�����" ref="RtnNetDeviceChg"/>
+		<fieldDefine name="ReqQryNetDeviceType" fid="0x8045" comment="�����豸�ͺ�����" ref="ReqQryNetDeviceType"/>
+		<fieldDefine name="RspQryNetDeviceType" fid="0x8046" comment="�����豸�ͺ�" ref="RspQryNetDeviceType"/>
+		<fieldDefine name="RtnNetDeviceType" fid="0x8047" comment="�����豸�ͺ�" ref="RtnNetDeviceType"/>
+		<fieldDefine name="ReqQryNetDeviceCategory" fid="0x8048" comment="�����豸��������" ref="ReqQryNetDeviceCategory"/>
+		<fieldDefine name="RspQryNetDeviceCategory" fid="0x8049" comment="�����豸����" ref="RspQryNetDeviceCategory"/>
+		<fieldDefine name="RtnNetDeviceCategory" fid="0x8050" comment="�����豸����" ref="RtnNetDeviceCategory"/>
+		<fieldDefine name="ReqQryNetManufactory" fid="0x8051" comment="�豸��������" ref="ReqQryNetManufactory"/>
+		<fieldDefine name="RspQryNetManufactory" fid="0x8052" comment="�豸����" ref="RspQryNetManufactory"/>
+		<fieldDefine name="RtnNetManufactory" fid="0x8053" comment="�豸����" ref="RtnNetManufactory"/>
+		<fieldDefine name="ReqQryNetCommunity" fid="0x8054" comment="�豸��ͬ������" ref="ReqQryNetCommunity"/>
+		<fieldDefine name="RspQryNetCommunity" fid="0x8055" comment="�豸��ͬ��" ref="RspQryNetCommunity"/>
+		<fieldDefine name="RtnNetCommunity" fid="0x8056" comment="�豸��ͬ��" ref="RtnNetCommunity"/>
+		<fieldDefine name="ReqQryNetPortType" fid="0x8057" comment="�˿���������" ref="ReqQryNetPortType"/>
+		<fieldDefine name="RspQryNetPortType" fid="0x8058" comment="�˿�����" ref="RspQryNetPortType"/>
+		<fieldDefine name="RtnNetPortType" fid="0x8059" comment="�˿�����" ref="RtnNetPortType"/>
+		<fieldDefine name="ReqQryNetPartAccessSpot" fid="0x8060" comment="��Ա�����ص�����" ref="ReqQryNetPartAccessSpot"/>
+		<fieldDefine name="RspQryNetPartAccessSpot" fid="0x8061" comment="��Ա�����ص�" ref="RspQryNetPartAccessSpot"/>
+		<fieldDefine name="RtnNetPartAccessSpot" fid="0x8062" comment="��Ա�����ص�" ref="RtnNetPartAccessSpot"/>
+		<fieldDefine name="ReqQryNetInterface" fid="0x8063" comment="�˿�����" ref="ReqQryNetInterface"/>
+		<fieldDefine name="RspQryNetInterface" fid="0x8064" comment="�˿�" ref="RspQryNetInterface"/>
+		<fieldDefine name="RtnNetInterface" fid="0x8065" comment="�˿�" ref="RtnNetInterface"/>
+		<fieldDefine name="ReqQryNetGeneralOID" fid="0x8066" comment="GeneralOID" ref="ReqQryNetGeneralOID"/>
+		<fieldDefine name="RspQryNetGeneralOID" fid="0x8067" comment="GeneralOID" ref="RspQryNetGeneralOID"/>
+		<fieldDefine name="RtnNetGeneralOID" fid="0x8068" comment="GeneralOID" ref="RtnNetGeneralOID"/>
+		<fieldDefine name="ReqQryNetMonitorType" fid="0x8069" comment="���ض�������" ref="ReqQryNetMonitorType"/>
+		<fieldDefine name="RspQryNetMonitorType" fid="0x8070" comment="���ض�������" ref="RspQryNetMonitorType"/>
+		<fieldDefine name="RtnNetMonitorType" fid="0x8071" comment="���ض�������" ref="RtnNetMonitorType"/>
+		<fieldDefine name="ReqQryNetMonitorAttrScope" fid="0x8072" comment="ָ��ͳ��" ref="ReqQryNetMonitorAttrScope"/>
+		<fieldDefine name="RspQryNetMonitorAttrScope" fid="0x8073" comment="ָ��ͳ��" ref="RspQryNetMonitorAttrScope"/>
+		<fieldDefine name="RtnNetMonitorAttrScope" fid="0x8074" comment="ָ��ͳ��" ref="RtnNetMonitorAttrScope"/>
+		<fieldDefine name="ReqQryNetMonitorAttrType" fid="0x8075" comment="����ָ����" ref="ReqQryNetMonitorAttrType"/>
+		<fieldDefine name="RspQryNetMonitorAttrType" fid="0x8076" comment="����ָ����" ref="RspQryNetMonitorAttrType"/>
+		<fieldDefine name="RtnNetMonitorAttrType" fid="0x8077" comment="����ָ����" ref="RtnNetMonitorAttrType"/>
+		<fieldDefine name="ReqQryNetMonitorObjectAttr" fid="0x8078" comment="���ض���ָ����" ref="ReqQryNetMonitorObjectAttr"/>
+		<fieldDefine name="RspQryNetMonitorObjectAttr" fid="0x8079" comment="���ض���ָ����" ref="RspQryNetMonitorObjectAttr"/>
+		<fieldDefine name="RtnNetMonitorObjectAttr" fid="0x8080" comment="���ض���ָ����" ref="RtnNetMonitorObjectAttr"/>
+		<fieldDefine name="ReqQryNetFuncArea" fid="0x8081" comment="ְ����" ref="ReqQryNetFuncArea"/>
+		<fieldDefine name="RspQryNetFuncArea" fid="0x8082" comment="ְ����" ref="RspQryNetFuncArea"/>
+		<fieldDefine name="RtnNetFuncArea" fid="0x8083" comment="ְ����" ref="RtnNetFuncArea"/>
+		<fieldDefine name="ReqQryNetMonitorCommandType" fid="0x8084" comment="����ָ����" ref="ReqQryNetMonitorCommandType"/>
+		<fieldDefine name="RspQryNetMonitorCommandType" fid="0x8085" comment="����ָ����" ref="RspQryNetMonitorCommandType"/>
+		<fieldDefine name="RtnNetMonitorCommandType" fid="0x8086" comment="����ָ����" ref="RtnNetMonitorCommandType"/>
+		<fieldDefine name="ReqQryNetMonitorActionGroup" fid="0x8087" comment="��������" ref="ReqQryNetMonitorActionGroup"/>
+		<fieldDefine name="RspQryNetMonitorActionGroup" fid="0x8088" comment="��������" ref="RspQryNetMonitorActionGroup"/>
+		<fieldDefine name="RtnNetMonitorActionGroup" fid="0x8089" comment="��������" ref="RtnNetMonitorActionGroup"/>
+		<fieldDefine name="ReqQryNetMonitorDeviceGroup" fid="0x8090" comment="�豸��������" ref="ReqQryNetMonitorDeviceGroup"/>
+		<fieldDefine name="RspQryNetMonitorDeviceGroup" fid="0x8091" comment="�豸��������" ref="RspQryNetMonitorDeviceGroup"/>
+		<fieldDefine name="RtnNetMonitorDeviceGroup" fid="0x8092" comment="�豸��������" ref="RtnNetMonitorDeviceGroup"/>
+		<fieldDefine name="ReqQryNetMonitorTaskInfo" fid="0x8093" comment="������Ϣ��" ref="ReqQryNetMonitorTaskInfo"/>
+		<fieldDefine name="RspQryNetMonitorTaskInfo" fid="0x8094" comment="������Ϣ��" ref="RspQryNetMonitorTaskInfo"/>
+		<fieldDefine name="RtnNetMonitorTaskInfo" fid="0x8095" comment="������Ϣ��" ref="RtnNetMonitorTaskInfo"/>
+		<fieldDefine name="ReqQryNetMonitorTaskResult" fid="0x8096" comment="����������" ref="ReqQryNetMonitorTaskResult"/>
+		<fieldDefine name="RspQryNetMonitorTaskResult" fid="0x8097" comment="����������" ref="RspQryNetMonitorTaskResult"/>
+		<fieldDefine name="RtnNetMonitorTaskResult" fid="0x8098" comment="����������" ref="RtnNetMonitorTaskResult"/>
+		<fieldDefine name="ReqQryNetMonitorTaskObjectSet" fid="0x8099" comment="����������" ref="ReqQryNetMonitorTaskObjectSet"/>
+		<fieldDefine name="RspQryNetMonitorTaskObjectSet" fid="0x8100" comment="����������" ref="RspQryNetMonitorTaskObjectSet"/>
+		<fieldDefine name="RtnNetMonitorTaskObjectSet" fid="0x8101" comment="����������" ref="RtnNetMonitorTaskObjectSet"/>
+		<fieldDefine name="ReqQryNetPartyLinkInfo" fid="0x8102" comment="��Ա��·��Ϣ��" ref="ReqQryNetPartyLinkInfo"/>
+		<fieldDefine name="RspQryNetPartyLinkInfo" fid="0x8103" comment="��Ա��·��Ϣ��" ref="RspQryNetPartyLinkInfo"/>
+		<fieldDefine name="RtnNetPartyLinkInfo" fid="0x8104" comment="��Ա��·��Ϣ��" ref="RtnNetPartyLinkInfo"/>
+		<fieldDefine name="ReqQryNetMonitorActionAttr" fid="0x8105" comment="���ض���ָ�����ձ�" ref="ReqQryNetMonitorActionAttr"/>
+		<fieldDefine name="RspQryNetMonitorActionAttr" fid="0x8106" comment="���ض���ָ�����ձ�" ref="RspQryNetMonitorActionAttr"/>
+		<fieldDefine name="RtnNetMonitorActionAttr" fid="0x8107" comment="���ض���ָ�����ձ�" ref="RtnNetMonitorActionAttr"/>
+		<fieldDefine name="ReqQryNetModule" fid="0x8111" comment="ģ��" ref="ReqQryNetModule"/>
+		<fieldDefine name="RspQryNetModule" fid="0x8112" comment="ģ��" ref="RspQryNetModule"/>
+		<fieldDefine name="RtnNetModule" fid="0x8113" comment="ģ��" ref="RtnNetModule"/>
+		<fieldDefine name="ReqQryNetEventExpr" fid="0x8114" comment="�澯����ʽ��Ϣ��" ref="ReqQryNetEventExpr"/>
+		<fieldDefine name="RspQryNetEventExpr" fid="0x8115" comment="�澯����ʽ��Ϣ��" ref="RspQryNetEventExpr"/>
+		<fieldDefine name="RtnNetEventExpr" fid="0x8116" comment="�澯����ʽ��Ϣ��" ref="RtnNetEventExpr"/>
+		<fieldDefine name="ReqQryNetEventType" fid="0x8117" comment="�¼�����" ref="ReqQryNetEventType"/>
+		<fieldDefine name="RspQryNetEventType" fid="0x8118" comment="�¼�����" ref="RspQryNetEventType"/>
+		<fieldDefine name="RtnNetEventType" fid="0x8119" comment="�¼�����" ref="RtnNetEventType"/>
+		<fieldDefine name="ReqQryNetSubEventType" fid="0x8120" comment="�¼�������" ref="ReqQryNetSubEventType"/>
+		<fieldDefine name="RspQryNetSubEventType" fid="0x8121" comment="�¼�������" ref="RspQryNetSubEventType"/>
+		<fieldDefine name="RtnNetSubEventType" fid="0x8122" comment="�¼�������" ref="RtnNetSubEventType"/>
+		<fieldDefine name="ReqQryNetEventLevel" fid="0x8123" comment="�¼�����" ref="ReqQryNetEventLevel"/>
+		<fieldDefine name="RspQryNetEventLevel" fid="0x8124" comment="�¼�����" ref="RspQryNetEventLevel"/>
+		<fieldDefine name="RtnNetEventLevel" fid="0x8125" comment="�¼�����" ref="RtnNetEventLevel"/>
+		<fieldDefine name="ReqQryNetMonitorTaskStatusResult" fid="0x8126" comment="��������״̬��" ref="ReqQryNetMonitorTaskStatusResult"/>
+		<fieldDefine name="RspQryNetMonitorTaskStatusResult" fid="0x8127" comment="��������״̬��" ref="RspQryNetMonitorTaskStatusResult"/>
+		<fieldDefine name="RtnNetMonitorTaskStatusResult" fid="0x8128" comment="��������״̬��" ref="RtnNetMonitorTaskStatusResult"/>
+		<fieldDefine name="ReqConfigLogin" fid="0x8129" comment="��½���÷���������" ref="ReqConfigLogin"/>
+		<fieldDefine name="RspQryConfigLogin" fid="0x8130" comment="�Ե�½���÷�����������Ӧ" ref="RspQryConfigLogin"/>
+		<fieldDefine name="RspServerType" fid="0x8131" comment="�Ե�ǰ��¼���õķ�����ɫ����Ӧ" ref="RspServerType"/>
+		<fieldDefine name="ReqSysServerExit" fid="0x8150" comment="�˳���������" ref="SysServerExit"/>
+		<fieldDefine name="ReqQryNetCfgFile" fid="0x8151" comment="�豸���ñ�" ref="ReqQryNetCfgFile"/>
+		<fieldDefine name="RspQryNetCfgFile" fid="0x8152" comment="�豸���ñ�" ref="RspQryNetCfgFile"/>
+		<fieldDefine name="RtnNetCfgFile" fid="0x8153" comment="�豸���ñ�" ref="RtnNetCfgFile"/>
+		<fieldDefine name="ReqQryNetMonitorDeviceTask" fid="0x8154" comment="������������������" ref="ReqQryNetMonitorDeviceTask"/>
+		<fieldDefine name="RspQryNetMonitorDeviceTask" fid="0x8155" comment="������������������" ref="RspQryNetMonitorDeviceTask"/>
+		<fieldDefine name="RtnNetMonitorDeviceTask" fid="0x8156" comment="������������������" ref="RtnNetMonitorDeviceTask"/>
+		<fieldDefine name="ReqQryNetMonitorTaskInstAttrs" fid="0x8157" comment="����ָ��ָ�꼯��" ref="ReqQryNetMonitorTaskInstAttrs"/>
+		<fieldDefine name="RspQryNetMonitorTaskInstAttrs" fid="0x8158" comment="����ָ��ָ�꼯��" ref="RspQryNetMonitorTaskInstAttrs"/>
+		<fieldDefine name="RtnNetMonitorTaskInstAttrs" fid="0x8159" comment="����ָ��ָ�꼯��" ref="RtnNetMonitorTaskInstAttrs"/>
+		<fieldDefine name="ReqQryFileGeneralOper" fid="0x8160" comment="�ļ�ͨ�ò���" ref="ReqQryFileGeneralOper"/>
+		<fieldDefine name="RspQryFileGeneralOper" fid="0x8161" comment="�ļ�ͨ�ò���" ref="RspQryFileGeneralOper"/>
+		<fieldDefine name="RtnFileGeneralOper" fid="0x8162" comment="�ļ�ͨ�ò���" ref="RtnFileGeneralOper"/>
+		<fieldDefine name="ReqQryNetBaseLine" fid="0x8163" comment="���߱�" ref="ReqQryNetBaseLine"/>
+		<fieldDefine name="RspQryNetBaseLine" fid="0x8164" comment="���߱�" ref="RspQryNetBaseLine"/>
+		<fieldDefine name="RtnNetBaseLine" fid="0x8165" comment="���߱�" ref="RtnNetBaseLine"/>
+		<fieldDefine name="ReqQryNetBaseLineTask" fid="0x8166" comment="����������" ref="ReqQryNetBaseLineTask"/>
+		<fieldDefine name="RspQryNetBaseLineTask" fid="0x8167" comment="����������" ref="RspQryNetBaseLineTask"/>
+		<fieldDefine name="RtnNetBaseLineTask" fid="0x8168" comment="����������" ref="RtnNetBaseLineTask"/>
+		<fieldDefine name="ReqQryNetBaseLineResult" fid="0x8169" comment="���߽�����" ref="ReqQryNetBaseLineResult"/>
+		<fieldDefine name="RspQryNetBaseLineResult" fid="0x8170" comment="���߽�����" ref="RspQryNetBaseLineResult"/>
+		<fieldDefine name="RtnNetBaseLineResult" fid="0x8171" comment="���߽�����" ref="RtnNetBaseLineResult"/>
+		<fieldDefine name="ReqQryNetPartyLinkStatusInfo" fid="0x8172" comment="��Ա��·״̬��Ϣ��" ref="ReqQryNetPartyLinkStatusInfo"/>
+		<fieldDefine name="RspQryNetPartyLinkStatusInfo" fid="0x8173" comment="��Ա��·״̬��Ϣ��" ref="RspQryNetPartyLinkStatusInfo"/>
+		<fieldDefine name="RtnNetPartyLinkStatusInfo" fid="0x8174" comment="��Ա��·״̬��Ϣ��" ref="RtnNetPartyLinkStatusInfo"/>
+
+		<fieldDefine name="ReqQryNetMemberSDHLineInfo" fid="0x8175" comment="��ԱSDH��·��ϸ��" ref="ReqQryNetMemberSDHLineInfo"/>
+		<fieldDefine name="RspQryNetMemberSDHLineInfo" fid="0x8176" comment="��ԱSDH��·��ϸ��" ref="RspQryNetMemberSDHLineInfo"/>
+		<fieldDefine name="RtnNetMemberSDHLineInfo" fid="0x8177" comment="��ԱSDH��·��ϸ��" ref="RtnNetMemberSDHLineInfo"/>
+		<fieldDefine name="ReqQryNetDDNLinkInfo" fid="0x8178" comment="DDN��·��Ϣ��" ref="ReqQryNetDDNLinkInfo"/>
+		<fieldDefine name="RspQryNetDDNLinkInfo" fid="0x8179" comment="DDN��·��Ϣ��" ref="RspQryNetDDNLinkInfo"/>
+		<fieldDefine name="RtnNetDDNLinkInfo" fid="0x817a" comment="DDN��·��Ϣ��" ref="RtnNetDDNLinkInfo"/>
+		<fieldDefine name="ReqQryNetPseudMemberLinkInfo" fid="0x817b" comment="�ǻ�Ա��·ʹ����Ϣ" ref="ReqQryNetPseudMemberLinkInfo"/>
+		<fieldDefine name="RspQryNetPseudMemberLinkInfo" fid="0x817c" comment="�ǻ�Ա��·ʹ����Ϣ" ref="RspQryNetPseudMemberLinkInfo"/>
+		<fieldDefine name="RtnNetPseudMemberLinkInfo" fid="0x817d" comment="�ǻ�Ա��·ʹ����Ϣ" ref="RtnNetPseudMemberLinkInfo"/>
+
+		<fieldDefine name="ReqQryOuterDeviceInf" fid="0x817e" comment="Զ���豸��Ϣ" ref="ReqQryOuterDeviceInf"/>
+		<fieldDefine name="RspQryOuterDeviceInf" fid="0x817f" comment="Զ���豸��Ϣ" ref="RspQryOuterDeviceInf"/>
+		<fieldDefine name="RtnNetOuterDeviceInf" fid="0x8180" comment="Զ���豸��Ϣ" ref="RtnNetOuterDeviceInf"/>
+
+		<fieldDefine name="ReqQryNetLocalPingResultInfo" fid="0x8181" comment="����ping����" ref="ReqQryNetLocalPingResultInfo"/>
+		<fieldDefine name="RspQryNetLocalPingResultInfo" fid="0x8182" comment="����ping����" ref="RspQryNetLocalPingResultInfo"/>
+		<fieldDefine name="RtnNetLocalPingResultInfo" fid="0x8183" comment="����ping����" ref="RtnNetLocalPingResultInfo"/>
+
+		<fieldDefine name="ReqQryNetRomotePingResultInfo" fid="0x8184" comment="Զ��ping����" ref="ReqQryNetRomotePingResultInfo"/>
+		<fieldDefine name="RspQryNetRomotePingResultInfo" fid="0x8185" comment="Զ��ping����" ref="RspQryNetRomotePingResultInfo"/>
+		<fieldDefine name="RtnNetRomotePingResultInfo" fid="0x8186" comment="Զ��ping����" ref="RtnNetRomotePingResultInfo"/>
+
+		<fieldDefine name="RtnMonitorTopProcessInfo" fid="0x8187" comment="" ref="MonitorTopProcessInfo"/>
+
+		<fieldDefine name="ReqQrySysInternalTopology" fid="0x8188" comment="ϵͳ�ڲ�������ϵ" ref="ReqQrySysInternalTopology"/>
+		<fieldDefine name="RspQrySysInternalTopology" fid="0x8189" comment="ϵͳ�ڲ�������ϵ" ref="RspQrySysInternalTopology"/>
+		<fieldDefine name="RtnSysInternalTopology" fid="0x8190" comment="ϵͳ�ڲ�������ϵ" ref="RtnSysInternalTopology"/>
+
+		<fieldDefine name="ReqQryMemberLinkCost" fid="0x8191" comment="������Ա��·���ñ�" ref="ReqQryMemberLinkCost"/>
+		<fieldDefine name="RspQryMemberLinkCost" fid="0x8192" comment="���ػ�Ա��·���ñ�" ref="RspQryMemberLinkCost"/>
+		<fieldDefine name="RtnMemberLinkCost" fid="0x8193" comment="���Ļ�Ա��·���ñ�" ref="RtnMemberLinkCost"/>
+
+		<fieldDefine name="ReqQryNetPartylinkMonthlyRent" fid="0x8194" comment="������Ա��·������" ref="ReqQryNetPartylinkMonthlyRent"/>
+		<fieldDefine name="RspQryNetPartylinkMonthlyRent" fid="0x8195" comment="���ػ�Ա��·������" ref="RspQryNetPartylinkMonthlyRent"/>
+		<fieldDefine name="RtnNetPartylinkMonthlyRent" fid="0x8196" comment="���Ļ�Ա��·������" ref="RtnNetPartylinkMonthlyRent"/>
+
+		<fieldDefine name="ReqQryNetNonPartyLinkInfo" fid="0x8197" comment="�����ǻ�Ա��·��Ϣ" ref="ReqQryNetNonPartyLinkInfo"/>
+		<fieldDefine name="RspQryNetNonPartyLinkInfo" fid="0x8198" comment="���طǻ�Ա��·��Ϣ" ref="RspQryNetNonPartyLinkInfo"/>
+		<fieldDefine name="RtnNetNonPartyLinkInfo" fid="0x8199" comment="���ķǻ�Ա��·��Ϣ" ref="RtnNetNonPartyLinkInfo"/>
+
+		<fieldDefine name="SysNetArea" fid="0x9001" comment="" ref="SysNetArea"/>
+		<fieldDefine name="SysNetSubArea" fid="0x9002" comment="" ref="SysNetSubArea"/>
+		<fieldDefine name="SysNetSubAreaIP" fid="0x9003" comment="" ref="SysNetSubAreaIP"/>
+		<fieldDefine name="SysNetDeviceType" fid="0x9004" comment="" ref="SysNetDeviceType"/>
+		<fieldDefine name="SysNetOID" fid="0x9005" comment="" ref="SysNetOID"/>
+		<fieldDefine name="SysNetTimePolicy" fid="0x9006" comment="" ref="SysNetTimePolicy"/>
+		<fieldDefine name="SysNetGatherTask" fid="0x9007" comment="" ref="SysNetGatherTask"/>
+		<fieldDefine name="SysNetDeviceCategory" fid="0x9008" comment="" ref="SysNetDeviceCategory"/>
+		<fieldDefine name="SysNetManufactory" fid="0x9009" comment="" ref="SysNetManufactory"/>
+		<fieldDefine name="SysNetCommunity" fid="0x9010" comment="" ref="SysNetCommunity"/>
+		<fieldDefine name="SysNetGeneralOID" fid="0x9011" comment="" ref="SysNetGeneralOID"/>
+		<fieldDefine name="SysNetDeviceLinked" fid="0x9012" comment="" ref="SysNetDeviceLinked"/>
+		<fieldDefine name="SysNetDevice" fid="0x9013" comment="" ref="SysNetDevice"/>
+		<fieldDefine name="SysNetInterface" fid="0x9014" comment="" ref="SysNetInterface"/>
+		<fieldDefine name="SysNetMonitorType" fid="0x9015" comment="" ref="SysNetMonitorType"/>
+		<fieldDefine name="SysNetMonitorAttrScope" fid="0x9016" comment="" ref="SysNetMonitorAttrScope"/>
+		<fieldDefine name="SysNetMonitorAttrType" fid="0x9017" comment="" ref="SysNetMonitorAttrType"/>
+		<fieldDefine name="SysNetMonitorObjectAttr" fid="0x9018" comment="" ref="SysNetMonitorObjectAttr"/>
+		<fieldDefine name="SysNetFuncArea" fid="0x9019" comment="" ref="SysNetFuncArea"/>
+		<fieldDefine name="SysNetMonitorCommandType" fid="0x9020" comment="" ref="SysNetMonitorCommandType"/>
+		<fieldDefine name="SysNetMonitorActionGroup" fid="0x9021" comment="" ref="SysNetMonitorActionGroup"/>
+		<fieldDefine name="SysNetMonitorDeviceGroup" fid="0x9022" comment="" ref="SysNetMonitorDeviceGroup"/>
+		<fieldDefine name="SysNetMonitorTaskInfo" fid="0x9023" comment="" ref="SysNetMonitorTaskInfo"/>
+		<fieldDefine name="SysNetDeviceChg" fid="0x9024" comment="" ref="SysNetDeviceChg"/>
+		<fieldDefine name="SysNetMonitorTaskResult" fid="0x9025" comment="" ref="SysNetMonitorTaskResult"/>
+		<fieldDefine name="SysNetMonitorTaskObjectSet" fid="0x9026" comment="" ref="SysNetMonitorTaskObjectSet"/>
+		<fieldDefine name="SysNetPartyLinkInfo" fid="0x9027" comment="" ref="SysNetPartyLinkInfo"/>
+		<fieldDefine name="SysNetMonitorActionAttr" fid="0x9028" comment="" ref="SysNetMonitorActionAttr"/>
+		<fieldDefine name="SysNetModule" fid="0x9029" comment="" ref="SysNetModule"/>
+		<fieldDefine name="SysNetEventExpr" fid="0x9031" comment="" ref="SysNetEventExpr"/>
+		<fieldDefine name="SysNetEventType" fid="0x9032" comment="" ref="SysNetEventType"/>
+		<fieldDefine name="SysNetSubEventType" fid="0x9033" comment="" ref="SysNetSubEventType"/>
+		<fieldDefine name="SysNetEventLevel" fid="0x9034" comment="" ref="SysNetEventLevel"/>
+		<fieldDefine name="SysNetMonitorDeviceTask" fid="0x9036" comment="" ref="SysNetMonitorDeviceTask"/>
+		<fieldDefine name="SysNetMonitorTaskInstAttrs" fid="0x9037" comment="" ref="SysNetMonitorTaskInstAttrs"/>
+		<fieldDefine name="SysNetBaseLine" fid="0x9038" comment="" ref="SysNetBaseLine"/>
+		<fieldDefine name="SysNetBaseLineTask" fid="0x9039" comment="" ref="SysNetBaseLineTask"/>
+		<fieldDefine name="SysNetBaseLineResult" fid="0x9040" comment="" ref="SysNetBaseLineResult"/>
+		<fieldDefine name="SysNetPartyLinkStatusInfo" fid="0x9041" comment="" ref="SysNetPartyLinkStatusInfo"/>
+
+		<fieldDefine name="SysNetMemberSDHLineInfo" fid="0x9042" comment="" ref="SysNetMemberSDHLineInfo"/>
+		<fieldDefine name="SysNetDDNLinkInfo" fid="0x9043" comment="" ref="SysNetDDNLinkInfo"/>
+		<fieldDefine name="SysNetPseudMemberLinkInfo" fid="0x9044" comment="" ref="SysNetPseudMemberLinkInfo"/>
+
+		<fieldDefine name="SysNetMonitorDeviceTask2" fid="0x9045" comment="" ref="SysNetMonitorDeviceTask2"/>
+
+		<fieldDefine name="SysNetOuterDeviceInfo" fid="0x9046" comment="" ref="SysNetOuterDeviceInfo"/>
+		<fieldDefine name="SysLocalPingResultInfo" fid="0x9047" comment="" ref="SysLocalPingResultInfo"/>
+		<fieldDefine name="SysRomotePingResultInfo" fid="0x9048" comment="" ref="SysRomotePingResultInfo"/>
+		<fieldDefine name="SysNetDelPartyLinkInfo" fid="0x9049" comment="" ref="SysNetDelPartyLinkInfo"/>
+		<fieldDefine name="SysNetPartyLinkAddrChange" fid="0x904a" comment="" ref="SysNetPartyLinkAddrChange"/>
+
+		<fieldDefine name="SysInternalTopology" fid="0x904b" comment="" ref="SysInternalTopology"/>
+		<fieldDefine name="SysMemberLinkCost" fid="0x904c" comment="" ref="SysMemberLinkCost"/>
+		<fieldDefine name="SysNetPartylinkMonthlyRent" fid="0x904d" comment="" ref="SysNetPartylinkMonthlyRent"/>
+		<fieldDefine name="SysNetNonPartyLinkInfo" fid="0x904e" comment="" ref="SysNetNonPartyLinkInfo"/>
+		<fieldDefine name="ReqFeedbackInfo" fid="0x904f" comment="" ref="ReqFeedbackInfo"/>
+		<fieldDefine name="RspFeedbackInfo" fid="0x9050" comment="" ref="RspFeedbackInfo"/>
+		<fieldDefine name="ReqUpdateCheck" fid="0x9051" comment="" ref="ReqUpdateCheck"/>
+		<fieldDefine name="RspUpdateCheck" fid="0x9052" comment="" ref="RspUpdateCheck"/>
+		<fieldDefine name="RtnTradeEvent" fid="0x9053" comment="�澯�¼�Ӧ����Ϣ" ref="RtnWarningEvent"/>
+		<fieldDefine name="RtnObjectAttrDigit" fid="0x9056" comment="" ref="RtnObjectAttrDigit"/>
+		<fieldDefine name="ReqTopicsInit"  fid="0x9059" comment="" ref="TopicsInit"/>
+		<fieldDefine name="RspTopicsInit"  fid="0x905a" comment="" ref="TopicsInit"/>
+		<fieldDefine name="RtnWarningEventDigit"  fid="0x905b" comment="" ref="RtnWarningEventDigit"/>
+		<fieldDefine name="ReqResourceSystem"  fid="0x905c" comment="" ref="ResourceInit"/>
+		<fieldDefine name="RspResourceSystem"  fid="0x905d" comment="" ref="ResourceSystem"/>
+		<fieldDefine name="ReqResourceObject"  fid="0x905e" comment="" ref="ResourceInit"/>
+		<fieldDefine name="RspResourceObject"  fid="0x905f" comment="" ref="ResourceObject"/>
+		<fieldDefine name="ReqResourceAttrType"  fid="0x9060" comment="" ref="ResourceInit"/>
+		<fieldDefine name="RspResourceAttrType"  fid="0x9061" comment="" ref="ResourceAttrType"/>
+		<fieldDefine name="RspObjectAttrDigit" fid="0x9062" comment="" ref="RspObjectAttrDigit"/>
+		<fieldDefine name="ReqUserLoginInternal" fid="0x9063" comment="�û���¼ϵͳ�ڲ�����" ref="ReqUserLoginInternal"/>
+		<fieldDefine name="RspUserLoginInternal" fid="0x9064" comment="�û���¼ϵͳ�ڲ�Ӧ��" ref="RspUserLoginInternal"/>
+		<fieldDefine name="ReqAddUser" fid="0x9065" comment="�����û�����" ref="ReqAddUser"/>
+		<fieldDefine name="RspAddUser" fid="0x9066" comment="�����û�Ӧ��" ref="RspAddUser"/>
+		<fieldDefine name="ReqDelUser" fid="0x9067" comment="ɾ���û�����" ref="ReqDelUser"/>
+		<fieldDefine name="RspDelUser" fid="0x9068" comment="ɾ���û�Ӧ��" ref="RspDelUser"/>
+		<fieldDefine name="ReqUpdateUser" fid="0x9069" comment="�����û�����" ref="ReqUpdateUser"/>
+		<fieldDefine name="RspUpdateUser" fid="0x906a" comment="�����û�Ӧ��" ref="RspUpdateUser"/>
+		<fieldDefine name="RtnClearLine" fid="0x906b" comment="�û�����" ref="RtnClearLine"/>
+		<fieldDefine name="RtnUserOnLine" fid="0x906c" comment="ͬ�������û�" ref="RtnUserOnLine"/>
+		<fieldDefine name="ReqGetUserList" fid="0x906d" comment="��ȡ�û��б�����" ref="ReqGetUserList"/>
+		<fieldDefine name="RspGetUserList" fid="0x906e" comment="��ȡ�û��б�Ӧ��" ref="RspGetUserList"/>
+		<fieldDefine name="ReqAddParticipant" fid="0x906f" comment="���ӻ�Ա����" ref="ReqAddParticipant"/>
+		<fieldDefine name="RspAddParticipant" fid="0x9070" comment="���ӻ�ԱӦ��" ref="RspAddParticipant"/>
+		<fieldDefine name="ReqDelParticipant" fid="0x9071" comment="ɾ����Ա����" ref="ReqDelParticipant"/>
+		<fieldDefine name="RspDelParticipant" fid="0x9072" comment="ɾ����ԱӦ��" ref="RspDelParticipant"/>
+		<fieldDefine name="ReqUpdateParticipant" fid="0x9073" comment="���»�Ա����" ref="ReqUpdateParticipant"/>
+		<fieldDefine name="RspUpdateParticipant" fid="0x9074" comment="���»�ԱӦ��" ref="RspUpdateParticipant"/>
+		<fieldDefine name="ReqGetPartList" fid="0x9075" comment="��ȡ��Ա�б�����" ref="ReqGetPartList"/>
+		<fieldDefine name="RspGetPartList" fid="0x9076" comment="��ȡ��Ա�б�Ӧ��" ref="RspGetPartList"/>
+		<fieldDefine name="RtnResourceInit"  fid="0x9077" comment="" ref="ResourceInit"/>
+		<fieldDefine name="RtnSyncTime"  fid="0x9078" comment="" ref="SyncTime"/>
+		<fieldDefine name="ReqTradeDay"  fid="0x9079" comment="" ref="TradeDayChange"/>
+		<fieldDefine name="RspTradeDay"  fid="0x907a" comment="" ref="TradeDayChange"/>
+		<fieldDefine name="RtnTradeDay"  fid="0x907b" comment="" ref="TradeDayChange"/>
+		<fieldDefine name="ReqNoTradeDay"  fid="0x907c" comment="" ref="NoTradeDay"/>
+		<fieldDefine name="RspNoTradeDay"  fid="0x907d" comment="" ref="NoTradeDay"/>
+		<fieldDefine name="ReqTradeSetion"  fid="0x907e" comment="" ref="TradeSetion"/>
+		<fieldDefine name="RspTradeSetion"  fid="0x907f" comment="" ref="TradeSetion"/>
+		<fieldDefine name="ReqQryObjectAttrDaily"  fid="0x9080" comment="" ref="ReqQryObjectAttrDaily"/>
+		<fieldDefine name="RspQryObjectAttrDaily"  fid="0x9081" comment="" ref="RspObjectAttrDigit"/>
+		<fieldDefine name="ReqResetUser" fid="0x9082" comment="�����û���Ϣ����" ref="ReqResetUser"/>
+		<fieldDefine name="RspResetUser" fid="0x9083" comment="�����û���ϢӦ��" ref="RspResetUser"/>
+		<fieldDefine name="RtnBrokerInfo"  fid="0x9084" comment="" ref="RtnBrokerInfo"/>
+		<fieldDefine name="ReqQryBrokerInfo"  fid="0x9085" comment="" ref="ReqQryBrokerInfo"/>
+		<fieldDefine name="RspQryBrokerInfo"  fid="0x9086" comment="" ref="RspQryBrokerInfo"/>
+		<fieldDefine name="RtnMonitorUserInfo"  fid="0x9087" comment="" ref="RtnMonitorUserInfo"/>
+		<fieldDefine name="ReqQryMonitorUserInfo"  fid="0x9088" comment="" ref="ReqQryMonitorUserInfo"/>
+		<fieldDefine name="RspQryMonitorUserInfo"  fid="0x9089" comment="" ref="RspQryMonitorUserInfo"/>
+		<fieldDefine name="RtnRoleInfo"  fid="0x908a" comment="" ref="RtnRoleInfo"/>
+		<fieldDefine name="ReqQryRoleInfo"  fid="0x908b" comment="" ref="ReqQryRoleInfo"/>
+		<fieldDefine name="RspQryRoleInfo"  fid="0x908c" comment="" ref="RspQryRoleInfo"/>
+		<fieldDefine name="RtnAttrInfo"  fid="0x908d" comment="" ref="RtnAttrInfo"/>
+		<fieldDefine name="ReqQryAttrInfo"  fid="0x908e" comment="" ref="ReqQryAttrInfo"/>
+		<fieldDefine name="RspQryAttrInfo"  fid="0x908f" comment="" ref="RspQryAttrInfo"/>
+		<fieldDefine name="RtnPrivilegeInfo"  fid="0x9090" comment="" ref="RtnPrivilegeInfo"/>
+		<fieldDefine name="ReqQryPrivilegeInfo"  fid="0x9091" comment="" ref="ReqQryPrivilegeInfo"/>
+		<fieldDefine name="RspQryPrivilegeInfo"  fid="0x9092" comment="" ref="RspQryPrivilegeInfo"/>
+		<fieldDefine name="RtnPrivilegeAttrInfo"  fid="0x9093" comment="" ref="RtnPrivilegeAttrInfo"/>
+		<fieldDefine name="ReqQryPrivilegeAttrInfo"  fid="0x9094" comment="" ref="ReqQryPrivilegeAttrInfo"/>
+		<fieldDefine name="RspQryPrivilegeAttrInfo"  fid="0x9095" comment="" ref="RspQryPrivilegeAttrInfo"/>
+		<fieldDefine name="RtnRolePrivilegeInfo"  fid="0x9096" comment="" ref="RtnRolePrivilegeInfo"/>
+		<fieldDefine name="ReqQryRolePrivilegeInfo"  fid="0x9097" comment="" ref="ReqQryRolePrivilegeInfo"/>
+		<fieldDefine name="RspQryRolePrivilegeInfo"  fid="0x9098" comment="" ref="RspQryRolePrivilegeInfo"/>
+		<fieldDefine name="RtnUserAttrInfo"  fid="0x9099" comment="" ref="RtnUserAttrInfo"/>
+		<fieldDefine name="ReqQryUserAttrInfo"  fid="0x909a" comment="" ref="ReqQryUserAttrInfo"/>
+		<fieldDefine name="RspQryUserAttrInfo"  fid="0x909b" comment="" ref="RspQryUserAttrInfo"/>
+		<fieldDefine name="SysBrokerInfo" fid="0x909c" comment="" ref="SysBrokerInfo"/>
+		<fieldDefine name="SysMonitorUserInfo" fid="0x909d" comment="" ref="SysMonitorUserInfo"/>
+		<fieldDefine name="SysRoleInfo" fid="0x909e" comment="" ref="SysRoleInfo"/>
+		<fieldDefine name="SysAttrInfo" fid="0x909f" comment="" ref="SysAttrInfo"/>
+		<fieldDefine name="SysPrivilegeInfo" fid="0x9100" comment="" ref="SysPrivilegeInfo"/>
+		<fieldDefine name="SysPrivilegeAttrInfo" fid="0x9101" comment="" ref="SysPrivilegeAttrInfo"/>
+		<fieldDefine name="SysRolePrivilegeInfo" fid="0x9102" comment="" ref="SysRolePrivilegeInfo"/>
+		<fieldDefine name="SysUserAttrInfo" fid="0x9103" comment="" ref="SysUserAttrInfo"/>
+		<!-- add by wang.yijian @2015/05/20 -->
+		<fieldDefine name="ReqQryUserAttrSubscribed"  fid="0x9104" comment="" ref="ReqQryUserAttrSubscribed"/>
+		<fieldDefine name="RspQryUserAttrSubscribed" fid="0x9105" comment="" ref="RspQryUserAttrSubscribed"/>
+		<fieldDefine name="ReqSubscribeAttr" fid="0x9106" comment="" ref="ReqSubscribeAttr"/>
+		<fieldDefine name="RspSubscribeAttr" fid="0x9107" comment="" ref="RspSubscribeAttr"/>
+		<fieldDefine name="ReqUnSubscribeAttr" fid="0x9108" comment="" ref="ReqUnSubscribeAttr"/>
+		<fieldDefine name="RspUnSubscribeAttr" fid="0x9109" comment="" ref="RspUnSubscribeAttr"/>
+		<!-- end of add by wang.yijian @2015/05/20 -->
+		<fieldDefine name="SysMaxBusinessIndicator" fid="0x910a" comment="" ref="SysMaxBusinessIndicator"/>
+		<fieldDefine name="RtnMaxBusinessIndicator"  fid="0x910b" comment="" ref="RtnMaxBusinessIndicator"/>
+		<fieldDefine name="ReqQryMaxBusinessIndicator"  fid="0x910c" comment="" ref="ReqQryMaxBusinessIndicator"/>
+		<fieldDefine name="RspQryMaxBusinessIndicator"  fid="0x910d" comment="" ref="RspQryMaxBusinessIndicator"/>
+		<!--netmonitor fields end-->
+		<fieldDefine name="FIBInfo" fid="0x910e" comment="FIB��Ϣ" ref="FIBInfo"/>
+		<fieldDefine name="OrderDelayInfo" fid="0x910f" comment="������ʱ��Ϣ" ref="OrderDelayInfo"/>
+		<fieldDefine name="OrderInsertInfo" fid="0x9110" comment="����������Ϣ" ref="OrderInsertInfo"/>
+		<fieldDefine name="OrderActionInfo" fid="0x9111" comment="����������Ϣ" ref="OrderActionInfo"/>
+		<fieldDefine name="InvalidateOrderInfo" fid="0x9112" comment="��Ч������Ϣ" ref="InvalidateOrderInfo"/>
+		<fieldDefine name="BargainOrderInfo" fid="0x9113" comment="�����ɽ���Ϣ" ref="BargainOrderInfo"/>
+		<fieldDefine name="OrderStatusInfo" fid="0x9114" comment="����״̬��Ϣ" ref="OrderStatusInfo"/>
+		<fieldDefine name="RtnOrderDelayInfo" fid="0x9115" comment="������ʱ��Ϣ" ref="RtnOrderDelayInfo"/>
+		<fieldDefine name="RtnOrderInsertInfo" fid="0x9116" comment="����������Ϣ" ref="RtnOrderInsertInfo"/>
+		<fieldDefine name="RtnOrderActionInfo" fid="0x9117" comment="����������Ϣ" ref="RtnOrderActionInfo"/>
+		<fieldDefine name="RtnInvalidOrderInfo" fid="0x9118" comment="��Ч������Ϣ" ref="RtnInvalidOrderInfo"/>
+		<fieldDefine name="RtnBargainOrderInfo" fid="0x9119" comment="�����ɽ���Ϣ" ref="RtnBargainOrderInfo"/>
+		<fieldDefine name="RtnOrderStatusInfo" fid="0x911a" comment="����״̬��Ϣ" ref="RtnOrderStatusInfo"/>
+		<fieldDefine name="RtnFIBInfo" fid="0x911b" comment="FIB��Ϣ" ref="RtnFIBInfo"/>
+		<fieldDefine name="RspQryHostEnv" fid="0x911c" comment="����������Ϣ��ѯ��Ӧ" ref="RspQryHostEnv"/>
+		<fieldDefine name="RtnHostEnv" fid="0x911d" comment="����������Ϣ��ѯ����" ref="RtnHostEnv"/>
+		<fieldDefine name="ReqQryInvalidOrderInfo" fid="0x911e" comment="������ѯ" ref="ReqQryInvalidOrderInfo"/>
+		<fieldDefine name="ReqQryOrderActionInfo" fid="0x911f" comment="������ѯ" ref="ReqQryOrderActionInfo"/>
+		<fieldDefine name="RspInvalidOrderInfo" fid="0x9120" comment="������Ӧ" ref="RspInvalidOrderInfo"/>
+		<fieldDefine name="RspOrderActionInfo" fid="0x9121" comment="������Ӧ" ref="RspOrderActionInfo"/>
+		<fieldDefine name="RtnInvestorLoginInfo" fid="0x9122" comment="Ͷ���ߵ�¼CTP��Ӧ" ref="RtnInvestorLoginInfo"/>
+		<fieldDefine name="RtnInvestorLogoutallInfo" fid="0x9123" comment="Ͷ���ߵǳ�CTP��Ӧ" ref="RtnInvestorLogoutallInfo"/>
+		<fieldDefine name="ReqQryOrderWarningConditionInfo" fid="0x9124" comment="�޸ı����澯��������" ref="ReqQryOrderWarningCondition"/>
+		<fieldDefine name="RspOrderWarningConditionInfo" fid="0x9125" comment="�޸ı�������������Ӧ" ref="RspOrderWarningCondition"/>
+		<fieldDefine name="RtnOrderRefInfo" fid="0x9126" comment="����������Ϣ" ref="RtnOrderRefInfo"/>
+		<fieldDefine name="RtnInvalidOrderRefInfo" fid="0x9127" comment="���󱨵�������Ϣ" ref="RtnInvalidOrderRefInfo"/>
+		<fieldDefine name="RtnUserAuthenInfo" fid="0x9128" comment="�ͻ�����֤��Ϣ" ref="RtnUserAuthenInfo"/>
+		<fieldDefine name="ReqUserAuthenInfo" fid="0x9129" comment="�û���¼�ͻ�����֤��ѯ" ref="ReqUserAuthenInfo"/>
+		<fieldDefine name="RspUserAuthenticateInfo" fid="0x912a" comment="�û���¼�ͻ�����֤��Ϣ" ref="RspUserAuthenticateInfo"/>
+		<fieldDefine name="SyslogInfo" fid="0x912b" comment="��־�ļ�����" ref="SyslogInfo"/>
+		<fieldDefine name="RtnFlowOrderDelayInfo" fid="0x912c" comment="�����ӳ�������Ϣ">
+			<item name="SysName" type="SysName" description="���׵Ĵ����ӻ�Աϵͳ��"/>
+			<item name="SecondNum" type="SecondNum" description="Unix Time������"/>
+			<item name="OrderCount" type="OrderCount" description="һ���ڱ�����"/>
+			<item name="AverDelay"  type="AttrValue" description="һ���ڱ���ƽ���ӳٺ�����"/>
+			<item name="MinDelay" type="AttrValue" description="һ������С�ӳ�"/>
+		</fieldDefine>
+		<fieldDefine name="ReqFlowOrderInfo" fid="0x912d" ref="ReqFlowOrderInfo"/>
+		<fieldDefine name="OfferChangeWarningInfo" fid="0x912e" ref="OfferChangeWarningInfo"/>
+		<fieldDefine name="ReqHistoryOrderDelayInfo" fid="0x912f" ref="ReqHistoryOrderDelayInfo"/>
+		<fieldDefine name="RspHistoryOrderDelayInfo" fid="0x9130" ref="RspHistoryOrderDelayInfo"/>
+		<fieldDefine name="RtnFlowOrderDetailDelayInfo" fid="0x9131" ref="RtnFlowOrderDetailDelayInfo"/>
+		<fieldDefine name="RtnTradingDay" fid="0x9132" ref="RtnTradingDay"/>
+		<fieldDefine name="MdOfferChangeWarningInfo" fid="0x9133" ref="MdOfferChangeWarningInfo"/>
+		<fieldDefine name="ReqUnknownOrderInfo" fid="0x9134" ref="ReqUnknownOrderInfo"/>
+		<fieldDefine name="RspUnknownOrderInfo" fid="0x9135" ref="RspUnknownOrderInfo"/>
+		<fieldDefine name="ReqHostLists" fid="0x9136" ref="ReqHostLists"/>
+		<fieldDefine name="ReqHardWareInfo" fid="0x9137" ref="ReqHardWareInfo"/>
+		<fieldDefine name="RspHostLists" fid="0x9138" ref="RspHostLists"/>
+		<fieldDefine name="ReqSystemCheckStatus" fid="0x9139" ref="ReqSystemCheckStatus"/>
+		<fieldDefine name="RspSystemCheckStatus" fid="0x913a" ref="RspSystemCheckStatus"/>
+		<fieldDefine name="RtnHostApps" fid="0x913b" ref="RtnHostApps" comment="������CTP����ӳ����ϵ"/>
+		<fieldDefine name="ReqHardWareThreshold" fid="0x913c" ref="ReqHardWareThreshold" comment="Ӳ��������ֵ��������ȡ"/>
+		<fieldDefine name="RspHardWareThreshold" fid="0x913d" ref="RspHardWareThreshold" comment="Ӳ��������ֵ��������ȡ"/>
+		<fieldDefine name="ReqAppLists" fid="0x913e" ref="ReqAppLists" comment="����CTP������Ϣ"/>
+		<fieldDefine name="RspAppLists" fid="0x913f" ref="RspAppLists" comment="Ӧ��CTP������Ϣ"/>
+		<fieldDefine name="RtnHardwareIndicator" fid="0x9140" ref="RtnHardwareIndicator" comment="Ӳ��ָ��"/>
+		<fieldDefine name="ReqIndicator" fid="0x9141" ref="ReqIndicator" comment="����ObjectId����ָ����Ϣ"/>
+		<fieldDefine name="RspIndicator" fid="0x9142" ref="RspIndicator" comment="����ObjectId��ȡָ����Ϣ"/>
+		<fieldDefine name="ReqQryObjectAttrPeak" fid="0x9143" ref="ReqQryObjectAttrPeak" comment="��ѯָ����ֵ����"/>
+		<fieldDefine name="RspQryObjectAttrPeak" fid="0x9144" ref="RspQryObjectAttrPeak" comment="��ѯָ����ֵӦ��"/>
+		<fieldDefine name="RtnMdUnconnected" fid="0x9145" ref="RtnMdUnconnected" comment="����ͨ�����ܲ�ͨ"/>
+		<fieldDefine name="ReqSystemConfig" fid="0x9146" ref="ReqSystemConfig" comment="������ȡSystemConfig�ļ�"/>
+		<fieldDefine name="RspSystemConfig" fid="0x9147" ref="RspSystemConfig" comment="Ӧ����ȡSystemConfig�ļ�"/>
+		<fieldDefine name="RtnFirstTradeInfo" fid="0x9148" ref="RtnFirstTradeInfo" comment="�ױʳɽ���Ϣ"/>
+		<fieldDefine name="RtnNewObjectIDAttr" fid="0x9149" ref="RtnNewObjectIDAttr" comment="����һ��ָ��"/>
+		<fieldDefine name="RtnNewScript" fid="0x914a" ref="RtnNewScript" comment="ʵʱ����һ���ű�"/>
+		<fieldDefine name="ReqConcreteExpression" fid="0x914b" ref="ReqConcreteExpression" comment="����objectid��ָ����ѯ����ʽ��Ϣ"/>
+		<fieldDefine name="RspConcreteExpression" fid="0x914c" ref="RspConcreteExpression" comment="���ؾ�������ʽ��Ϣ"/>
+		<fieldDefine name="ReqModifyConcreteExpression" fid="0x914d" ref="ReqModifyConcreteExpression" comment="���ر���ʽ�޸���Ϣ"/>
+		<fieldDefine name="ReqTraderIDs" fid="0x914e" ref="ReqTraderIDs" comment="sysflow��syskernel��ȡϯλ��"/>
+		<fieldDefine name="RspTraderIDs" fid="0x914f" ref="RspTraderIDs" comment="syskernelӦ����ȡϯλ��"/>
+		<fieldDefine name="ReqAttrDynamicThreshold" fid="0x9150" ref="ReqAttrDynamicThreshold" comment="ָ�궯̬��ֵ��������"/>
+		<fieldDefine name="RspAttrDynamicThreshold" fid="0x9151" ref="RspAttrDynamicThreshold" comment="ָ�궯̬��ֵ����Ӧ��"/>
+		<fieldDefine name="ReqWarningExprList" fid="0x9152" ref="ReqWarningExprList" comment="�澯����ʽ�б�����"/>
+		<fieldDefine name="RspWarningExprList" fid="0x9153" ref="WarningExpr" comment="���ظ澯����ʽ�б�"/>
+		<fieldDefine name="ReqModifyExpr" fid="0x9154" ref="WarningExpr" comment="�����޸ĸ澯����ʽ"/>
+		<fieldDefine name="RtnOrderSizeStat" fid="0x9155" ref="RtnOrderSizeStat" comment="����ͳ�Ʊ�����"/>
+		<fieldDefine name="RtnTradeSizeStat" fid="0x9156" ref="RtnTradeSizeStat" comment="����ͳ�Ƴɽ���"/>
+		<fieldDefine name="ReqOrderSizeInTimeInteval" fid="0x9157" ref="ReqOrderSizeInTimeInteval" comment="����ʱ�������ڱ���������"/>
+		<fieldDefine name="ReqTradeSizeInTimeInteval" fid="0x9158" ref="ReqTradeSizeInTimeInteval" comment="����ʱ�������ڳɽ�������"/>
+		<fieldDefine name="RspOrderSizeInTimeInteval" fid="0x9159" ref="RspOrderSizeInTimeInteval" comment="Ӧ��ʱ�������ڱ���������"/>
+		<fieldDefine name="RspTradeSizeInTimeInteval" fid="0x915a" ref="RspTradeSizeInTimeInteval" comment="Ӧ��ʱ�������ڳɽ�������"/>
+		<fieldDefine name="ReqYinQiTradeError" fid="0x915b" ref="ReqYinQiTradeError" comment="��ѯ����ת�˴���"/>
+	</fields>
+	<entities/>
+	<types/>
+</FTD>
