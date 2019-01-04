@@ -100,8 +100,9 @@ function startRenderer () {
 //主进程启动过程
 function startMain () {
   return new Promise((resolve, reject) => {
-    mainConfig.entry.main = [path.join(__dirname, '../src/main/index.dev.js')].concat(mainConfig.entry.main)
-    mainConfig.mode = 'development'
+      // main进程的配置文件为/src/main/index.js，在这里为开发环境额外添加 index.dev.js 的配置文件，作用是为主进程安装vue的开发工具
+      mainConfig.entry.main = [path.join(__dirname, '../src/main/index.dev.js')].concat(mainConfig.entry.main)
+      mainConfig.mode = 'development'
       //创建主进程的webpack
       const compiler = webpack(mainConfig)
 
