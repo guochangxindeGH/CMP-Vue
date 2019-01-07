@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2b03201-de16-40de-9736-82d98e375a9b" name="Default Changelist" comment="# dev-runner.js中开启主进程,调用main/indev.dev.js">
-      <change beforePath="$PROJECT_DIR$/.electron-vue/dev-runner.js" beforeDir="false" afterPath="$PROJECT_DIR$/.electron-vue/dev-runner.js" afterDir="false" />
+    <list default="true" id="d2b03201-de16-40de-9736-82d98e375a9b" name="Default Changelist" comment="# dev-runner.js中额外添加packageEntry配置入口，">
+      <change beforePath="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/index.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,52 +18,52 @@
     <session id="1522341164">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="ejs" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="43" />
-          <entry key="json" value="6" />
-          <entry key="ts" value="3" />
+          <entry key="js" value="50" />
+          <entry key="json" value="7" />
+          <entry key="ts" value="4" />
           <entry key="vue" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="EJS" value="1" />
-          <entry key="JSON" value="6" />
-          <entry key="JavaScript" value="43" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="50" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="TypeScript" value="3" />
+          <entry key="TypeScript" value="4" />
           <entry key="Vue.js" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="332" />
+          <entry key="js" value="335" />
           <entry key="json" value="1" />
-          <entry key="txt" value="386" />
+          <entry key="txt" value="490" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="332" />
-          <entry key="PLAIN_TEXT" value="386" />
+          <entry key="JavaScript" value="335" />
+          <entry key="PLAIN_TEXT" value="490" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -76,29 +73,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.electron-vue/dev-runner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/packageProcessor/packageProcessor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            <state relative-caret-position="155">
+              <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/packageProcessor/packageProcessor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/index.js">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -106,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -131,6 +134,7 @@
       <find>3721</find>
       <find>dbPro</find>
       <find>dist/web</find>
+      <find>packageEntry</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -146,10 +150,10 @@
         <option value="$PROJECT_DIR$/.electron-vue/webpack.main.config.js" />
         <option value="$PROJECT_DIR$/.electron-vue/build.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" />
-        <option value="$PROJECT_DIR$/.electron-vue/dev-runner.js" />
         <option value="$PROJECT_DIR$/src/main/index.dev.js" />
         <option value="$PROJECT_DIR$/src/main/index.js" />
+        <option value="$PROJECT_DIR$/.electron-vue/dev-runner.js" />
+        <option value="$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js" />
       </list>
     </option>
   </component>
@@ -168,9 +172,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="169" />
-    <option name="y" value="26" />
-    <option name="width" value="1336" />
+    <option name="x" value="288" />
+    <option name="y" value="23" />
+    <option name="width" value="1273" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -294,6 +298,13 @@
               <item name="cmp-electron-vue" type="b2602c69:ProjectViewProjectNode" />
               <item name="cmp-electron-vue" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="packageProcessor" type="462c0819:PsiDirectoryNode" />
+              <item name="xmlconvert" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cmp-electron-vue" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cmp-electron-vue" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="renderer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -392,7 +403,8 @@
       <workItem from="1545878261698" duration="6757000" />
       <workItem from="1545903007338" duration="41000" />
       <workItem from="1545903063084" duration="7068000" />
-      <workItem from="1546417563440" duration="14946000" />
+      <workItem from="1546417563440" duration="15193000" />
+      <workItem from="1546840503773" duration="3985000" />
     </task>
     <task id="LOCAL-00001" summary="# running seccess!">
       <created>1545901467107</created>
@@ -436,11 +448,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546508445644</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="# dev-runner.js中开启主进程,调用src/main/indev.dev.js，在src/main/index.js中开启electron入口窗口 &#10;# 引入electron-Log 插件，进行渲染进程中的日志调试">
+      <created>1546592430960</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1546592430960</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30825000" />
+    <option name="totallyTimeSpent" value="35057000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -452,10 +471,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="169" y="26" width="1336" height="877" extended-state="0" />
-    <editor active="true" />
+    <frame x="390" y="23" width="1273" height="877" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24942966" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24361022" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -468,8 +486,8 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32893" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5019815" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49885932" visible="true" weight="0.3490446" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5019108" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49885932" visible="true" weight="0.35031846" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5011407" side_tool="true" weight="0.52047557" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -516,7 +534,8 @@
     <MESSAGE value="# 页面元素渲染入口分析： src/renderer/main.js   src/index.ejs   router/index.js" />
     <MESSAGE value="# 页面元素渲染入口分析： src/renderer/main.js   src/index.ejs   router/index.js&#10;# 添加dbProcessor.js文件及数据库nedb（NeDB 可以只用作内存数据库，也可以进行数据持久化，你可以把 NeDB 理解为 MongoDB 版的 SQLite）" />
     <MESSAGE value="# 在dev-runner中 创建webpackDevServer对象，然后连接服务器，如果获得告警信息，则存入下面内存数据库&#10;# 在dev-runner中开启dbProcessor线程，将告警信息存入内存数据库" />
-    <option name="LAST_COMMIT_MESSAGE" value="# 在dev-runner中 创建webpackDevServer对象，然后连接服务器，如果获得告警信息，则存入下面内存数据库&#10;# 在dev-runner中开启dbProcessor线程，将告警信息存入内存数据库" />
+    <MESSAGE value="# dev-runner.js中开启主进程,调用src/main/indev.dev.js，在src/main/index.js中开启electron入口窗口 &#10;# 引入electron-Log 插件，进行渲染进程中的日志调试" />
+    <option name="LAST_COMMIT_MESSAGE" value="# dev-runner.js中开启主进程,调用src/main/indev.dev.js，在src/main/index.js中开启electron入口窗口 &#10;# 引入electron-Log 插件，进行渲染进程中的日志调试" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -539,13 +558,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_webpack-hot-middleware@2.24.3@webpack-hot-middleware/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.electron-vue/webpack.main.config.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -572,34 +585,16 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/store/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/store/modules/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_express@4.16.4@express/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_body-parser@1.18.3@body-parser/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/renderer/components/LandingPage/SystemInformation.vue">
       <provider selected="true" editor-type-id="text-editor">
@@ -619,9 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -635,11 +627,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/packageProcessor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packageProcessor.js" />
     <entry file="file://$PROJECT_DIR$/src/packageProcessor/ftd/ftdReader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -647,20 +635,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/packageProcessor/ftd/ftdFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dbProcessor/dbProcessor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1245">
           <caret line="83" column="11" lean-forward="true" selection-start-line="83" selection-start-column="11" selection-end-line="83" selection-end-column="11" />
-          <folding>
-            <element signature="e#51#80#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/_querystring@0.2.0@querystring/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -695,16 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -720,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.electron-vue/dev-runner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="9" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/index.dev.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -734,20 +688,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/packageProcessor/packageProcessor.js">
+    <entry file="file://$PROJECT_DIR$/src/main/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state relative-caret-position="175">
+          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/index.js">
+    <entry file="file://$PROJECT_DIR$/src/renderer/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.electron-vue/dev-runner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.electron-vue/webpack.renderer.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/_iconv-lite@0.4.24@iconv-lite/lib/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/_clone@1.0.4@clone/clone.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packageProcessor/ftd/ftdFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packageProcessor/xmlconvert/packages.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packageProcessor/xmlconvert/info.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="33" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/packageProcessor/packageProcessor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -132,6 +132,19 @@ let rendererConfig = {
         ? path.resolve(__dirname, '../node_modules')
         : false
       }),
+      new HtmlWebpackPlugin({
+          filename: 'packageEntry.html',
+          template: path.resolve(__dirname, '../src/index.ejs'),
+          chunks: ['packageEntry'],
+          minify: {
+              collapseWhitespace: true,
+              removeAttributeQuotes: true,
+              removeComments: true
+          },
+          nodeModules: process.env.NODE_ENV !== 'production'
+              ? path.resolve(__dirname, '../node_modules')
+              : false
+      }),
       //热更新模块
       new webpack.HotModuleReplacementPlugin(),
       //在编译出现错误时，使用 NoEmitOnErrorsPlugin 来跳过输出阶段
