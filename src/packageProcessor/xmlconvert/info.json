@@ -724,5 +724,15 @@
     "0002005e":"RspOrderSizeInTimeInteval",
     "0002005f":"RspTradeSizeInTimeInteval",
     "00018050": "RtnYinQiTradeError",
-    "00020060": "ReqYinQiTradeError"
+    "00020060": "ReqYinQiTradeError",
+    "00020061":"RspOrderCanceledInfo",
+    "00020062":"ReqQryOrderCanceledInfo",
+    "00020065": "RspQryLoginInfo",
+    "00020066": "ReqQryLoginInfo",
+    "00020067": "ReqQryComponentEvent",
+    "00020068": "RspQryComponentEvent",
+    "00020069": "RtnComponentEvent",
+    "0002006a": "RtnAgentInfo",
+    "0002006b": "ReqAgentInfo",
+    "0002006c": "RspAgentInfo"
 }
