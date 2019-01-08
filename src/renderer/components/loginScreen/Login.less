@@ -1,0 +1,89 @@
+@textColor: white;
+@secondTextColor: grey;
+
+// 水平居中
+.horizontalCenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html, body, * {
+  height: 100%;
+  margin: 0;
+  padding: 0
+}
+
+#rootLayout {
+  // 隐藏滚动条
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.titleBar {
+  width: 100%;
+  height: 22px;
+  background-color: rgb(24, 1, 83);
+  -webkit-app-region: drag;
+
+  .closeBtn {
+    float: right;
+    width: 12px;
+    height: 12px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
+    background-color: #f66;
+    padding-top: 2px;
+    text-align: center;
+    font-size: 8pt;
+    -webkit-app-region: no-drag;
+
+    :hover {
+    }
+  }
+}
+
+.contentLayout {
+  padding-top: 22px;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 20px;
+  bottom: 0px;
+  margin-bottom: 0px;
+  background-image: url('~dirRes/images/login_bg.png');
+}
+
+h2 {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  color: @textColor;
+  margin-top: 30px;
+  text-align: center;
+  font-family: 微软雅黑, Arial;
+  text-align: center;
+}
+
+.formLayout {
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  .form {
+    width: 70%;
+    height: auto;
+    .horizontalCenter
+  }
+}
+
+.copyRight {
+  height: auto;
+  text-align: center;
+  color: @secondTextColor;
+}
+
+.loginBtn {
+  float: right;
+}
