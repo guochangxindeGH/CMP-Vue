@@ -130,7 +130,8 @@ let rendererConfig = {
       new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/index.ejs'),
-      minify: {
+          chunks: ['renderer'],
+          minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
         removeComments: true
@@ -169,7 +170,7 @@ let rendererConfig = {
         //精确指定vue特指vue.esm.js文件
         'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.vue', '.json', '.css', '.node']
+    extensions: ['.js', '.vue', '.json', '.css', '.node', '.less']
   },
     //指定编译为 Electron 渲染进程
     target: 'electron-renderer'
