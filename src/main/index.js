@@ -130,7 +130,7 @@ function createWindow () {
     })
 
     mainWindow.loadURL(winURL)
-    // mainWindow.webContents.closeDevTools()
+    mainWindow.webContents.closeDevTools()
 
     mainWindow.on('closed', () => {
         mainWindow = null
@@ -147,7 +147,7 @@ function createPackageProcessorWindow() {
     });
 
     packageProcessorWindow.loadURL(packageProcessorUrl);
-    // packageProcessorWindow.webContents.closeDevTools();
+    packageProcessorWindow.webContents.closeDevTools();
 
     packageProcessorWindow.on('closed', () => {
         packageProcessorWindow = null;

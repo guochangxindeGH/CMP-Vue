@@ -47,6 +47,7 @@ let rendererConfig = {
               loader: 'sass-resources-loader',
               options: {
                   resources: [
+                      // 将全局的less样式注入到每个页面中
                       path.resolve(__dirname, '../src/renderer/style/global.less')
                   ]
               }
