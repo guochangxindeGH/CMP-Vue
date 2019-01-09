@@ -71,6 +71,7 @@ function createWindows() {
     createDatabaseThread();
 }
 
+//处理消息数据
 function handleMessage() {
     ipcMain.on('sendPackStepA', (event, arg) => {
         //此处接收由显示用进程发送来的订阅或查询接口,转发给数据处理进程
@@ -158,7 +159,7 @@ function createDatabaseThread() {
 }
 
 
-app.on('ready', createWindow)
+app.on('ready', onMainProcessReady)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -168,10 +169,13 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (mainWindow === null) {
-    createWindow()
+      onMainProcessReady()
   }
 })
 
+app.on('quit', () => {
+    dbProcess.kill();
+});
 /**
  * Auto Updater
  *

@@ -36653,6 +36653,415 @@ let packages = {
                 }]
             }
         }];
+    },
+    RspOrderCanceledInfo: function() {
+        return [{
+            "name": "RspOrderCanceledInfo",
+            "tid": "0x00020061",
+            "comment": "撤单信息",
+            "field": {
+                "name": "RspOrderCanceledInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x915d",
+                "ref": "RspOrderCanceledInfo",
+                "comment": "响应撤单信息",
+                "define": [{
+                    "typename": "Name",
+                    "label": "系统名称",
+                    "length": "32",
+                    "datatype": "string",
+                    "name": "SysName"
+                }, {
+                    "typename": "Date",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "TradeDayIndex"
+                }, {
+                    "typename": "BrokerID",
+                    "length": "10",
+                    "datatype": "string",
+                    "name": "BrokerID"
+                }, {
+                    "typename": "InvestorID",
+                    "length": "12",
+                    "datatype": "string",
+                    "name": "InvestorID"
+                }, {
+                    "typename": "InstrumentID",
+                    "length": "30",
+                    "datatype": "string",
+                    "name": "InstrumentID"
+                }, {
+                    "typename": "OrderRef",
+                    "length": "12",
+                    "datatype": "string",
+                    "name": "OrderRef"
+                }, {
+                    "typename": "UserID",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "UserID"
+                }, {
+                    "typename": "IPAddress",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "IPAddress"
+                }, {
+                    "typename": "ExchangeID",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "ExchangeID"
+                }, {
+                    "typename": "Date",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "InsertDate"
+                }, {
+                    "typename": "Time",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "InsertTime"
+                }, {
+                    "typename": "Time",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "CancelTime"
+                }, {
+                    "typename": "TraderID",
+                    "length": "20",
+                    "datatype": "string",
+                    "name": "TraderID"
+                }, {
+                    "typename": "SessionID",
+                    "length": "10",
+                    "datatype": "int",
+                    "name": "SessionID"
+                }, {
+                    "typename": "ProductInfo",
+                    "length": "10",
+                    "datatype": "string",
+                    "name": "UserProductInfo"
+                }, {
+                    "typename": "OrderLocalID",
+                    "length": "12",
+                    "datatype": "string",
+                    "name": "OrderLocalID"
+                }, {
+                    "typename": "ParticipantID",
+                    "length": "10",
+                    "label": "会员代码",
+                    "datatype": "string",
+                    "name": "ParticipantID"
+                }, {
+                    "typename": "FrontID",
+                    "length": "6",
+                    "label": "前置编号",
+                    "datatype": "int",
+                    "name": "FrontID"
+                }, {
+                    "typename": "Volume",
+                    "length": "10",
+                    "label": "当前页号",
+                    "datatype": "int",
+                    "name": "curPageIndex"
+                }, {
+                    "typename": "Volume",
+                    "length": "10",
+                    "label": "总页数",
+                    "datatype": "int",
+                    "name": "TotalPage"
+                }]
+            }
+        }];
+    },ReqQryOrderCanceledInfo: function() {
+        return [{
+            "name": "ReqQryOrderCanceledInfo",
+            "tid": "0x00020062",
+            "comment": "查询撤单信息",
+            "field": {
+                "name": "ReqQryOrderCanceledInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x915e",
+                "comment": "撤单查询",
+                "ref": "ReqQryOrderCanceledInfo",
+                "define": [{
+                    "typename": "Volume",
+                    "length": "10",
+                    "label": "操作类型",
+                    "datatype": "int",
+                    "name": "OperationType"
+                }, {
+                    "typename": "Volume",
+                    "length": "10",
+                    "label": "当前页号",
+                    "datatype": "int",
+                    "name": "curPageIndex"
+                }, {
+                    "typename": "Volume",
+                    "length": "10",
+                    "label": "每页记录数",
+                    "datatype": "int",
+                    "name": "CountPerPage"
+                }, {
+                    "typename": "Time",
+                    "length": "8",
+                    "label": "插入日期",
+                    "datatype": "string",
+                    "name": "StartTime"
+                }, {
+                    "typename": "Time",
+                    "length": "8",
+                    "label": "插入时间",
+                    "datatype": "string",
+                    "name": "EndTime"
+                }, {
+                    "typename": "BrokerID",
+                    "label": "会员代码",
+                    "length": "10",
+                    "datatype": "string",
+                    "name": "BrokerID"
+                }, {
+                    "typename": "InvestorID",
+                    "label": "交易用户代码",
+                    "length": "12",
+                    "datatype": "string",
+                    "name": "InvestorID"
+                }]
+            }
+        }];
+    },
+    RspQryLoginInfo: function() {
+        return [{
+            "name": "RspQryLoginInfo",
+            "tid": "0x00020065",
+            "comment": "登录信息汇总",
+            "field": {
+                "name": "RspQryLoginInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x9160",
+                "ref": "RspQryLoginInfo",
+                "comment": "登录信息汇总",
+                "define": [{
+                    "typename": "FrontID",
+                    "length": "6",
+                    "label": "前置编号",
+                    "datatype": "int",
+                    "name": "FrontID"
+                }, {
+                    "typename": "SessionID",
+                    "length": "10",
+                    "label": "会话编号",
+                    "datatype": "int",
+                    "name": "SessionID"
+                }, {
+                    "typename": "BrokerID",
+                    "label": "经纪公司代码",
+                    "length": "10",
+                    "datatype": "string",
+                    "name": "BrokerID"
+                }, {
+                    "typename": "UserID",
+                    "length": "15",
+                    "label": "用户代码",
+                    "datatype": "string",
+                    "name": "UserID"
+                }, {
+                    "typename": "Date",
+                    "length": "8",
+                    "label": "登录日期",
+                    "datatype": "string",
+                    "name": "LoginDate"
+                }, {
+                    "typename": "Time",
+                    "length": "8",
+                    "label": "登录时间",
+                    "datatype": "string",
+                    "name": "LoginTime"
+                }, {
+                    "typename": "IPAddress",
+                    "label": "IP地址",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "IPAddress"
+                }, {
+                    "typename": "ProductInfo",
+                    "length": "10",
+                    "label": "用户端产品信息",
+                    "datatype": "string",
+                    "name": "UserProductInfo"
+                }, {
+                    "typename": "SystemName",
+                    "label": "系统名称",
+                    "length": "40",
+                    "datatype": "vstring",
+                    "name": "SystemName"
+                }, {
+                    "typename": "MacAddress",
+                    "label": "MAC地址",
+                    "length": "20",
+                    "datatype": "string",
+                    "name": "MacAddress"
+                }
+                    ,{
+                        "typename": "LoginRemark",
+                        "label": "登录备注",
+                        "length": "35",
+                        "datatype": "string",
+                        "name": "LoginRemark"
+                    }
+                ]
+            }
+        }];
+    },
+    ReqQryLoginInfo: function() {
+        return [{
+            "name": "ReqQryLoginInfo",
+            "tid": "0x00020066",
+            "comment": "登录信息汇总",
+            "field": {
+                "name": "ReqQryLoginInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x9161",
+                "ref": "ReqQryLoginInfo",
+                "comment": "登录信息汇总",
+                "define": [{
+                    "typename": "Date",
+                    "length": "8",
+                    "datatype": "string",
+                    "name": "ReqLogin"
+                }]
+            }
+        }];
+    },
+    ReqQryComponentEvent:function(){
+        return [{"name":"ReqQryComponentEvent","tid":"0x00020067","comment":"组件事件查询请求","field":{"name":"ComponentEventQry","minOccur":"1","maxOccur":"1","fid":"0x9162","ref":"ComponentEventQry","comment":"组件历史事件查询","define":[{"typename":"NetObjectID","length":"64","label":"定义对象名","datatype":"vstring","name":"ObjectID"}]}}];
+    },
+    RspQryComponentEvent:function(){
+        return [{"name":"RspQryComponentEvent","tid":"0x00020068","comment":"组件事件查询应答","field":[{"name":"ComponentEventQry","minOccur":"1","maxOccur":"1","fid":"0x9162","ref":"ComponentEventQry","comment":"组件历史事件查询","define":[{"typename":"NetObjectID","length":"64","label":"定义对象名","datatype":"vstring","name":"ObjectID"}]},{"name":"ComponentEventContent","minOccur":"1","maxOccur":"*","fid":"0x9163","ref":"ComponentEventContent","comment":"组件历史事件内容","define":[{"typename":"Date","length":"8","label":"","datatype":"string","name":"OccurDate"},{"typename":"Time","length":"8","label":"","datatype":"string","name":"OccurTime"},{"typename":"Content","length":"500","label":"日志内容","datatype":"vstring","name":"Content"}]},{"name":"RspInfo","minOccur":"1","maxOccur":"1","fid":"0x0003","comment":"响应信息","ref":"ErrorType","define":[{"typename":"ErrorID","length":"8","label":"错误代码","datatype":"int","name":"ErrorID"},{"typename":"ErrorMsg","length":"80","label":"错误信息","datatype":"vstring","name":"ErrorMsg"}]}]}];
+    },
+    RtnComponentEvent:function(){
+        return [{"name":"RtnComponentEvent","tid":"0x00020069","comment":"组件事件推送","field":[{"name":"ComponentEventQry","minOccur":"1","maxOccur":"1","fid":"0x9162","ref":"ComponentEventQry","comment":"组件历史事件查询","define":[{"typename":"NetObjectID","length":"64","label":"定义对象名","datatype":"vstring","name":"ObjectID"}]},{"name":"ComponentEventContent","minOccur":"1","maxOccur":"*","fid":"0x9163","ref":"ComponentEventContent","comment":"组件历史事件内容","define":[{"typename":"Date","length":"8","label":"","datatype":"string","name":"OccurDate"},{"typename":"Time","length":"8","label":"","datatype":"string","name":"OccurTime"},{"typename":"Content","length":"500","label":"日志内容","datatype":"vstring","name":"Content"}]}]}];
+    },
+    RtnAgentInfo: function() {
+        return [{
+            "name": "RtnAgentInfo",
+            "tid": "0x0002006a",
+            "comment": "锟斤拷锟斤拷锟斤拷息",
+            "field": {
+                "name": "RtnAgentInfo",
+                "minOccur": "1",
+                "maxOccur": "1",
+                "fid": "0x9164",
+                "ref": "RtnAgentInfo",
+                "comment": "锟斤拷锟斤拷锟斤拷息",
+                "define": [{
+                    "typename": "Name",
+                    "length": "32",
+                    "datatype": "string",
+                    "name": "SysName"
+                }, {
+                    "typename": "IPAddress",
+                    "label": "",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "ServerIP"
+                }, {
+                    "typename": "Port",
+                    "length": "10",
+                    "label": "",
+                    "datatype": "int",
+                    "name": "ServerPort"
+                }, {
+                    "typename": "AgentName",
+                    "length": "24",
+                    "label": "",
+                    "datatype": "string",
+                    "name": "AgentName"
+                }]
+            }
+        }];
+    },
+    ReqAgentInfo: function() {
+        return [{
+            "name": "ReqAgentInfo",
+            "tid": "0x0002006b",
+            "comment": "锟斤拷锟斤拷前锟矫达拷锟斤拷锟斤拷息",
+            "field": {
+                "name": "ReqAgentInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x9165",
+                "ref": "RtnAgentInfo",
+                "comment": "锟斤拷锟斤拷锟斤拷息",
+                "define": [{
+                    "typename": "Name",
+                    "length": "32",
+                    "datatype": "string",
+                    "name": "SysName"
+                }, {
+                    "typename": "IPAddress",
+                    "label": "",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "ServerIP"
+                }, {
+                    "typename": "Port",
+                    "length": "10",
+                    "label": "",
+                    "datatype": "int",
+                    "name": "ServerPort"
+                }, {
+                    "typename": "AgentName",
+                    "length": "24",
+                    "label": "",
+                    "datatype": "string",
+                    "name": "AgentName"
+                }]
+            }
+        }];
+    },
+    RspAgentInfo: function() {
+        return [{
+            "name": "RspAgentInfo",
+            "tid": "0x0002006c",
+            "comment": "应锟斤拷前锟矫达拷锟斤拷锟斤拷息",
+            "field": {
+                "name": "RspAgentInfo",
+                "minOccur": "1",
+                "maxOccur": "*",
+                "fid": "0x9166",
+                "ref": "RspAgentInfo",
+                "comment": "锟斤拷锟斤拷锟斤拷息",
+                "define": [{
+                    "typename": "Name",
+                    "length": "32",
+                    "datatype": "string",
+                    "name": "SysName"
+                }, {
+                    "typename": "IPAddress",
+                    "label": "",
+                    "length": "15",
+                    "datatype": "string",
+                    "name": "ServerIP"
+                }, {
+                    "typename": "Port",
+                    "length": "10",
+                    "label": "",
+                    "datatype": "int",
+                    "name": "ServerPort"
+                }, {
+                    "typename": "AgentName",
+                    "length": "24",
+                    "label": "",
+                    "datatype": "string",
+                    "name": "AgentName"
+                }]
+            }
+        }];
     }
 };
 module.exports = packages;
