@@ -13,8 +13,8 @@
     };
 </script>
 
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+<style scoped lang="less">
+    @import "Login";
 
     .title {
         width: 480px;

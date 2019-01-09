@@ -43,7 +43,14 @@ let rendererConfig = {
       },
       {
         test: /\.sass$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
+          use: ['vue-style-loader', 'css-loader', 'less-loader', {
+              loader: 'sass-resources-loader',
+              options: {
+                  resources: [
+                      path.resolve(__dirname, '../src/renderer/style/global.less')
+                  ]
+              }
+          }]
       },
       {
         test: /\.less$/,
