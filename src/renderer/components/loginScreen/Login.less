@@ -1,10 +1,25 @@
-@titleColor: black;
-@fontColor: white;
+@textColor: white;
+@secondTextColor: grey;
 
 // 水平居中
 .horizontalCenter {
   margin-left: auto;
   margin-right: auto;
+}
+
+html, body, * {
+  height: 100%;
+  margin: 0;
+  padding: 0
+}
+
+#rootLayout {
+  // 隐藏滚动条
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
 .titleBar {
@@ -30,41 +45,43 @@
   }
 }
 
-html, body, * {
-  height: 100%;
-  margin: 0;
-  padding: 0
-}
-
-#rootLayout {
-  height: 100%;
-  background-color: #ff6666;
-}
-
 .contentLayout {
-  height: 100%;
+  padding-top: 22px;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 20px;
+  bottom: 0px;
   margin-bottom: 0px;
-  //background-color: green;
-  //background-image: url("../../assets/login_bg.png");
+  background-image: url("../../assets/images/login_bg.png");
 }
 
-.titleLayout {
-  width: auto;
+h2 {
+  width: 100%;
+  height: 50px;
   font-size: 18px;
-  color: @titleColor;
-  margin-left: 6px;
-  padding-top: 10%;
-  padding-bottom: 10%;
+  color: @textColor;
+  margin-top: 30px;
+  text-align: center;
   font-family: 微软雅黑, Arial;
   text-align: center;
 }
 
 .formLayout {
-  height: 100%;
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
   .form {
     width: 70%;
+    height: auto;
     .horizontalCenter
   }
+}
+
+.copyRight {
+  height: auto;
+  text-align: center;
+  color: @secondTextColor;
 }
 
 .loginBtn {

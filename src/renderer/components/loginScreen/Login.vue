@@ -4,9 +4,9 @@
             <div class="closeBtn fa fa-close" @click="onClickForClose"></div>
         </div>
         <div class="contentLayout">
-            <div class="titleLayout">
+            <h2>
                 综合监控平台
-            </div>
+            </h2>
             <div class="formLayout">
                 <Form class="form" ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="60">
                     <FormItem label="账户" prop="account">
@@ -16,11 +16,12 @@
                         <Input type="password" v-model="formValidate.passwd" placeholder="请输入密码"/>
                     </FormItem>
                     <FormItem label="记住密码" prop="rememberPasswd">
-                        <Checkbox v-model="formValidate.rememberPasswd" label="Eat"></Checkbox>
-                        <Button class="loginBtn" type="primary" @click="onClickForLogin('formValidate')">Submit</Button>
+                        <Checkbox v-model="formValidate.rememberPasswd"></Checkbox>
+                        <Button class="loginBtn" type="primary" @click="onClickForLogin('formValidate')">登陆</Button>
                     </FormItem>
                 </Form>
             </div>
+            <p class="copyRight">Copyright © 2015 - 2018 SFIT Inc. All Rights Reserved </p>
         </div>
     </div>
 </template>
