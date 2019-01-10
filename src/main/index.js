@@ -18,7 +18,7 @@ let mainWindow
  * 登陆窗口大小
  * @type {[number,number]}
  */
-const LoginWindowSize = [1000, 563]
+const LoginWindowSize = [500, 340]
 
 /**
  * 这是一个空窗口，需要加载packageProcessor.js文件来进行IPC通讯
@@ -130,7 +130,7 @@ function createWindow () {
     })
 
     mainWindow.loadURL(winURL)
-    mainWindow.webContents.closeDevTools()
+    // mainWindow.webContents.closeDevTools()
 
     mainWindow.on('closed', () => {
         mainWindow = null
@@ -147,7 +147,7 @@ function createPackageProcessorWindow() {
     });
 
     packageProcessorWindow.loadURL(packageProcessorUrl);
-    packageProcessorWindow.webContents.closeDevTools();
+    // packageProcessorWindow.webContents.closeDevTools();
 
     packageProcessorWindow.on('closed', () => {
         packageProcessorWindow = null;
