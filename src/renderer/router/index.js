@@ -14,6 +14,11 @@ export default new Router({
           redirect: '/login'
       },
       {
+          path: '/landing',
+          name: 'landing-page',
+          component: LandingPage
+      },
+      {
           path: '/login',
           name: 'login',
           component: LoginScreen

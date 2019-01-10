@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="rootLayout">
         <div class="titleBar">
             <div class="closeBtn fa fa-close" @click="onClickForClose"></div>
         </div>
