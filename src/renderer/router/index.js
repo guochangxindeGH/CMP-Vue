@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import LandingPage from '@/components/LandingPage.vue'
-
+import LandingPage from '@/components/LandingPage/LandingPage.vue'
 import LoginScreen from '@/components/loginScreen/Login.vue'
 
 Vue.use(Router)
