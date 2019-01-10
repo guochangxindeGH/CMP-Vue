@@ -37,26 +37,33 @@ let rendererConfig = {
     ],
   module: {
     rules: [
-      {
-        test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.sass$/,
-          use: ['vue-style-loader', 'css-loader', 'less-loader', {
-              loader: 'sass-resources-loader',
-              options: {
-                  resources: [
-                      // 将全局的less样式注入到每个页面中
-                      path.resolve(__dirname, '../src/renderer/style/global.less')
-                  ]
-              }
-          }]
-      },
-      {
-        test: /\.less$/,
-        use: ['vue-style-loader', 'css-loader', 'less-loader']
-      },
+        {
+            test: /\.scss$/,
+            use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        },
+        {
+            test: /\.sass$/,
+            use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
+        },
+        {
+            test: /\.less$/,
+            use: ['vue-style-loader', 'css-loader',
+                {
+                    loader: 'less-loader',
+                    options: {
+                        sourceMap: true,
+                        javascriptEnabled: true
+                    }
+                }, {
+                    loader: 'sass-resources-loader',
+                    options: {
+                        resources: [
+                            // 将全局的less样式注入到每个页面中
+                            path.resolve(__dirname, '../src/renderer/style/global.less')
+                        ]
+                    }
+                }]
+        },
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
