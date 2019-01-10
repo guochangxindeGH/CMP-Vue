@@ -169,7 +169,13 @@ let rendererConfig = {
         //在代码中使用@代表renderer目录
         '@': path.join(__dirname, '../src/renderer'),
         //精确指定vue特指vue.esm.js文件
-        'vue$': 'vue/dist/vue.esm.js'
+        'vue$': 'vue/dist/vue.esm.js',
+        'dirSrc': path.join(__dirname, '../src'),
+        'dirRes': path.join(__dirname, '../src/renderer/res'),
+        'dirRenderer': path.join(__dirname, '../src/renderer'),
+        'dirUtil': path.join(__dirname, '../src/util'),
+        'dirManagers': path.join(__dirname, '../src/renderer/managers'),
+        'dirScreens': path.join(__dirname, '../src/renderer/screens'),
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node', '.less']
   },

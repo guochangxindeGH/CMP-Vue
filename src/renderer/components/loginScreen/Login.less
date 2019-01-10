@@ -1,25 +1,10 @@
-@textColor: white;
-@secondTextColor: grey;
+@titleColor: black;
+@fontColor: white;
 
 // 水平居中
 .horizontalCenter {
   margin-left: auto;
   margin-right: auto;
-}
-
-html, body, * {
-  height: 100%;
-  margin: 0;
-  padding: 0
-}
-
-#rootLayout {
-  // 隐藏滚动条
-  overflow-x: hidden;
-  overflow-y: hidden;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
 }
 
 .titleBar {
@@ -45,43 +30,41 @@ html, body, * {
   }
 }
 
-.contentLayout {
-  padding-top: 22px;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 20px;
-  bottom: 0px;
-  margin-bottom: 0px;
-  background-image: url('~@/assets/images/login_bg.png');
+html, body, * {
+  height: 100%;
+  margin: 0;
+  padding: 0
 }
 
-h2 {
-  width: 100%;
-  height: 50px;
+#rootLayout {
+  height: 100%;
+  background-color: white;
+}
+
+.contentLayout {
+  height: 100%;
+  margin-bottom: 0px;
+  //background-color: green;
+  //background-image: url("../../assets/login_bg.png");
+}
+
+.titleLayout {
+  width: auto;
   font-size: 18px;
-  color: @textColor;
-  margin-top: 30px;
-  text-align: center;
+  color: @titleColor;
+  margin-left: 6px;
+  padding-top: 10%;
+  padding-bottom: 10%;
   font-family: 微软雅黑, Arial;
   text-align: center;
 }
 
 .formLayout {
-  margin-top: 10px;
-  width: 100%;
-  height: auto;
+  height: 100%;
   .form {
     width: 70%;
-    height: auto;
     .horizontalCenter
   }
-}
-
-.copyRight {
-  height: auto;
-  text-align: center;
-  color: @secondTextColor;
 }
 
 .loginBtn {

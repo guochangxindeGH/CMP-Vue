@@ -124,8 +124,8 @@ function createWindow () {
     mainWindow = new BrowserWindow({
         width: LoginWindowSize[0],
         height: LoginWindowSize[1],
-        // frame: false,
-        // resizable: false,
+        frame: false,
+        resizable: false,
         useContentSize: true
     })
 

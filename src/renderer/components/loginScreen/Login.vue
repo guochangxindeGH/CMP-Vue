@@ -17,7 +17,7 @@
                     </FormItem>
                     <FormItem label="记住密码" prop="rememberPasswd">
                         <Checkbox v-model="formValidate.rememberPasswd" label="Eat"></Checkbox>
-                        <Button class="loginBtn" type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+                        <Button class="loginBtn" type="primary" @click="onClickForLogin('formValidate')">Submit</Button>
                     </FormItem>
                 </Form>
             </div>
@@ -30,6 +30,10 @@
 </style>
 
 <script>
+    import crypto from 'crypto';
+    import Utils from 'dirUtil/Utils';
+    import {ipcRenderer} from 'electron';
+
     export default {
         name: 'login-page',
         data() {
@@ -50,17 +54,45 @@
                 }
             };
         },
+        created: function () {
+            console.log('登陆界面初始化');
+            ipcRenderer.on('dataChange', this.onLoginResult);
+        },
         methods: {
-            onClickForClose() {
-                console.log('ssss');
+            onLoginResult(event, msg) {
+                let packName = msg.packName;
+                if (packName === 'RspUserLoginTopic') {
+                    let docs = JSON.parse(msg.packInfo);
+                    let result = docs[0].field[1].values[0];
+                    if (result.ErrorID !== 0) {
+                        this.$Message.error('登录失败:' + result.ErrorMsg);
+                    } else {
+                        this.$Message.success('登陆成功!');
+                    }
+                }
             },
-            handleSubmit(name) {
-                console.log('rememberPasswd:' + this.formValidate.rememberPasswd);
+            onClickForClose() {
+            },
+            onClickForLogin(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                        this.$Message.success('Success!');
+                        let requestID = Utils.getNewRequestID();
+                        ipcRenderer.send('sendPackStepA', {
+                            packName: 'ReqUserLoginTopic',
+                            opts: {
+                                TradingDay: '',
+                                UserID: this.formValidate.account,
+                                ParticipantID: '',
+                                Password: crypto.createHash('md5').update(this.formValidate.passwd).digest('hex').toUpperCase(),
+                                UserProductInfo: '',
+                                InterfaceProductInfo: '',
+                                ProtocolInfo: '',
+                                DataCenterID: ''
+                            },
+                            requestID: requestID
+                        });
                     } else {
-                        this.$Message.error('Fail!');
+                        this.$Message.error('格式错误!');
                     }
                 });
             }
