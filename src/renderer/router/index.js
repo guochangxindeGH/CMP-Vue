@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import LandingPage from '@/components/LandingPage/LandingPage.vue'
 import LoginScreen from '@/components/loginScreen/Login.vue'
+import MainScreen from '@/components/mainScreen/MainScreen.vue';
+
 
 Vue.use(Router)
 
@@ -21,6 +23,11 @@ export default new Router({
           path: '/login',
           name: 'login',
           component: LoginScreen
+      },
+      {
+          path: '/main-page',
+          name: 'main-page',
+          component: MainScreen
       },
   ]
 })

@@ -69,6 +69,10 @@
                         this.$Message.error('登录失败:' + result.ErrorMsg);
                     } else {
                         this.$Message.success('登陆成功!');
+                        // 跳转主界面
+                        this.$router.push({
+                            name: 'main-page'
+                        });
                     }
                 }
             },
