@@ -5,7 +5,7 @@
     <div class="layout">
         <Layout>
             <Header class="header-layout" :style="{position: 'fixed', width: '100%'}">
-                <Menu mode="horizontal" theme="dark" active-name="1">
+                <Menu mode="horizontal" theme="dark" active-name="1" @on-select="choosedMenu">
                     <div class="layout-logo">
                         <Icon custom="i-icon icon-appicon" size="55"></Icon>
                     </div>
@@ -43,8 +43,16 @@
                     </div>
                 </Menu>
             </Header>
-            <Content :style="{margin: '0px 0px 0', background: '#fff', minHeight: '100%'}">
-                Content
+            <Content :style="{
+                    position: 'absolute',
+                    top: '100px',
+                    overflow: 'auto',
+                    padding: '10px',
+                    }">
+                <!--保存组件状态到内存，避免重新渲染-->
+                <keep-alive>
+                    <router-view/>
+                </keep-alive>
             </Content>
         </Layout>
     </div>
@@ -54,7 +62,7 @@
     import {ipcRenderer} from 'electron';
 
     export default {
-        name: 'login-page',
+        name: 'main-page',
         data() {
             return {};
         },
@@ -66,6 +74,15 @@
         methods: {
             onDataChanged(event, msg) {
                 let packName = msg.packName;
+            },
+            choosedMenu(name) {
+                console.log('name:' + name);
+                if (name === '1') {
+                    console.log('ok');
+                    this.$router.push({
+                        name: 'index'
+                    });
+                }
             }
         }
     };
