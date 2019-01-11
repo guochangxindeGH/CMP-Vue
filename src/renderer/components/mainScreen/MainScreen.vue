@@ -43,16 +43,9 @@
                     </div>
                 </Menu>
             </Header>
-            <Content :style="{
-                    position: 'absolute',
-                    top: '100px',
-                    overflow: 'auto',
-                    padding: '10px',
-                    }">
-                <!--保存组件状态到内存，避免重新渲染-->
-                <keep-alive>
-                    <router-view/>
-                </keep-alive>
+            <Content class="content-layout">
+                <!-- 路由匹配到的组件将渲染在这里 -->
+                <router-view></router-view>
             </Content>
         </Layout>
     </div>
@@ -76,11 +69,13 @@
                 let packName = msg.packName;
             },
             choosedMenu(name) {
-                console.log('name:' + name);
                 if (name === '1') {
-                    console.log('ok');
                     this.$router.push({
-                        name: 'index'
+                        name: 'appView'
+                    });
+                } else {
+                    this.$router.push({
+                        name: 'hardwareView'
                     });
                 }
             }
