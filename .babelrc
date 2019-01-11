@@ -35,5 +35,5 @@
       ]
     }
   },
-  "plugins": ["transform-runtime"]
+  "plugins": ["transform-runtime"]    //添加transform-object-rest-spread插件
 }
