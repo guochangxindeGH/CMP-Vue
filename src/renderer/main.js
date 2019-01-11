@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import App from './App'
 import router from './router'
-import store from './store'    //默认store目录下的index.js文件
+import store from './store/index'    //默认store目录下的index.js文件
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import './style/iviewTheme';

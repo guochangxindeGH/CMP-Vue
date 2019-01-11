@@ -1,4 +1,5 @@
 const state = {
+    counter: 0,
     main: 0,
     accountName: '',
     accountPasswd: '',
@@ -12,6 +13,9 @@ const state = {
  * 只能传递第二个参数
  */
 const mutations = {
+    counter_add(state) {
+        state.counter++;
+    },
     DECREMENT_MAIN_COUNTER (state) {
         state.main--
     },
@@ -43,7 +47,7 @@ const getters = {
 const actions = {
     someAsyncTask ({ commit }) {
         // do something async
-        commit('INCREMENT_MAIN_COUNTER')
+        commit('counter_add')
     }
 }
 

@@ -34,6 +34,7 @@
     import crypto from 'crypto';
     import Utils from 'dirUtil/Utils';
     import {ipcRenderer} from 'electron';
+    import {mapState, mapMutations} from 'vuex';
 
     export default {
         name: 'login',
@@ -100,10 +101,23 @@
                             requestID: requestID
                         });
                     } else {
-                        this.$Message.error('格式错误!');
+                        console.log('bbb:' + this.counter);
+                        console.log('ccc:' + this.warning);
+                        this.counter_add();
+                        this.warning_add();
+                        console.log('bbb:' + this.counter);
+                        console.log('ccc:' + this.warning);
                     }
                 });
-            }
-        }
+            },
+            // ...mapMutations([
+            //     'counter_add',
+            //     'warning_add' // 映射 this.increment() 为 this.$store.commit('increment')
+            // ])
+        },
+        computed: mapState({
+            counter: state => state.Counter.counter,
+            warning: state => state.WarningStore.warningCount
+        })
     };
 </script>
