@@ -10,19 +10,19 @@
                         <Icon custom="i-icon icon-appicon" size="55"></Icon>
                     </div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
+                        <MenuItem name="indicator">
                             <Icon custom="i-icon icon-hardwareview" size="45"></Icon>
                             指标视图
                         </MenuItem>
-                        <MenuItem name="2">
+                        <MenuItem name="warning">
                             <Icon custom="i-icon icon-warningview" size="45"></Icon>
                             告警视图
                         </MenuItem>
-                        <MenuItem name="3">
+                        <MenuItem name="maintenance">
                             <Icon custom="i-icon icon-maintain-report" size="45"></Icon>
                             运维报表
                         </MenuItem>
-                        <MenuItem name="4">
+                        <MenuItem name="treeview">
                             <Icon type="ios-star-outline" size="45"></Icon>
                             收藏夹
                         </MenuItem>
@@ -55,7 +55,7 @@
     import {ipcRenderer} from 'electron';
 
     export default {
-        name: 'main-page',
+        name: 'main',
         data() {
             return {};
         },
@@ -69,15 +69,10 @@
                 let packName = msg.packName;
             },
             choosedMenu(name) {
-                if (name === '1') {
-                    this.$router.push({
-                        name: 'appView'
-                    });
-                } else {
-                    this.$router.push({
-                        name: 'hardwareView'
-                    });
-                }
+                console.log('name:' + name);
+                this.$router.push({
+                    name: name
+                });
             }
         }
     };

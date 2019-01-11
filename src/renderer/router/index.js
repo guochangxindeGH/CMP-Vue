@@ -8,7 +8,9 @@ import MainScreen from '@/components/mainScreen/MainScreen.vue'
 import IndicatorScreen from '@/components/indicatorScreen/IndicatorScreen.vue'
 import AppViewScreen from '@/components/indicatorScreen/appViewScreen/AppViewScreen.vue'
 import HardwareViewScreen from '@/components/indicatorScreen/hardwareViewScreen/HardwareViewScreen.vue'
-
+import WarningScreen from '@/components/warningScreen/WarningScreen.vue'
+import MaintenanceScreen from '@/components/maintenanceScreen/MaintenanceScreen.vue'
+import TreeviewScreen from '@/components/treeviewScreen/TreeviewScreen.vue'
 
 Vue.use(Router)
 
@@ -16,41 +18,56 @@ export default new Router({
   routes: [
       {
           path: '/',
-          redirect: '/login-page'
+          redirect: '/login'
       },
       {
           path: '/landing',
-          name: 'landing-page',
+          name: 'landing',
           component: LandingPage
       },
       {
-          path: '/login-page',
-          name: 'login-page',
+          path: '/login',
+          name: 'login',
           component: LoginScreen
       },
       {
-          path: '/main-page',
-          name: 'main-page',
+          path: '/main',
+          name: 'main',
           component: MainScreen,
-          redirect: '/main-page/indicator',
+          redirect: '/main/indicator',
           children: [
               {
-                  path: '/main-page/indicator',
+                  path: '/main/indicator',
                   name: 'indicator',
                   component: IndicatorScreen,
-                  redirect: '/main-page/indicator/app',
+                  redirect: '/main/indicator/app',
                   children: [
                       {
-                          path: '/main-page/indicator/app',
+                          path: '/main/indicator/app',
                           name: 'appView',
                           component: AppViewScreen
                       }, {
-                          path: '/main-page/indicator/hardware',
+                          path: '/main/indicator/hardware',
                           name: 'hardwareView',
                           component: HardwareViewScreen
                       }
                   ]
               },
+              {
+                  path: '/main/warning',
+                  name: 'warning',
+                  component: WarningScreen
+              },
+              {
+                  path: '/main/maintenance',
+                  name: 'maintenance',
+                  component: MaintenanceScreen
+              },
+              {
+                  path: '/main/treeview',
+                  name: 'treeview',
+                  component: TreeviewScreen
+              }
           ]
       },
   ]

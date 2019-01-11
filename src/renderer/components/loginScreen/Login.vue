@@ -36,7 +36,7 @@
     import {ipcRenderer} from 'electron';
 
     export default {
-        name: 'login-page',
+        name: 'login',
         data() {
             return {
                 formValidate: {
@@ -72,7 +72,7 @@
                         this.$Message.success('登陆成功!');
                         // 跳转主界面
                         this.$router.push({
-                            name: 'main-page'
+                            name: 'main'
                         });
                     }
                 }
