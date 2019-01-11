@@ -24,10 +24,10 @@
         <Layout class="layout">
             <div class="header">
                 <RadioGroup class="radioView" mode="horizontal" size="large" @on-change="onTypeChanged" v-model="viewType">
-                    <Radio label="hardwareView">
+                    <Radio label="hardware">
                         <span>设备</span>
                     </Radio>
-                    <Radio label="appView">
+                    <Radio label="app">
                         <span>App</span>
                     </Radio>
                 </RadioGroup>

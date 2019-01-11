@@ -44,11 +44,11 @@ export default new Router({
                   children: [
                       {
                           path: '/main/indicator/app',
-                          name: 'appView',
+                          name: 'app',
                           component: AppViewScreen
                       }, {
                           path: '/main/indicator/hardware',
-                          name: 'hardwareView',
+                          name: 'hardware',
                           component: HardwareViewScreen
                       }
                   ]
