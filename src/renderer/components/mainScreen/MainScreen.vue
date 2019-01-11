@@ -2,7 +2,7 @@
     @import "MainScreen";
 </style>
 <template>
-    <div class="layout">
+    <div class="mainScreenLayout">
         <Layout>
             <Header class="header-layout" :style="{position: 'fixed', width: '100%'}">
                 <Row>
@@ -10,7 +10,7 @@
                         <Icon custom="i-icon icon-appicon" size="55"></Icon>
                     </Col>
                     <Col span="15" class="layout-nav">
-                        <Menu mode="horizontal" theme="dark" active-name="1" @on-select="onClickForTab">
+                        <Menu mode="horizontal" theme="dark" active-name="indicator" @on-select="onClickForTab">
                             <MenuItem name="indicator">
                                 <Icon custom="i-icon icon-hardwareview" size="45"></Icon>
                                 指标视图
@@ -47,6 +47,10 @@
                     </Col>
                 </Row>
             </Header>
+            <div class="resizeHeader">
+                <div class="left-drag"></div>
+                <div class="right-drag"></div>
+            </div>
             <Content class="content-layout">
                 <!-- 路由匹配到的组件将渲染在这里 -->
                 <router-view></router-view>
@@ -64,8 +68,15 @@
             return {};
         },
         created: function () {
-            console.log('主界面初始化');
-            ipcRenderer.send('resizeMainWindowSizeMsg', false);
+            console.log('主界面初始化' + this.windowOpt);
+            ipcRenderer.send('resizeMainWindowSizeMsg', {
+                    isLoginScreen: false,
+                    enableResize: true,
+                    maxWindow: true,
+                    minWindow: false,
+                    quiteApp: false
+                }
+            );
             ipcRenderer.on('dataChange', this.onDataChanged);
         },
         methods: {
@@ -80,6 +91,22 @@
             },
             onClickForWindwoContral(event) {
                 console.log('event:' + event);
+                let windowOpt = {
+                    isLoginScreen: false,
+                    enableResize: true,
+                    maxWindow: false,
+                    minWindow: false,
+                    quiteApp: false
+                };
+
+                if (event === 'minWindow') {
+                    windowOpt.minWindow = true;
+                } else if (event === 'maxWindow') {
+                    windowOpt.maxWindow = true;
+                } else if (event === 'closeWindow') {
+                    windowOpt.quiteApp = true;
+                }
+                ipcRenderer.send('resizeMainWindowSizeMsg', windowOpt);
             }
         }
     };

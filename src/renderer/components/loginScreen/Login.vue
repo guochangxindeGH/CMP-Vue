@@ -58,7 +58,9 @@
         created: function () {
             console.log('登陆界面初始化');
             ipcRenderer.on('dataChange', this.onLoginResult);
-            ipcRenderer.send('resizeMainWindowSizeMsg', true);
+            ipcRenderer.send('resizeMainWindowSizeMsg', {
+                isLoginScreen: true
+            });
         },
         methods: {
             onLoginResult(event, msg) {
