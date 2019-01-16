@@ -101,6 +101,23 @@
                             requestID: requestID
                         });
                     } else {
+                        console.log('accountName:' + this.accountName);
+                        console.log('accountPasswd:' + this.accountPasswd);
+                        console.log('rememberPasswd:' + this.rememberPasswd);
+                        console.log('loginState:' + this.loginState);
+                        console.log('warning:' + this.warning);
+
+                        this.setAccountName('aaa');
+                        this.setAccountPasswd('bbb');
+                        this.setRememberPasswd(true);
+                        this.setLoginState(true);
+                        this.warning_add();
+
+                        console.log('accountName:' + this.accountName);
+                        console.log('accountPasswd:' + this.accountPasswd);
+                        console.log('rememberPasswd:' + this.rememberPasswd);
+                        console.log('loginState:' + this.loginState);
+                        console.log('warning:' + this.warning);
                     }
                 });
             },

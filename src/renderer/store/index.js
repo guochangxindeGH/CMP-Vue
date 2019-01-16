@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';  //添加persistedstate插件
 
 
 /**
@@ -22,5 +23,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules,
+    plugins: [createPersistedState({
+        reducer(state) {
+            return {
+                // 只保存某些store
+                Account: state.Account,
+            };
+        }
+    })],
     strict: process.env.NODE_ENV !== 'production'
 });
