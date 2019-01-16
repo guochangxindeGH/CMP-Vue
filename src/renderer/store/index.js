@@ -27,7 +27,7 @@ export default new Vuex.Store({
         reducer(state) {
             return {
                 // 只保存某些store
-                Account: state.Account,
+                account: state.account,
             };
         }
     })],

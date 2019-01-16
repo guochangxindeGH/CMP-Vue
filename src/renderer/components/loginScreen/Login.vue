@@ -41,12 +41,13 @@
         data() {
             return {
                 formValidate: {
-                    account: '',
-                    passwd: '',
-                    rememberPasswd: true
+                    // 默认值从本地拿到
+                    name: this.$store.state.account.accountName,
+                    passwd: this.$store.state.account.accountPasswd,
+                    rememberPasswd: this.$store.state.account.rememberPasswd
                 },
                 ruleValidate: {
-                    account: [
+                    name: [
                         {required: true, message: '请输入用户名', trigger: 'blur'}
                     ],
                     passwd: [
@@ -73,6 +74,11 @@
                         this.$Message.error('登录失败:' + result.ErrorMsg);
                     } else {
                         this.$Message.success('登陆成功!');
+                        // 将用户输入存储本地和内存
+                        this.setAccountName(this.formValidate.name);
+                        this.setAccountPasswd(this.formValidate.passwd);
+                        this.setRememberPasswd(this.formValidate.rememberPasswd);
+                        this.setLoginState(true);
                         // 跳转主界面
                         this.$router.push({
                             name: 'main'
