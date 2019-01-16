@@ -21,7 +21,8 @@ const mutations = {
     },
     INCREMENT_MAIN_COUNTER (state) {
         state.main++
-    },setAccountName(state, name) {
+    },
+    setAccountName(state, name) {
         state.accountName = name;
     },
     setAccountPasswd(state, passwd) {

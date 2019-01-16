@@ -101,22 +101,22 @@
                             requestID: requestID
                         });
                     } else {
-                        console.log('bbb:' + this.counter);
-                        console.log('ccc:' + this.warning);
-                        this.counter_add();
-                        this.warning_add();
-                        console.log('bbb:' + this.counter);
-                        console.log('ccc:' + this.warning);
                     }
                 });
             },
-            // ...mapMutations([
-            //     'counter_add',
-            //     'warning_add' // 映射 this.increment() 为 this.$store.commit('increment')
-            // ])
+            ...mapMutations([
+                'setAccountName',
+                'setAccountPasswd',
+                'setRememberPasswd',
+                'setLoginState',
+                'warning_add'
+            ])
         },
         computed: mapState({
-            counter: state => state.Counter.counter,
+            accountName: state => state.Account.accountName,
+            accountPasswd: state => state.Account.accountPasswd,
+            rememberPasswd: state => state.Account.rememberPasswd,
+            loginState: state => state.Account.loginState,
             warning: state => state.WarningStore.warningCount
         })
     };

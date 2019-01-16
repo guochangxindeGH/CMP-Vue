@@ -147,7 +147,7 @@ function createPackageProcessorWindow() {
     });
 
     packageProcessorWindow.loadURL(packageProcessorUrl);
-    packageProcessorWindow.webContents.closeDevTools();
+    // packageProcessorWindow.webContents.closeDevTools();
 
     packageProcessorWindow.on('closed', () => {
         packageProcessorWindow = null;
