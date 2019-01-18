@@ -61,6 +61,7 @@
 
 <script>
     import {ipcRenderer} from 'electron';
+    import Utils from '../../../util/Utils';
 
     export default {
         name: 'login-page',
@@ -68,7 +69,7 @@
             return {};
         },
         created: function () {
-            console.log('主界面初始化' + this.windowOpt);
+            console.log('主界面初始化');
             ipcRenderer.send('resizeMainWindowSizeMsg', {
                     isLoginScreen: false,
                     enableResize: true,
@@ -90,7 +91,11 @@
                 });
             },
             onClickForWindwoContral(event) {
-                console.log('event:' + event);
+                if (event === 'setting') {
+                    // 临时注销
+                    this.logout();
+                    return;
+                }
                 let windowOpt = {
                     isLoginScreen: false,
                     enableResize: true,
@@ -107,6 +112,23 @@
                     windowOpt.quiteApp = true;
                 }
                 ipcRenderer.send('resizeMainWindowSizeMsg', windowOpt);
+            },
+            logout() {
+                console.log('注销操作');
+                this.$router.push({
+                    name: 'login'
+                });
+
+                let userName = this.$store.state.account.accountName;
+                let requestID = Utils.getNewRequestID();
+                ipcRenderer.send('sendPackStepA', {
+                    packName: 'ReqUserLogoutTopic',
+                    opts: {
+                        UserID: userName,
+                        ParticipantID: ''
+                    },
+                    requestID: requestID
+                });
             }
         }
     };

@@ -10,7 +10,7 @@
             <div class="formLayout">
                 <Form class="form" ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="60">
                     <FormItem label="账户" prop="account">
-                        <Input v-model="formValidate.account" placeholder="请输入用户名"/>
+                        <Input v-model="formValidate.name" placeholder="请输入用户名"/>
                     </FormItem>
                     <FormItem label="密码" prop="passwd">
                         <Input type="password" v-model="formValidate.passwd" placeholder="请输入密码"/>
@@ -96,7 +96,7 @@
                             packName: 'ReqUserLoginTopic',
                             opts: {
                                 TradingDay: '',
-                                UserID: this.formValidate.account,
+                                UserID: this.formValidate.name,
                                 ParticipantID: '',
                                 Password: crypto.createHash('md5').update(this.formValidate.passwd).digest('hex').toUpperCase(),
                                 UserProductInfo: '',
