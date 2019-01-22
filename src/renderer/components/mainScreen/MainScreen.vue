@@ -61,7 +61,7 @@
 
 <script>
     import {ipcRenderer} from 'electron';
-    import Utils from '../../../util/Utils';
+    import Utils from 'dirUtil/Utils';
 
     export default {
         name: 'login-page',

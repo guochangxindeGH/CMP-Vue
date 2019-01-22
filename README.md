@@ -27,3 +27,16 @@ This project was generated with [electron-vue](https://github.com/SimulatedGREG/
 
 ###添加nedb依赖
 nedb:NeDB是使用Nodejs实现的一个NoSQL嵌入式数据库操作模块，可以充当内存数据库，也可以用来实现本地存储，甚至可以在浏览器中使用。查询方式比较灵活，支持使用正则、比较运算符、逻辑运算符、索引以及JSON深度查询等。
+
+
+# CMP vue用法
+## 别名问题
+项目中常用的目录可以在webpack中配置：
+    resolve: {
+        alias: {
+            '@': path.join(__dirname, '../src/renderer'),
+            '@src': path.join(__dirname, '../src'),
+            'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['.js', '.vue', '.json', '.css', '.node', '.less']
+    },
