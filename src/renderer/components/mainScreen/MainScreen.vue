@@ -80,6 +80,10 @@
             );
             ipcRenderer.on('dataChange', this.onDataChanged);
         },
+        destroyed: function () {
+            console.log('主界面销毁');
+            ipcRenderer.removeListener('dataChange', this.onDataChanged);
+        },
         methods: {
             onDataChanged(event, msg) {
                 let packName = msg.packName;

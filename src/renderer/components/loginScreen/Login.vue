@@ -64,6 +64,10 @@
                 isLoginScreen: true
             });
         },
+        destroyed: function () {
+            console.log('登陆界面销毁');
+            ipcRenderer.removeListener('dataChange', this.onLoginResult);
+        },
         methods: {
             onLoginResult(event, msg) {
                 let packName = msg.packName;
