@@ -62,9 +62,11 @@
 <script>
     import {ipcRenderer} from 'electron';
     import Utils from 'dirUtil/Utils';
+    import dataListener from '@/dataListener';
 
     export default {
         name: 'login-page',
+        mixins: [dataListener],
         data() {
             return {};
         },
@@ -86,7 +88,7 @@
         },
         methods: {
             onDataChanged(event, msg) {
-                let packName = msg.packName;
+                console.log('data');
             },
             onClickForTab(name) {
                 console.log('name:' + name);

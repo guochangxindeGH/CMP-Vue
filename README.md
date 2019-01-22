@@ -40,3 +40,6 @@ nedb:NeDB是使用Nodejs实现的一个NoSQL嵌入式数据库操作模块，可
         },
         extensions: ['.js', '.vue', '.json', '.css', '.node', '.less']
     },
+
+## 事件统一监听、反监听
+在dataListener中处理统一的监听、反监听流程，省略了每个页面单独处理。
