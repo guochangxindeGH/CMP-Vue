@@ -63,6 +63,7 @@
     import {ipcRenderer} from 'electron';
     import Utils from 'dirUtil/Utils';
     import dataListener from '@/dataListener';
+    import {getWarningWithParam} from 'dirManagers/warningManager';
 
     export default {
         name: 'login-page',
@@ -91,10 +92,15 @@
                 console.log('data');
             },
             onClickForTab(name) {
-                console.log('name:' + name);
-                this.$router.push({
+                let warningList = getWarningWithParam('N', 99, '', '', 'MainTip');
+                console.log('warningList:' + warningList);
+                /**
+                 *
+                 console.log('name:' + name);
+                 this.$router.push({
                     name: name
                 });
+                 */
             },
             onClickForWindwoContral(event) {
                 if (event === 'setting') {
