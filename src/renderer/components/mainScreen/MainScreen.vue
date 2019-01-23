@@ -62,7 +62,7 @@
 <script>
     import {ipcRenderer} from 'electron';
     import Utils from 'dirUtil/Utils';
-    import dataListener from '@/dataListener';
+    import dataListener from 'dirRenderer/dataListener';
     import {getWarningWithParam} from 'dirManagers/warningManager';
 
     export default {
