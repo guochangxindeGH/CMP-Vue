@@ -182,7 +182,7 @@ let rendererConfig = {
         'dirRenderer': path.join(__dirname, '../src/renderer'),
         'dirUtil': path.join(__dirname, '../src/util'),
         'dirManagers': path.join(__dirname, '../src/renderer/managers'),
-        'dirScreens': path.join(__dirname, '../src/renderer/screens'),
+        'dirScreens': path.join(__dirname, '../src/renderer/components'),
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node', '.less']
   },

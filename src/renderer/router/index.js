@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import LandingPage from '@/components/LandingPage/LandingPage.vue'
-import LoginScreen from '@/components/loginScreen/Login.vue'
-import MainScreen from '@/components/mainScreen/MainScreen.vue'
+import LandingPage from 'dirScreens/LandingPage/LandingPage.vue'
+import LoginScreen from 'dirScreens/loginScreen/Login.vue'
+import MainScreen from 'dirScreens/mainScreen/MainScreen.vue'
 
-import IndicatorScreen from '@/components/indicatorScreen/IndicatorScreen.vue'
-import AppViewScreen from '@/components/indicatorScreen/appViewScreen/AppViewScreen.vue'
-import HardwareViewScreen from '@/components/indicatorScreen/hardwareViewScreen/HardwareViewScreen.vue'
-import WarningScreen from '@/components/warningScreen/WarningScreen.vue'
-import MaintenanceScreen from '@/components/maintenanceScreen/MaintenanceScreen.vue'
-import TreeviewScreen from '@/components/treeviewScreen/TreeviewScreen.vue'
+import IndicatorScreen from 'dirScreens/indicatorScreen/IndicatorScreen.vue'
+import AppViewScreen from 'dirScreens/indicatorScreen/appViewScreen/AppViewScreen.vue'
+import HardwareViewScreen from 'dirScreens/indicatorScreen/hardwareViewScreen/HardwareViewScreen.vue'
+import WarningScreen from 'dirScreens/warningScreen/WarningScreen.vue'
+import MaintenanceScreen from 'dirScreens/maintenanceScreen/MaintenanceScreen.vue'
+import TreeviewScreen from 'dirScreens/treeviewScreen/TreeviewScreen.vue'
 
 Vue.use(Router)
 
