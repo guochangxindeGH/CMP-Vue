@@ -10,7 +10,6 @@
     export default {
         created: function () {
             console.log('AppView初始化');
-            dataManager.initDataManager();
         },
         destroyed: function () {
             console.log('AppView销毁');
@@ -22,9 +21,6 @@
         },
         methods: {
             onClickForLogin() {
-                console.log('appview mAppList:' + this.mAppList);
-                // console.log('test:' + this.test);
-                // console.log('appview .mAppList:' + this.mAppList);
                 dataManager.getAppList();
             }
         }

@@ -90,7 +90,6 @@
         },
         methods: {
             onDataChanged(event, msg) {
-                console.log('data');
             },
             onClickForTab(name) {
                 let warningList = getWarningWithParam('N', 99, '', '', 'MainTip');
