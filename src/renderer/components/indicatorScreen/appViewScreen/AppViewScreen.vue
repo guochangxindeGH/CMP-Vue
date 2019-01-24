@@ -67,6 +67,14 @@
                     .get(this.baseUrl + 'query=rate(node_cpu_seconds_total{cpu="0",mode="idle"}[5m])')
                     .then(this.checkResult)
                     .then(this.updateCpuUsage);
+                this.$http
+                    .get(this.baseUrl + 'query=node_memory_MemFree_bytes')
+                    .then(this.checkResult)
+                    .then(this.updateMemUsage);
+                this.$http
+                    .get(this.baseUrl + 'query=node_filesystem_avail_bytes')
+                    .then(this.checkResult)
+                    .then(this.updateDiskUsage);
             },
             checkResult(response) {
                 if (response.status === 200) {
@@ -112,6 +120,36 @@
                         let hostInSys = this.hostList[index];
                         if (hostInSys.Address === hostItem.ip) {
                             hostInSys.attrList.CpuUsage = (hostItem.value * 100).toFixed(1) + '%';
+                            Vue.set(this.hostList, index, hostInSys);
+                        }
+                    }
+                }
+            },
+            updateMemUsage(attrList) {
+                if (attrList === null) {
+                    console.log('指标为空');
+                    return;
+                }
+                for (let hostItem of attrList) {
+                    for (let index in this.hostList) {
+                        let hostInSys = this.hostList[index];
+                        if (hostInSys.Address === hostItem.ip) {
+                            hostInSys.attrList.MemUsage = (hostItem.value / 1000000000).toFixed(1) + 'Gb';
+                            Vue.set(this.hostList, index, hostInSys);
+                        }
+                    }
+                }
+            },
+            updateDiskUsage(attrList) {
+                if (attrList === null) {
+                    console.log('指标为空');
+                    return;
+                }
+                for (let hostItem of attrList) {
+                    for (let index in this.hostList) {
+                        let hostInSys = this.hostList[index];
+                        if (hostInSys.Address === hostItem.ip) {
+                            hostInSys.attrList.DiskUsage = (hostItem.value / 1000000000).toFixed(1) + 'Gb';
                             Vue.set(this.hostList, index, hostInSys);
                         }
                     }
