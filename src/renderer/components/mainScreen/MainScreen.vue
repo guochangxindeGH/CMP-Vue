@@ -62,12 +62,12 @@
 <script>
     import {ipcRenderer} from 'electron';
     import Utils from 'dirUtil/Utils';
-    import dataListener from 'dirManagers/dataListener';
+    import * as dataManager from 'dirManagers/dataManager';
     import {getWarningWithParam} from 'dirManagers/warningManager';
 
     export default {
         name: 'login-page',
-        mixins: [dataListener],
+        // mixins: [dataListener],
         data() {
             return {};
         },
@@ -82,6 +82,7 @@
                 }
             );
             ipcRenderer.on('dataChange', this.onDataChanged);
+            dataManager.initDataManager();
         },
         destroyed: function () {
             console.log('主界面销毁');
