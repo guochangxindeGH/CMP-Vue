@@ -94,13 +94,12 @@
             onClickForTab(name) {
                 let warningList = getWarningWithParam('N', 99, '', '', 'MainTip');
                 console.log('warningList:' + warningList);
-                /**
-                 *
+
                  console.log('name:' + name);
                  this.$router.push({
                     name: name
                 });
-                 */
+
             },
             onClickForWindwoContral(event) {
                 if (event === 'setting') {
