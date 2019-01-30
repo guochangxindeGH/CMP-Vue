@@ -38,16 +38,17 @@
         mounted: function () {
             this.hostList = dataManager.getAppList();
             console.log('App 挂载，host list:' + this.hostList);
-            debugger;
             // 添加指标
-            for (let host of this.hostList) {   //因为hostList为null，所以这个地方会报错但不影响结果
-                host.attrList = {
-                    '地址': host.Address,
-                    'Active': '----',
-                    'CpuUsage': '----',
-                    'MemUsage': '----',
-                    'DiskUsage': '----'
-                };
+            if (this.hostList) {
+                for (let host of this.hostList) {   //因为hostList为null，所以这个地方会报错但不影响结果
+                    host.attrList = {
+                        '地址': host.Address,
+                        'Active': '----',
+                        'CpuUsage': '----',
+                        'MemUsage': '----',
+                        'DiskUsage': '----'
+                    };
+                }
             }
             this.timer = setInterval(this.getAttrValues, 2000);
         },
