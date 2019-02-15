@@ -60,6 +60,7 @@
         },
         methods: {
             getAttrValues() {
+                debugger;
                 console.log('更新指标');
                 this.$http
                     .get(this.baseUrl + 'query=up')

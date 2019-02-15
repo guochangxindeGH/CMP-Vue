@@ -2,13 +2,13 @@
 let Address = {
     server: 'main',
     login: {
-        LoginAddress: '172.24.119.2',
+        LoginAddress: '172.24.119.63',
         backUpAddress: '172.24.119.44',
         LoginPort: '17751',
         backUpLoginPort: '17751'
     },
     systemConfig: {
-        Address: '172.24.119.2',
+        Address: '172.24.119.63',
         backAddress: '172.24.119.32'
     },
     getLoginAddress: function () {

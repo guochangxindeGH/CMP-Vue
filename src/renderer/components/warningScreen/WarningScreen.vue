@@ -8,10 +8,10 @@
             </div>
         </Layout>
         <Content :style="{margin: '28px 5px 0', background: '#fff', minHeight: '500px'}">
-            <todo-item v-for="item in groceryList"
+            <app1 v-for="item in groceryList"
                   :title="item.id"
                   :cont="item.text">
-            </todo-item>
+            </app1>
             <app2></app2>
         </Content>
 
@@ -40,7 +40,7 @@
         //
         // },
         components: {
-            'todo-item': item1,
+            'app1': item1,
             'app2': item2
         },
         // mounted: {
