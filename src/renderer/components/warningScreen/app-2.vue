@@ -1,3 +1,4 @@
+//子组件通过props方法接受数据
 <template>
     <section>
         <p style="color: #321c67">

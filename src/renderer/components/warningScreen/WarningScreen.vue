@@ -1,3 +1,4 @@
+//父组件通过标签上面定义传值
 <template>
     <section>
         <Layout class="layout">
@@ -20,6 +21,7 @@
 
 <script>
     // import {mapState, mapMutations} from 'vuex';
+    //引入子组件
     import item1 from 'dirScreens/warningScreen/app-1'
     import item2 from 'dirScreens/warningScreen/app-2'
 
@@ -30,15 +32,17 @@
             return {
                 title: 'hello!',
                 groceryList: [
-                    { id: 0, text: '蔬菜' },
-                    { id: 1, text: '奶酪' },
-                    { id: 2, text: '随便其它什么人吃的东西' }
+                    { id: 0, text: '我要向子组件传递数据0' },
+                    { id: 1, text: '我要向子组件传递数据1' },
+                    { id: 2, text: '我要向子组件传递数据2' },
+                    { id: 3, text: '我要向子组件传递数据3' }
                 ]
             }
         },
         // created: {
         //
         // },
+        //初始化组件
         components: {
             'app1': item1,
             'app2': item2
