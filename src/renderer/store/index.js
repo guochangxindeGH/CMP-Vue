@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex from 'vuex';  //vue 框架中状态管理
 import createPersistedState from 'vuex-persistedstate';  //添加persistedstate插件
 
 
