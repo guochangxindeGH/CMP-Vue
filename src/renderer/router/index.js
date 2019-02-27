@@ -8,7 +8,8 @@ import MainScreen from 'dirScreens/mainScreen/MainScreen.vue'
 import IndicatorScreen from 'dirScreens/indicatorScreen/IndicatorScreen.vue'
 import AppViewScreen from 'dirScreens/indicatorScreen/appViewScreen/AppViewScreen.vue'
 import HardwareViewScreen from 'dirScreens/indicatorScreen/hardwareViewScreen/HardwareViewScreen.vue'
-import WarningScreen from 'dirScreens/warningScreen/WarningScreen.vue'
+// import WarningScreen from 'dirScreens/warningScreen/WarningScreen.vue'  //不进行页面按需加载引入方式
+const WarningScreen = r => require.ensure( [], () => r (require('dirScreens/warningScreen/WarningScreen.vue')))     //进行页面按需加载的引入方式(懒加载)
 import MaintenanceScreen from 'dirScreens/maintenanceScreen/MaintenanceScreen.vue'
 import TreeviewScreen from 'dirScreens/treeviewScreen/TreeviewScreen.vue'
 
