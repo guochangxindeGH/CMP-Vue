@@ -9,11 +9,11 @@
             </div>
         </Layout>
         <Content :style="{margin: '28px 5px 0', background: '#fff', minHeight: '500px'}">
-            <app1 v-for="item in groceryList"
+            <app1 @suntofather="sun" v-for="item in groceryList"
                   :title="item.id"
                   :cont="item.text">
             </app1>
-            <app2></app2>
+            <app2 @suntofather="sun"></app2>
         </Content>
 
     </section>
@@ -54,6 +54,10 @@
         //
         // },
         methods: {
+            sun (params) {
+                debugger;
+                console.log(params)
+            },
             onTypeChanged(name) {
                 console.log('name:' + name);
                 this.$router.push({

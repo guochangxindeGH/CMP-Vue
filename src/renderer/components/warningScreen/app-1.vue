@@ -5,6 +5,7 @@
             <span>shop.rating{{title}}</span>
             <em>月售shop.recent_order_num单{{cont}}</em>
         </p>
+        <div style="color: #ff6666" @click="emitEvent()">{{title}}</div>
     </section>
 </template>
 
@@ -22,6 +23,12 @@
                 required:true
             }
         },
+        methods: {
+            emitEvent() {
+                debugger;
+                this.$emit('suntofather', '我是1子传父的参数')   // 派发函数，并传递值，params是你自己想传的值
+            }
+        }
     }
 </script>
 
