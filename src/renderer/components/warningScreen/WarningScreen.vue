@@ -13,9 +13,9 @@
                   :title="item.id"
                   :cont="item.text">
             </app1>
-            <app2 @suntofather="sun"></app2>
+            <app2 @suntofather="sun" @input="value = arguments[0]" :value="value"></app2>
         </Content>
-
+        <input type="text" @input="value = arguments[0].target.value" :value="value">
     </section>
 </template>
 
@@ -31,6 +31,7 @@
         data() {
             return {
                 title: 'hello!',
+                value: '123',
                 groceryList: [
                     { id: 0, text: '我要向子组件传递数据0' },
                     { id: 1, text: '我要向子组件传递数据1' },

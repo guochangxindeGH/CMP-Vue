@@ -6,16 +6,27 @@
             <em>月售shop.recent_order_num单</em>
         </p>
         <div style="color: #ff6666" @click="emitEvent()">阿萨斯多啊</div>
+        <input type="text" @input="handleInput" :value="value">
     </section>
 </template>
 
 <script>
     export default {
         name: "app-2",
+        props: {
+            value:{
+                type:String,
+                required:true
+            }
+        },
         methods: {
             emitEvent() {
                 debugger;
                 this.$emit('suntofather', '我是2子传父的参数')   // 派发函数，并传递值，params是你自己想传的值
+            },
+            handleInput (e) {
+                debugger;
+                this.$emit('input', e.target.value)
             }
         }
     }
