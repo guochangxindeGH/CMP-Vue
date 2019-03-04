@@ -25,7 +25,6 @@
         },
         methods: {
             emitEvent() {
-                debugger;
                 this.$emit('suntofather', '我是1子传父的参数')   // 派发函数，并传递值，params是你自己想传的值
             }
         }

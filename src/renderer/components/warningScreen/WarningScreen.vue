@@ -8,7 +8,7 @@
                 <!--</RadioGroup>-->
             </div>
         </Layout>
-        <Content :style="{margin: '28px 5px 0', background: '#fff', minHeight: '500px'}">
+        <Content :style="{margin: '28px 5px 0', background: '#fff', minHeight: '300px'}">
             <app1 @suntofather="sun" v-for="item in groceryList"
                   :title="item.id"
                   :cont="item.text">
@@ -16,6 +16,9 @@
             <app2 @suntofather="sun" @input="value = arguments[0]" :value="value"></app2>
         </Content>
         <input type="text" @input="value = arguments[0].target.value" :value="value">
+        <button style="background: #ff6666" @click="addObjB">添加obj.b</button>
+        <button style="background: aqua" @click="deleteObj">删除obj.b</button>
+
     </section>
 </template>
 
@@ -51,12 +54,9 @@
         // mounted: {
         //
         // },
-        // computed: {
-        //
-        // },
+
         methods: {
             sun (params) {
-                debugger;
                 console.log(params)
             },
             onTypeChanged(name) {
@@ -64,8 +64,45 @@
                 this.$router.push({
                     name: name
                 });
+            },
+            addObjB () {
+                this.groceryList.push({
+                    id: 4,
+                    text: 'objB'
+                })
+                console.log(this.groceryList)
+
+                this.b = 'obj.b'
+                // 在Vue实例创建时，obj.b并未声明，因此就没有被Vue转换为响应式的属性，自然就不会触发视图的更新
+                this.$set(this.b, 'b', 'obj.b')   // $set()方法相当于手动的去把obj.b处理成一个响应式的属性，此时视图也会跟着改变了
+                debugger
+                console.log(this.b)
+                this.$delete(this.b, 'obj.b')
+            },
+            deleteObj () {
+                var a=[1,2,3,4]
+                var b=[1,2,3,4]
+                delete a[1]
+                console.log(a)
+                this.$delete(b,1)
+                console.log(b)
             }
-        }
+        },
+        watch: {     // 用来监控data中对象属性的变化
+            'value': {
+                handler (newName, oldName) {
+                    console.log('obj.a changed')
+                },
+                // deep: true    //deep属性表示深层遍历，但是这么写会监控obj的所有属性变化，并不是我们想要的效果
+            }
+        },
+        computed: {   // 也可以监控data中对象的变化
+            a1 () {
+                debugger;
+                return this.obj.a
+            }
+
+        },
     };
 </script>
 
