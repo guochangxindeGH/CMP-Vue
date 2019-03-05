@@ -51,9 +51,19 @@
             'app1': item1,
             'app2': item2
         },
-        // mounted: {
-        //
-        // },
+        mounted: function () {    //el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。
+            console.log()
+            this.$nextTick(function () {
+                // Code that will run only after the
+                // entire view has been rendered
+            })
+        },
+        updated: function () {    //由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+            this.$nextTick(function () {
+                // Code that will run only after the
+                // entire view has been re-rendered
+            })
+        },
 
         methods: {
             sun (params) {
@@ -103,6 +113,9 @@
             }
 
         },
+        destroyed () {  //Vue 实例销毁后调用。
+
+        }
     };
 </script>
 

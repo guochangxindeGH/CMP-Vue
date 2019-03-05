@@ -16,6 +16,10 @@ Vue.config.productionTip = false
 Vue.use(iView);
 Vue.component('v-icon', Icon);
 
+// 务必在加载 Vue 之后，立即同步设置以下内容
+//配置是否允许 vue-devtools 检查代码。开发版本默认为 true，生产版本默认为 false。生产版本设为 true 可以启用检查。
+Vue.config.devtools = true
+
 /* eslint-disable no-new */
 new Vue({
     components: { App },

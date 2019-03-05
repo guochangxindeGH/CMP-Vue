@@ -21,7 +21,7 @@ function dataChange(event, msg) {
     if (packName === 'RspError') {
         // 服务器返回Error
         makeLog('服务器返回Error');
-        debugger;
+        // debugger;
     }
     if (packName === 'RspAppLists') {
         mAppList = [];
