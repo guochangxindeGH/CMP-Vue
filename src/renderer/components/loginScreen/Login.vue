@@ -40,6 +40,7 @@
         name: 'login',
         data() {
             return {
+                loginUrl: 'http://localhost:3000/api/login?',
                 formValidate: {
                     // 默认值从本地拿到
                     name: this.$store.state.account.accountName,
@@ -93,6 +94,32 @@
             onClickForClose() {
             },
             onClickForLogin(name) {
+                let loginData = {
+                    "username": this.formValidate.name,
+                    "password": this.formValidate.passwd
+                }
+                this.$http
+                    .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
+                    .then(res=>{
+                        console.log('res=>',res)
+                })
+                // this.$http({
+                //     url: this.loginUrl,
+                //     method:"post",
+                //     data:{
+                //         username:this.formValidate.name,
+                //         password:this.formValidate.passwd,
+                //     },
+                //     headers: {
+                //         'X-Requested-With': 'XMLHttpRequest',
+                //         'Content-Type': 'application/json; charset=UTF-8',
+                //         'Access-Control-Allow-Origin': '*'
+                //     },//设置跨域请求头
+                // }).then(function (response) {
+                //     console.log(response);
+                // }).catch(function (error) {
+                //     console.log(error);
+                // });
                 this.$refs[name].validate((valid) => {
                     if (valid) {
                         let requestID = Utils.getNewRequestID();

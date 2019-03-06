@@ -68,6 +68,11 @@
         methods: {
             sun (params) {
                 console.log(params)
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(function() {
+                        console.log(new Date, i);
+                    }, 1000);
+                }
             },
             onTypeChanged(name) {
                 console.log('name:' + name);
