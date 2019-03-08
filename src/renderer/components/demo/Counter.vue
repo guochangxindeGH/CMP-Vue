@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>Counter.vue</h3>
-        {{ count }}
+        <h1>{{ count }}</h1>
         <button @click="increment">自增</button>
         <button @click="incrementByAsync">异步自增</button>
 
