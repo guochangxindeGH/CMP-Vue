@@ -55,7 +55,8 @@
                         {required: true, message: '请输入密码', trigger: 'blur'},
                         {type: 'string', min: 1, message: '无效的密码长度', trigger: 'blur'}
                     ]
-                }
+                },
+                isLogin: false
             };
         },
         created: function () {
@@ -85,41 +86,38 @@
                         this.setRememberPasswd(this.formValidate.rememberPasswd);
                         this.setLoginState(true);
                         // 跳转主界面
-                        this.$router.push({
-                            name: 'main'
-                        });
+                        // this.$router.push({
+                        //     name: 'main'
+                        // });
                     }
                 }
             },
             onClickForClose() {
+                window.close()
             },
             onClickForLogin(name) {
                 let loginData = {
                     "username": this.formValidate.name,
                     "password": this.formValidate.passwd
                 }
-                this.$http
-                    .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
-                    .then(res=>{
-                        console.log('res=>',res)
-                })
-                // this.$http({
-                //     url: this.loginUrl,
-                //     method:"post",
-                //     data:{
-                //         username:this.formValidate.name,
-                //         password:this.formValidate.passwd,
-                //     },
-                //     headers: {
-                //         'X-Requested-With': 'XMLHttpRequest',
-                //         'Content-Type': 'application/json; charset=UTF-8',
-                //         'Access-Control-Allow-Origin': '*'
-                //     },//设置跨域请求头
-                // }).then(function (response) {
-                //     console.log(response);
-                // }).catch(function (error) {
-                //     console.log(error);
-                // });
+                // this.$http
+                //     .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
+                //     .then(res=>{
+                //         console.log('res=>',res)
+                // })
+                this.$http({
+                    url: this.loginUrl,
+                    method:"get",
+                    data:{
+                        username:this.formValidate.name,
+                        password:this.formValidate.passwd,
+                    }
+                }).then(function (response) {
+                    this.isLogin = true
+                    console.log('response');
+                }).catch(function (error) {
+                    console.log(error);
+                });
                 this.$refs[name].validate((valid) => {
                     if (valid) {
                         let requestID = Utils.getNewRequestID();
