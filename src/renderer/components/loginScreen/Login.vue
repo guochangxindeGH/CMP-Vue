@@ -10,13 +10,13 @@
             <div class="formLayout">
                 <Form class="form" ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="60">
                     <FormItem label="账户" prop="account">
-                        <Input v-model="username" placeholder="请输入用户名"/>
+                        <Input v-model="formValidate.name" placeholder="请输入用户名"/>
                     </FormItem>
                     <FormItem label="密码" prop="passwd">
-                        <Input type="password" v-model="password" placeholder="请输入密码"/>
+                        <Input type="password" v-model="formValidate.passwd" placeholder="请输入密码"/>
                     </FormItem>
                     <FormItem label="记住密码" prop="rememberPasswd">
-                        <Checkbox v-model="remPasswd"></Checkbox>
+                        <Checkbox v-model="formValidate.rememberPasswd"></Checkbox>
                         <Button class="loginBtn" type="primary" @click="onClickForLogin('formValidate')">登陆</Button>
                     </FormItem>
                 </Form>
@@ -46,9 +46,9 @@
                 remPasswd: '',
                 formValidate: {
                     // 默认值从本地拿到
-                    name: '',
-                    passwd: '',
-                    rememberPasswd: ''
+                    name: this.$store.state.counter.accountName,
+                    passwd: this.$store.state.counter.accountPasswd,
+                    rememberPasswd: this.$store.state.counter.rememberPasswd
                 },
                 ruleValidate: {
                     name: [
@@ -64,14 +64,33 @@
         },
         created: function () {
             console.log('登陆界面初始化');
-            this.username = this.$store.state.account.accountName
-            this.password = this.$store.state.account.accountPasswd
-            this.remPasswd = this.$store.state.account.rememberPasswd
+            // this.formValidate.name = this.accountName
+            this.formValidate.name = this.$store.state.counter.accountName
+            // this.formValidate.passwd = this.$store.state.account.accountPasswd
+            // this.formValidate.rememberPasswd = this.$store.state.account.rememberPasswd
 
             ipcRenderer.on('dataChange', this.onLoginResult);
             ipcRenderer.send('resizeMainWindowSizeMsg', {
                 isLoginScreen: true
             });
+        },
+        // computed: {
+        //     ...mapState({
+        //         accountName: state => state.account.accountName
+        //     })
+        // },
+        computed: {
+            ...mapState([
+                'accountName',
+                'accountPasswd',
+                'rememberPasswd',
+                'loginState',
+                'counter',
+                'warningCount'
+            ])
+        },
+        mounted: function () {
+
         },
         destroyed: function () {
             console.log('登陆界面销毁');
@@ -86,12 +105,12 @@
                     if (result.ErrorID !== 0) {
                         this.$Message.error('登录失败:' + result.ErrorMsg);
                     } else {
-                        this.$Message.success('登陆成功!');
                         // 将用户输入存储本地和内存
                         this.setAccountName(this.formValidate.name);
                         this.setAccountPasswd(this.formValidate.passwd);
                         this.setRememberPasswd(this.formValidate.rememberPasswd);
                         this.setLoginState(true);
+                        this.$Message.success('登陆成功!');
                         // 跳转主界面
                         // this.$router.push({
                         //     name: 'main'
@@ -159,12 +178,6 @@
                 'warning_add'
             ])
         },
-        computed: mapState({
-            accountName: state => state.Account.accountName,
-            accountPasswd: state => state.Account.accountPasswd,
-            rememberPasswd: state => state.Account.rememberPasswd,
-            loginState: state => state.Account.loginState,
-            warning: state => state.WarningStore.warningCount
-        })
+
     }
 </script>
