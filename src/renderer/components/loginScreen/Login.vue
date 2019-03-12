@@ -41,14 +41,11 @@
         data() {
             return {
                 loginUrl: 'http://localhost:3000/api/login?',
-                username: '',
-                password: '',
-                remPasswd: '',
                 formValidate: {
                     // 默认值从本地拿到
-                    name: this.$store.state.counter.accountName,
-                    passwd: this.$store.state.counter.accountPasswd,
-                    rememberPasswd: this.$store.state.counter.rememberPasswd
+                    name: '',
+                    passwd: '',
+                    rememberPasswd: ''
                 },
                 ruleValidate: {
                     name: [
@@ -64,10 +61,7 @@
         },
         created: function () {
             console.log('登陆界面初始化');
-            // this.formValidate.name = this.accountName
-            this.formValidate.name = this.$store.state.counter.accountName
-            // this.formValidate.passwd = this.$store.state.account.accountPasswd
-            // this.formValidate.rememberPasswd = this.$store.state.account.rememberPasswd
+
 
             ipcRenderer.on('dataChange', this.onLoginResult);
             ipcRenderer.send('resizeMainWindowSizeMsg', {
@@ -75,22 +69,31 @@
             });
         },
         // computed: {
+        //     ...mapState([
+        //         'accountName',
+        //         'accountPasswd',
+        //         'rememberPasswd',
+        //         'loginState',
+        //         'counter',
+        //         'warningCount'
+        //     ])
+        // },
+        // computed: {
         //     ...mapState({
-        //         accountName: state => state.account.accountName
+        //         accountName: state => state.counter.accountName
         //     })
         // },
         computed: {
-            ...mapState([
-                'accountName',
-                'accountPasswd',
-                'rememberPasswd',
-                'loginState',
-                'counter',
-                'warningCount'
-            ])
+            accountName () {
+                return this.$store.state.counter.accountName
+            }
         },
-        mounted: function () {
 
+        mounted: function () {
+            // this.formValidate.name = this.accountName
+            // this.formValidate.name    = this.$store.state.counter.accountName
+            // this.formValidate.passwd = this.$store.state.counter.accountPasswd
+            // this.formValidate.rememberPasswd = this.$store.state.counter.rememberPasswd
         },
         destroyed: function () {
             console.log('登陆界面销毁');
