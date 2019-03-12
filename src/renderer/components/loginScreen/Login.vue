@@ -10,13 +10,13 @@
             <div class="formLayout">
                 <Form class="form" ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="60">
                     <FormItem label="账户" prop="account">
-                        <Input v-model="formValidate.name" placeholder="请输入用户名"/>
+                        <Input v-model="username" placeholder="请输入用户名"/>
                     </FormItem>
                     <FormItem label="密码" prop="passwd">
-                        <Input type="password" v-model="formValidate.passwd" placeholder="请输入密码"/>
+                        <Input type="password" v-model="password" placeholder="请输入密码"/>
                     </FormItem>
                     <FormItem label="记住密码" prop="rememberPasswd">
-                        <Checkbox v-model="formValidate.rememberPasswd"></Checkbox>
+                        <Checkbox v-model="remPasswd"></Checkbox>
                         <Button class="loginBtn" type="primary" @click="onClickForLogin('formValidate')">登陆</Button>
                     </FormItem>
                 </Form>
@@ -37,15 +37,18 @@
     import {mapState, mapMutations} from 'vuex';
 
     export default {
-        name: 'login',
+        name: 'Login',
         data() {
             return {
                 loginUrl: 'http://localhost:3000/api/login?',
+                username: '',
+                password: '',
+                remPasswd: '',
                 formValidate: {
                     // 默认值从本地拿到
-                    name: this.$store.state.account.accountName,
-                    passwd: this.$store.state.account.accountPasswd,
-                    rememberPasswd: this.$store.state.account.rememberPasswd
+                    name: '',
+                    passwd: '',
+                    rememberPasswd: ''
                 },
                 ruleValidate: {
                     name: [
@@ -61,6 +64,10 @@
         },
         created: function () {
             console.log('登陆界面初始化');
+            this.username = this.$store.state.account.accountName
+            this.password = this.$store.state.account.accountPasswd
+            this.remPasswd = this.$store.state.account.rememberPasswd
+
             ipcRenderer.on('dataChange', this.onLoginResult);
             ipcRenderer.send('resizeMainWindowSizeMsg', {
                 isLoginScreen: true
@@ -96,10 +103,10 @@
                 window.close()
             },
             onClickForLogin(name) {
-                let loginData = {
-                    "username": this.formValidate.name,
-                    "password": this.formValidate.passwd
-                }
+                // let loginData = {
+                //     "username": this.formValidate.name,
+                //     "password": this.formValidate.passwd
+                // }
                 // this.$http
                 //     .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
                 //     .then(res=>{
@@ -141,18 +148,6 @@
                         console.log('rememberPasswd:' + this.rememberPasswd);
                         console.log('loginState:' + this.loginState);
                         console.log('warning:' + this.warning);
-
-                        this.setAccountName('aaa');
-                        this.setAccountPasswd('bbb');
-                        this.setRememberPasswd(true);
-                        this.setLoginState(true);
-                        this.warning_add();
-
-                        console.log('accountName:' + this.accountName);
-                        console.log('accountPasswd:' + this.accountPasswd);
-                        console.log('rememberPasswd:' + this.rememberPasswd);
-                        console.log('loginState:' + this.loginState);
-                        console.log('warning:' + this.warning);
                     }
                 });
             },
@@ -171,5 +166,5 @@
             loginState: state => state.Account.loginState,
             warning: state => state.WarningStore.warningCount
         })
-    };
+    }
 </script>

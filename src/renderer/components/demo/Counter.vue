@@ -1,25 +1,26 @@
 <template>
     <div>
         <h3>Counter.vue</h3>
-        <h1>{{ count }}</h1>
-        <button @click="increment">自增</button>
-        <button @click="incrementByAsync">异步自增</button>
-
+        <div>
+            <span class="num">{{ count }}</span>
+            <button class="sync-button" @click="increment">自增</button>
+            <button class="async-button" @click="incrementByAsync">异步自增</button>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Counter",
         data () {
             return {
-                count: 0
+                count: 0,
+                foo: '',
             }
         },
 
         methods: {
             increment () {
-                this.count++
+                this.count++;
             },
             incrementByAsync () {
                 window.setTimeout(() => {
@@ -29,7 +30,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>
