@@ -63,7 +63,7 @@
     import {ipcRenderer} from 'electron';
     import Utils from 'dirUtil/Utils';
     import * as dataManager from 'dirManagers/dataManager';
-    import {getWarningWithParam} from 'dirManagers/warningManager';
+    // import {getWarningWithParam} from 'dirManagers/warningManager';
 
     export default {
         name: 'login-page',
@@ -92,8 +92,8 @@
             onDataChanged(event, msg) {
             },
             onClickForTab(name) {
-                let warningList = getWarningWithParam('N', 99, '', '', 'MainTip');
-                console.log('warningList:' + warningList);
+                // let warningList = getWarningWithParam('N', 99, '', '', 'MainTip');
+                // console.log('warningList:' + warningList);
 
                  console.log('name:' + name);
                  this.$router.push({
