@@ -47,7 +47,7 @@ describe('Login.vue', () => {
     });
 
 
-    it('点击登陆后，触发点击事件并且返回结果 ', function (done) {
+    it('点击登陆后，触发点击事件并且返回结果 ', () => {
         const wrapper = mount(Login)
 
         const loginButton = wrapper.find('.loginBtn')
@@ -55,10 +55,9 @@ describe('Login.vue', () => {
 
         const username = wrapper.vm.formValidate.name
         const password = wrapper.vm.formValidate.passwd
-        let btn = function() {
-            const islogin = wrapper.vm.isLogin
+        let btn = () => {
+            const islogin = wrapper.vm.is_Login
             expect(islogin).to.equal('true')
-            done()
         }
         setTimeout(btn, 2000)
 

@@ -28,6 +28,7 @@ export default new Vuex.Store({
             return {
                 // 只保存某些store
                 counter: state.counter,
+                warningStore: state.warningStore
             };
         }
     })],

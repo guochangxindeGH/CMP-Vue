@@ -61,8 +61,6 @@
         },
         created: function () {
             console.log('登陆界面初始化');
-
-
             ipcRenderer.on('dataChange', this.onLoginResult);
             ipcRenderer.send('resizeMainWindowSizeMsg', {
                 isLoginScreen: true
@@ -85,14 +83,25 @@
         // },
         computed: {
             accountName () {
-                // return this.$store.state.counter.accountName
-            }
+                return this.$store.state.counter.accountName
+            },
+            accountPasswd () {
+                return this.$store.state.counter.accountPasswd
+            },
+            rememberPasswd () {
+                return this.$store.state.counter.rememberPasswd
+            },
+            loginState () {
+                return this.$store.state.counter.loginState
+            },
+            warningCount () {
+                return this.$store.state.warningStore.warningCount
+            },
         },
 
         mounted: function () {
-            // this.formValidate.name = this.accountName
-            // this.formValidate.name    = this.$store.state.counter.accountName
-            // this.formValidate.passwd = this.$store.state.counter.accountPasswd
+            this.formValidate.name = this.accountName
+            this.formValidate.passwd = this.accountPasswd
             // this.formValidate.rememberPasswd = this.$store.state.counter.rememberPasswd
         },
         destroyed: function () {
