@@ -40,6 +40,7 @@
         name: 'Login',
         data() {
             return {
+                is_Login: 'false',
                 loginUrl: 'http://localhost:3000/api/login?',
                 formValidate: {
                     // 默认值从本地拿到
@@ -56,7 +57,6 @@
                         {type: 'string', min: 1, message: '无效的密码长度', trigger: 'blur'}
                     ]
                 },
-                isLogin: false
             };
         },
         created: function () {
@@ -85,7 +85,7 @@
         // },
         computed: {
             accountName () {
-                return this.$store.state.counter.accountName
+                // return this.$store.state.counter.accountName
             }
         },
 
@@ -122,13 +122,14 @@
                 }
             },
             onClickForClose() {
-                window.close()
+                this.$Message.info('关闭窗口')
+                // window.close()
             },
             onClickForLogin(name) {
-                // let loginData = {
-                //     "username": this.formValidate.name,
-                //     "password": this.formValidate.passwd
-                // }
+                let loginData = {
+                    "username": this.formValidate.name,
+                    "password": this.formValidate.passwd
+                }
                 // this.$http
                 //     .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
                 //     .then(res=>{
@@ -137,14 +138,12 @@
                 this.$http({
                     url: this.loginUrl,
                     method:"get",
-                    data:{
-                        username:this.formValidate.name,
-                        password:this.formValidate.passwd,
-                    }
-                }).then(function (response) {
-                    this.isLogin = true
+                    data:loginData
+                }).then((response) => {
+                    // debugger;
+                    this.is_Login = 'true'
                     console.log('response');
-                }).catch(function (error) {
+                }).catch((error) => {
                     console.log(error);
                 });
                 this.$refs[name].validate((valid) => {

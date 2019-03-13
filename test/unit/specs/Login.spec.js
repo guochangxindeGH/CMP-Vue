@@ -39,25 +39,29 @@ describe('Login.vue', () => {
         expect(wrapper.find('h2').text()).to.equal('综合监控平台')
     });
 
-    // it('点击关闭窗口按钮，触发点击事件', function () {
-    //     const wrapper = mount(Login)
-    //
-    //     const closeButton = wrapper.find('.closeBtn')
-    //     closeButton.trigger('click')
-    // });
-    //
-    //
-    // it('点击登陆后，触发点击事件 ', function () {
-    //     const wrapper = mount(Login)
-    //
-    //     const loginButton = wrapper.find('.loginBtn')
-    //     loginButton.trigger('click')
-    //
-    //     const username = wrapper.vm.formValidate.name
-    //     const password = wrapper.vm.formValidate.passwd
-    //     const islogin = wrapper.vm.isLogin
-    //     const alertStr = wrapper.find('ivu-form-item-error-tip')
-    //     expect(islogin.text()).to.equal('true')
-    // });
+    it('点击关闭窗口按钮，触发点击事件', () => {
+        const wrapper = mount(Login)
+
+        const closeButton = wrapper.find('.closeBtn')
+        closeButton.trigger('click')
+    });
+
+
+    it('点击登陆后，触发点击事件并且返回结果 ', function (done) {
+        const wrapper = mount(Login)
+
+        const loginButton = wrapper.find('.loginBtn')
+        loginButton.trigger('click')
+
+        const username = wrapper.vm.formValidate.name
+        const password = wrapper.vm.formValidate.passwd
+        let btn = function() {
+            const islogin = wrapper.vm.isLogin
+            expect(islogin).to.equal('true')
+            done()
+        }
+        setTimeout(btn, 2000)
+
+    });
 
 })
