@@ -44,6 +44,7 @@ html, body, * {
     }
   }
 }
+@image: "~dirRes/images/login_bg.png";
 
 .contentLayout {
   padding-top: 22px;
@@ -53,7 +54,7 @@ html, body, * {
   top: 20px;
   bottom: 0px;
   margin-bottom: 0px;
-  background-image: url('~dirRes/images/login_bg.png');
+  background-image: url("@{image}");
 }
 
 h2 {
@@ -86,4 +87,12 @@ h2 {
 
 .loginBtn {
   float: right;
+}
+
+@bgd: {
+  background: red;
+}
+
+#a {
+  @bgd();
 }

@@ -9,7 +9,7 @@
             </h2>
             <div class="formLayout">
                 <Form class="form" ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="60">
-                    <FormItem label="账户" prop="account">
+                    <FormItem label="账户" prop="name">
                         <Input v-model="formValidate.name" placeholder="请输入用户名"/>
                     </FormItem>
                     <FormItem label="密码" prop="passwd">
