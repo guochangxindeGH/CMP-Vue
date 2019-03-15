@@ -33,6 +33,7 @@
 <script>
     import crypto from 'crypto';
     import Utils from 'dirUtil/Utils';
+    import secret from 'dirUtil/secret';
     import {ipcRenderer} from 'electron';
     import {mapState, mapMutations} from 'vuex';
 
@@ -139,6 +140,8 @@
                     "username": this.formValidate.name,
                     "password": this.formValidate.passwd
                 }
+                let finalData = secret.Encrypt(loginData.username)
+                let clearData = secret.Decrypt(finalData)
                 // this.$http
                 //     .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
                 //     .then(res=>{
