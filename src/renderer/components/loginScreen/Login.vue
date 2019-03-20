@@ -41,6 +41,7 @@
         name: 'Login',
         data() {
             return {
+                message: 'gcx is boy',
                 is_Login: 'false',
                 loginUrl: 'http://localhost:3000/api/login?',
                 formValidate: {
@@ -59,13 +60,6 @@
                     ]
                 },
             };
-        },
-        created: function () {
-            console.log('登陆界面初始化');
-            ipcRenderer.on('dataChange', this.onLoginResult);
-            ipcRenderer.send('resizeMainWindowSizeMsg', {
-                isLoginScreen: true
-            });
         },
         // computed: {
         //     ...mapState([
@@ -99,11 +93,53 @@
                 return this.$store.state.warningStore.warningCount
             },
         },
-
+        beforeCreate: function () {
+            console.group('beforeCreate 创建前状态===============》');
+            console.log("%c%s", "color:red" , "el     : " + this); //undefined
+            console.log("%c%s", "color:red","data   : " + this.$data); //undefined
+            console.log("%c%s", "color:red","message: " + this.message)
+        },
+        created: function () {
+            console.log('登陆界面初始化');
+            ipcRenderer.on('dataChange', this.onLoginResult);
+            ipcRenderer.send('resizeMainWindowSizeMsg', {
+                isLoginScreen: true
+            });
+        },
+        beforeMount: function () {
+            console.group('beforeMount 挂载前状态===============》');
+            console.log("%c%s", "color:red","el     : " + (this)); //已被初始化
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+            console.log("%c%s", "color:red","message: " + this.message); //已被初始化
+        },
         mounted: function () {
+            console.log(this.$el);
+            console.log("%c%s", "color:red","message: " + this.message); //已被初始化
             this.formValidate.name = this.accountName
             this.formValidate.passwd = this.accountPasswd
             // this.formValidate.rememberPasswd = this.$store.state.counter.rememberPasswd
+        },
+        beforeUpdate: function () {
+            console.group('beforeUpdate 更新前状态===============》');
+            console.log("%c%s", "color:red","el     : " + this);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " + this.$data);
+            console.log("%c%s", "color:red","message: " + this.message);
+        },
+        updated: function () {
+            console.group('updated 更新完成状态===============》');
+            console.log("%c%s", "color:red","el     : " + this);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " + this.$data);
+            console.log("%c%s", "color:red","message: " + this.message);
+        },
+        beforeDestroy: function () {
+            console.group('beforeDestroy 销毁前状态===============》');
+            console.log("%c%s", "color:red","el     : " + this);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " + this.$data);
+            console.log("%c%s", "color:red","message: " + this.message);
         },
         destroyed: function () {
             console.log('登陆界面销毁');
