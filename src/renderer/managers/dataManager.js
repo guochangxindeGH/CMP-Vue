@@ -17,7 +17,7 @@ function makeLog(message) {
 
 function dataChange(event, msg) {
     let packName = msg.packName;
-    makeLog('收到服务器包:' + packName);
+    // makeLog('收到服务器包:' + packName);
     if (packName === 'RspError') {
         // 服务器返回Error
         makeLog('服务器返回Error');
