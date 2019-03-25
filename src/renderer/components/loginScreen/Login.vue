@@ -34,8 +34,11 @@
     import crypto from 'crypto';
     import Utils from 'dirUtil/Utils';
     import secret from 'dirUtil/secret';
+    import timeCom from 'dirUtil/TimeUtils'
     import {ipcRenderer} from 'electron';
     import {mapState, mapMutations} from 'vuex';
+
+    let timeUtils = new timeCom()
 
     export default {
         name: 'Login',
@@ -75,7 +78,7 @@
         //     ...mapState({
         //         accountName: state => state.counter.accountName
         //     })
-        // },
+        // }, d
         computed: {
             accountName () {
                 return this.$store.state.counter.accountName
