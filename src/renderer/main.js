@@ -4,16 +4,25 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store/index'    //默认store目录下的index.js文件
+
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import './style/iviewTheme';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import 'vue-awesome/icons';
 import Icon from 'vue-awesome/components/Icon.vue';
+import Echarts from 'echarts'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
+Vue.http = Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false
 Vue.use(iView);
+Vue.use(ElementUI);
+Vue.prototype.echarts = Echarts
+Vue.use(Echarts)
+
 Vue.component('v-icon', Icon);
 
 

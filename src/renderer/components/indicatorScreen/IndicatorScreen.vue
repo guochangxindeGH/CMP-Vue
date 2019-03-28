@@ -42,7 +42,7 @@
     export default {
         data() {
             return {
-                viewType: 'app'
+                viewType: 'hardware'
             };
         },
         methods: {

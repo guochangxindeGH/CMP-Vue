@@ -1,9 +1,5 @@
-<style scoped lang="less">
-    .sysLabel {
-        color: black;
-        text-align: center;
-    }
-</style>
+
+
 <template>
     <div>
         <Row>
@@ -34,13 +30,48 @@
                 </li>
             </ul>
         </Card>
+        <el-row>
+            <el-col :span="6">
+                <el-button type="primary" @click="getSystem()">获取系统</el-button>
+                <div v-for="sys in sysList">
+                    <el-button type="success" >{{sys.member_name + sys.system_name}}</el-button>
+
+                </div>
+            </el-col>
+            <el-col :span="9">
+                <div id="chart1"></div>
+            </el-col>
+            <el-col :span="9">
+                <div id="chart2"></div>
+            </el-col>
+
+        </el-row>
+        <el-row>
+            <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+        </el-row>
+
     </div>
 </template>
 
 <script>
+
     export default {
         data() {
             return {
+                apiUrl: {
+                    query_system:'http://localhost:3000/api/query_system?',
+                },
+                sysList: [
+                    {
+                        member_name: '',
+                        system_name: ''
+                    }
+                ],
                 movieList: [
                     {
                         name: 'The Shawshank Redemption',
@@ -96,7 +127,39 @@
                 randomMovieList: []
             };
         },
+        mounted() {
+            this.changeLimit();
+            this.drawEchart1()
+        },
+        watch: {
+            sysList: [
+                // 'handle1',
+                function handle2 (val, oldVal1){
+
+                },
+                {
+                    handler: function handle2 (val, oldVal2) { /* ... */
+                        // debugger
+                    }
+                }
+            ]
+        },
         methods: {
+            getSystem() {
+                this.$http({
+                    url: this.apiUrl.query_system,
+                    method: 'get',
+                    data: ''
+                }).then( (response) =>{
+                    console.log(response)
+                    for (let system of response.data.system) {
+                        system.deviceList = []
+                        this.sysList.push(system)
+                    }
+                }).catch( (error) => {
+                    console.log(error)
+                })
+            },
             changeLimit() {
                 function getArrayItems(arr, num) {
                     const temp_array = [];
@@ -117,11 +180,73 @@
                 }
 
                 this.randomMovieList = getArrayItems(this.movieList, 5);
+            },
+            drawEchart1() {
+                let myChart = this.echarts.init(document.getElementById('chart2'));
+                // 绘制图表
+                myChart.setOption({
+                    title: { text: 'ECharts 入门示例' },
+                    tooltip: {},
+                    xAxis: {
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [820, 932, 901, 934, 1290, 1330, 1320],
+                        type: 'line',
+                        smooth: true
+                    }]
+                });
             }
         },
-        mounted() {
-            this.changeLimit();
-        }
+        computed: {
+            changeSysList() {
+                debugger
+            }
+        },
     };
 </script>
 
+<style scoped lang="less">
+    .sysLabel {
+        color: black;
+        text-align: center;
+    }
+    .el-row {
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .el-col {
+        border-radius: 4px;
+    }
+    .bg-purple-dark {
+        background: #99a9bf;
+    }
+    .bg-purple {
+        background: #d3dce6;
+    }
+    .bg-purple-light {
+        background: #e5e9f2;
+    }
+    .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+    }
+
+    #chart1 {
+        /*width: 400px;*/
+        height: 400px;
+    }
+    #chart2 {
+        height: 400px;
+    }
+</style>

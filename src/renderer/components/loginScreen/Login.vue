@@ -98,12 +98,15 @@
         },
         beforeCreate: function () {
             console.group('beforeCreate 创建前状态===============》');
-            console.log("%c%s", "color:red" , "el     : " + this); //undefined
+            console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
             console.log("%c%s", "color:red","data   : " + this.$data); //undefined
             console.log("%c%s", "color:red","message: " + this.message)
         },
         created: function () {
-            console.log('登陆界面初始化');
+            console.group('beforeCreate 创建完成状态===============》');
+            console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
+            console.log("%c%s", "color:red","data   : " + this.$data); //undefined
+            console.log("%c%s", "color:red","message: " + this.message)
             ipcRenderer.on('dataChange', this.onLoginResult);
             ipcRenderer.send('resizeMainWindowSizeMsg', {
                 isLoginScreen: true
@@ -111,7 +114,7 @@
         },
         beforeMount: function () {
             console.group('beforeMount 挂载前状态===============》');
-            console.log("%c%s", "color:red","el     : " + (this)); //已被初始化
+            console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
             console.log(this.$el);
             console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
             console.log("%c%s", "color:red","message: " + this.message); //已被初始化
@@ -125,21 +128,21 @@
         },
         beforeUpdate: function () {
             console.group('beforeUpdate 更新前状态===============》');
-            console.log("%c%s", "color:red","el     : " + this);
+            console.log("%c%s", "color:red","el     : " + this.$el);
             console.log(this.$el);
             console.log("%c%s", "color:red","data   : " + this.$data);
             console.log("%c%s", "color:red","message: " + this.message);
         },
         updated: function () {
             console.group('updated 更新完成状态===============》');
-            console.log("%c%s", "color:red","el     : " + this);
+            console.log("%c%s", "color:red","el     : " + this.$el);
             console.log(this.$el);
             console.log("%c%s", "color:red","data   : " + this.$data);
             console.log("%c%s", "color:red","message: " + this.message);
         },
         beforeDestroy: function () {
             console.group('beforeDestroy 销毁前状态===============》');
-            console.log("%c%s", "color:red","el     : " + this);
+            console.log("%c%s", "color:red","el     : " + this.$el);
             console.log(this.$el);
             console.log("%c%s", "color:red","data   : " + this.$data);
             console.log("%c%s", "color:red","message: " + this.message);
@@ -164,9 +167,9 @@
                         this.setLoginState(true);
                         this.$Message.success('登陆成功!');
                         // 跳转主界面
-                        // this.$router.push({
-                        //     name: 'main'
-                        // });
+                        this.$router.push({
+                            name: 'main'
+                        });
                     }
                 }
             },
@@ -175,17 +178,13 @@
                 // window.close()
             },
             onClickForLogin(name) {
+                let time = timeUtils.getCurDataStr()
                 let loginData = {
-                    "username": this.formValidate.name,
-                    "password": this.formValidate.passwd
+                    "userName": this.formValidate.name,
+                    "password": crypto.createHash('md5').update(crypto.createHash('md5').update(this.formValidate.passwd, 'utf-8').digest('hex') + time, 'utf-8').digest('hex')
                 }
                 let finalData = secret.Encrypt(loginData.username)
                 let clearData = secret.Decrypt(finalData)
-                // this.$http
-                //     .get(this.loginUrl+`username=${this.formValidate.name}&password=${this.formValidate.passwd}`)
-                //     .then(res=>{
-                //         console.log('res=>',res)
-                // })
                 this.$http({
                     url: this.loginUrl,
                     method:"get",
@@ -193,9 +192,12 @@
                 }).then((response) => {
                     // debugger;
                     this.is_Login = 'true'
-                    console.log('response');
+                    console.log(response)
+                    // this.$router.push({
+                    //     name: 'main'
+                    // });
                 }).catch((error) => {
-                    console.log(error);
+                    console.log(error)
                 });
                 this.$refs[name].validate((valid) => {
                     if (valid) {
